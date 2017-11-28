@@ -4,7 +4,12 @@ using UnityEngine.AI;
 
 public class Enemy : Entity {
 
-    public Enemy(string type, int maxHealth, int damage) : base(type, maxHealth, damage)
+    protected static float healthMultiplier = 1.2f;
+    protected static float damageMultiplier = 1.3f;
+    protected static float speedMultiplier = 1.1f;
+    
+
+    public Enemy(string type, int maxHealth, int damage, int level) : base(type, maxHealth, damage, level)
     {
 
     }
@@ -38,5 +43,14 @@ public class Enemy : Entity {
             yield return new WaitForSeconds(1);
             StartCoroutine(EnemyAttackTower(mainTowerAttack, tower));
         }
+    }
+
+    public void SetLevel(int level, NavMeshAgent pathFinder)
+    {
+        this.level = level;
+        pathFinder.speed = ((pathFinder.speed * speedMultiplier) * this.level);
+        maxHealth = (int)((maxHealth * healthMultiplier) * this.level);
+        curHealth = maxHealth;
+        damage = (int)((damage * damageMultiplier) * this.level);
     }
 }

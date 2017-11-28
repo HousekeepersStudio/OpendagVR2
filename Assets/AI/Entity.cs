@@ -5,8 +5,9 @@ public class Entity : MonoBehaviour{
     protected int curHealth;
     protected int maxHealth;
     protected int damage;
+    protected int level;
 
-    public Entity(string type, int maxHealth, int damage)
+    public Entity(string type, int maxHealth, int damage, int level)
     {
         this.type = type;
         this.maxHealth = maxHealth;
@@ -35,4 +36,6 @@ public class Entity : MonoBehaviour{
     {
         return this.type;
     }
+
+
 }

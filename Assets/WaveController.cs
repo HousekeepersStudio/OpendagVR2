@@ -7,8 +7,9 @@ public class WaveController : MonoBehaviour {
     List<GameObject> enemies;
     public GameObject enemyPrefab;
     int waveNr = 0;
-    int enemiesCount = 6;
-    float enemyMultiply = 1.2f;
+    int enemiesCount = 5;
+    float enemyMultiply = 1.4567f;
+    float enemyLevelMultiply = 1.5f;
 
     void Awake () {
         spawnLocations = new List<Vector3>();
@@ -52,10 +53,12 @@ public class WaveController : MonoBehaviour {
         for(int i = 0; i < enemiesCount; i++)
         {
             System.Random rnd = new System.Random();
+            int level = rnd.Next(1, (int)(waveNr * enemyLevelMultiply));
             GameObject enemy = GameObject.Instantiate(enemyPrefab, spawnLocations[rnd.Next(0, spawnLocations.Count)], new Quaternion(0, 0, 0, 0));
+            enemy.GetComponent<StandardEnemy>().SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent());
             enemy.name = "Enemy[" + i + "]";
             enemies.Add(enemy);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }
