@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23812117522387936}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: EnemyHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566249185417416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.471039, y: 0.297, z: 20.4}
+  m_LocalPosition: {x: 28.963392, y: 10.041513, z: 77.77384}
   m_LocalScale: {x: 0.7266996, y: 0.79113823, z: 0.6019709}
   m_Children:
   - {fileID: 4389391522006398}
@@ -623,10 +623,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 6.0698404
+  m_Radius: 0.8470024
+  m_Height: 3.674198
   m_Direction: 1
-  m_Center: {x: 0, y: 2.580943, z: 0}
+  m_Center: {x: 0, y: 1.383122, z: -1.3918989}
 --- !u!136 &136332823148945782
 CapsuleCollider:
   m_ObjectHideFlags: 1

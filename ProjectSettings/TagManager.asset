@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Spawn
   - Target
+  - InteractionObject
+  - Controller
+  - EnemyHead
   layers:
   - Default
   - TransparentFX

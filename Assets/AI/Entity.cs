@@ -37,5 +37,14 @@ public class Entity : MonoBehaviour{
         return this.type;
     }
 
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return curHealth;
+    }
 
 }
