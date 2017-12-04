@@ -8,8 +8,8 @@ public class WaveController : MonoBehaviour {
     public GameObject enemyPrefab;
     int waveNr = 0;
     int enemiesCount = 3;
-    float enemyMultiply = 1.4567f;
-    float enemyLevelMultiply = 1.5f;
+    float enemyMultiply = 1.2f;
+    float enemyLevelMultiply = 1.01f;
 
     void Awake () {
         spawnLocations = new List<Vector3>();

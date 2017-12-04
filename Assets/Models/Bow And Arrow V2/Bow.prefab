@@ -281,6 +281,7 @@ MonoBehaviour:
   blendMultiplier: 353
   realArrowPrefab: {fileID: 1002700209208982, guid: 0fc594c40bfd01247b153a31b19866ae,
     type: 2}
+  velocity: 1.2
   maxShootSpeed: 50
   fireSound: {fileID: 8300000, guid: 79e29c78f480ae94f916f7f9a4192a4f, type: 3}
 --- !u!114 &114735508409736968
