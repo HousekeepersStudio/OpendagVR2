@@ -9,6 +9,8 @@ public class temp_WeaponSwitch : MonoBehaviour {
     SteamVR_TrackedController buttonsLeft;
     SteamVR_TrackedController buttonsRight;
 
+    bool pressed = false;
+
     bool teleport = false;
     bool grab = true;
 
@@ -16,15 +18,29 @@ public class temp_WeaponSwitch : MonoBehaviour {
     {
         buttonsLeft = controllerLeft.GetComponent<SteamVR_TrackedController>();
         buttonsRight = controllerRight.GetComponent<SteamVR_TrackedController>();
-        ChangeWeapon();
+        ChangeToTeleporting();
     }
 
     private void FixedUpdate()
     {
-        if (buttonsLeft.gripped || buttonsRight.gripped)
+        if (!pressed)
         {
-            StartCoroutine(WeaponSwitchDelay());
+            if (buttonsLeft.gripped || buttonsRight.gripped)
+            {
+                pressed = true;
+                ChangeWeapon();
+                //StartCoroutine(WeaponSwitchDelay());
+            }
         }
+        else
+        {
+            if (!buttonsLeft.gripped && !buttonsRight.gripped)
+            {
+                pressed = false;
+                //StartCoroutine(WeaponSwitchDelay());
+            }
+        }
+        
     }
     
     void ChangeWeapon()
@@ -36,13 +52,7 @@ public class temp_WeaponSwitch : MonoBehaviour {
         {
             if (!controllerRight.GetComponent<Teleportation>().enabled)
             {
-                controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
-                controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
-                controllerRight.GetComponent<Teleportation>().enabled = true;
-                controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
-                controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
-                controllerRight.transform.Find("Origin").gameObject.SetActive(false);
-                controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
+                ChangeToTeleporting();
             }
         }
 
@@ -50,21 +60,36 @@ public class temp_WeaponSwitch : MonoBehaviour {
         {
             if (!controllerRight.GetComponent<RWVR_InteractionController>().enabled)
             {
-                controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
-                controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
-                controllerRight.GetComponent<Teleportation>().enabled = false;
-                controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
-                controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
-                controllerRight.transform.Find("Origin").gameObject.SetActive(true);
-                controllerLeft.transform.Find("Origin").gameObject.SetActive(true);
-
+                ChangeToGrab();
             }
         }
     }
-    
-    IEnumerator WeaponSwitchDelay()
+
+    void ChangeToTeleporting()
     {
-        yield return new WaitForSeconds(1.5f);
-        ChangeWeapon();
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
+        controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
+        controllerRight.GetComponent<Teleportation>().enabled = true;
+        controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
+        controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
+        controllerRight.transform.Find("Origin").gameObject.SetActive(false);
+        controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
     }
+
+    void ChangeToGrab()
+    {
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
+        controllerRight.GetComponent<Teleportation>().enabled = false;
+        controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
+        controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
+        controllerRight.transform.Find("Origin").gameObject.SetActive(true);
+        controllerLeft.transform.Find("Origin").gameObject.SetActive(true);
+    }
+    
+    //IEnumerator WeaponSwitchDelay()
+    //{
+    //    yield return new WaitForSeconds(1.5f);
+    //    ChangeWeapon();
+    //}
 }
