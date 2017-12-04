@@ -7,7 +7,7 @@ public class WaveController : MonoBehaviour {
     List<GameObject> enemies;
     public GameObject enemyPrefab;
     int waveNr = 0;
-    int enemiesCount = 5;
+    int enemiesCount = 3;
     float enemyMultiply = 1.4567f;
     float enemyLevelMultiply = 1.5f;
 

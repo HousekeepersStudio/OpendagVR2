@@ -7,13 +7,26 @@ public class Teleportation : MonoBehaviour {
     [Header("Setup:")]
     public GameObject cameraRig;
     public GameObject animationCanvas;
-    
+    public GameObject StartingPosition;
+
     [Header("Automaticaly Setup:")]
     [SerializeField]
     private SteamVR_TrackedController buttons;
     [SerializeField]
     private SteamVR_LaserPointer pointer;
-    
+    [SerializeField]
+    private GameObject CurrentTeleportPos;
+
+
+
+
+    private void Awake()
+    {
+        CurrentTeleportPos = StartingPosition;
+        TeleportObject teleport = CurrentTeleportPos.GetComponentInChildren<TeleportObject>();
+        teleport.Teleport(cameraRig.transform, null);
+    }
+
     private void FixedUpdate()
     {
         while (buttons == null || pointer == null)
@@ -35,11 +48,12 @@ public class Teleportation : MonoBehaviour {
         {
             if (hit.collider.tag == "TeleportZone")
             {
+                TeleportObject teleport = hit.collider.GetComponentInChildren<TeleportObject>();
                 if (buttons.triggerPressed)
                 {
-                    if (!(cameraRig.transform.position == hit.transform.position))
+                    if (!(cameraRig.transform.position == teleport.GetPos()))
                     {
-                        StartCoroutine(Teleport(hit));
+                        StartCoroutine(Teleport(hit, teleport));
                     }
                 }
             }
@@ -63,11 +77,13 @@ public class Teleportation : MonoBehaviour {
         }
     }
 
-    IEnumerator Teleport(RaycastHit hit)
+    IEnumerator Teleport(RaycastHit hit, TeleportObject teleport)
     {
+        GameObject prev = CurrentTeleportPos;
+        CurrentTeleportPos = hit.collider.gameObject;
         animationCanvas.GetComponentInChildren<Animator>().SetBool("Teleport", true);
-        yield return new WaitForSeconds(0.2f);
-        cameraRig.transform.position = hit.transform.position;
+        yield return new WaitForSeconds(0.3f);
+        teleport.Teleport(cameraRig.transform, prev);
         animationCanvas.GetComponentInChildren<Animator>().SetBool("Teleport", false);
     }
 }
