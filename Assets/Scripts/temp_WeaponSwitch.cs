@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class temp_WeaponSwitch : MonoBehaviour {
-    public GameObject controllerLeft;
-    public GameObject controllerRight;
+    public GameObject bowPrefab;
+
+    GameObject cameraRig;
+
+    GameObject controllerLeft;
+    GameObject controllerRight;
 
     SteamVR_TrackedController buttonsLeft;
     SteamVR_TrackedController buttonsRight;
+
+
 
     bool pressed = false;
 
@@ -16,13 +22,13 @@ public class temp_WeaponSwitch : MonoBehaviour {
 
     private void Awake()
     {
-        buttonsLeft = controllerLeft.GetComponent<SteamVR_TrackedController>();
-        buttonsRight = controllerRight.GetComponent<SteamVR_TrackedController>();
+        SetupGameObjects();
         ChangeToTeleporting();
     }
 
     private void FixedUpdate()
     {
+        SetupGameObjects();
         if (!pressed)
         {
             if (buttonsLeft.gripped || buttonsRight.gripped)
@@ -68,7 +74,8 @@ public class temp_WeaponSwitch : MonoBehaviour {
     void ChangeToTeleporting()
     {
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
-        controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
+        if(controllerRight.transform.Find("New Game Object") != null)
+            controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
         controllerRight.GetComponent<Teleportation>().enabled = true;
         controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
@@ -85,6 +92,36 @@ public class temp_WeaponSwitch : MonoBehaviour {
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
         controllerRight.transform.Find("Origin").gameObject.SetActive(true);
         controllerLeft.transform.Find("Origin").gameObject.SetActive(true);
+
+        SpawnBow();
+    }
+
+    void SpawnBow()
+    {
+        GameObject bow = GameObject.Find("Bow");
+        if (bow != null)
+            GameObject.DestroyObject(bow);
+        else
+            bow = bowPrefab;
+        GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x + 0.2f, cameraRig.transform.position.y + 0.05f, cameraRig.transform.position.z + 0.2f), Quaternion.identity);
+    }
+
+    void SetupGameObjects()
+    {
+        if(cameraRig == null)
+            cameraRig = this.gameObject;
+
+        if (controllerLeft == null)
+            controllerLeft = cameraRig.transform.Find("Controller (left)").gameObject;
+
+        if (controllerRight == null)
+            controllerRight = cameraRig.transform.Find("Controller (right)").gameObject;
+
+        if(buttonsLeft == null)
+            buttonsLeft = controllerLeft.GetComponent<SteamVR_TrackedController>();
+
+        if(buttonsRight == null)
+            buttonsRight = controllerRight.GetComponent<SteamVR_TrackedController>();
     }
     
     //IEnumerator WeaponSwitchDelay()

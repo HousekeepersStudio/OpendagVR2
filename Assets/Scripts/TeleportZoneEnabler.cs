@@ -16,13 +16,17 @@ public class TeleportZoneEnabler : MonoBehaviour {
 
     private void Update()
     {
-        if (!cameraRig.GetComponentInChildren<Teleportation>().enabled)
+        try
         {
-            zone.SetActive(false);
+            if (!cameraRig.GetComponentInChildren<Teleportation>().enabled)
+            {
+                zone.SetActive(false);
+            }
+            else
+            {
+                zone.SetActive(true);
+            }
         }
-        else
-        {
-            zone.SetActive(true);
-        }
+        catch { }
     }
 }
