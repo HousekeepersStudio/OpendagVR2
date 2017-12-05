@@ -10,6 +10,9 @@ TagManager:
   - InteractionObject
   - Controller
   - EnemyHead
+  - TeleportZone
+  - EnemyLimb
+  - EnemyBody
   layers:
   - Default
   - TransparentFX

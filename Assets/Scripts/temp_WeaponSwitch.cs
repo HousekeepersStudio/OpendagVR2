@@ -6,6 +6,7 @@ public class temp_WeaponSwitch : MonoBehaviour {
     public GameObject bowPrefab;
 
     GameObject cameraRig;
+    GameObject bow;
 
     GameObject controllerLeft;
     GameObject controllerRight;
@@ -73,6 +74,7 @@ public class temp_WeaponSwitch : MonoBehaviour {
 
     void ChangeToTeleporting()
     {
+        RemoveBow();
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
         if(controllerRight.transform.Find("New Game Object") != null)
             controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
@@ -88,22 +90,32 @@ public class temp_WeaponSwitch : MonoBehaviour {
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
         controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
         controllerRight.GetComponent<Teleportation>().enabled = false;
-        controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
-        controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
         controllerRight.transform.Find("Origin").gameObject.SetActive(true);
         controllerLeft.transform.Find("Origin").gameObject.SetActive(true);
+        controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
+        controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
+        
 
         SpawnBow();
     }
 
-    void SpawnBow()
+    void RemoveBow()
     {
-        GameObject bow = GameObject.Find("Bow");
         if (bow != null)
             GameObject.DestroyObject(bow);
-        else
-            bow = bowPrefab;
-        GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x + 0.2f, cameraRig.transform.position.y + 0.05f, cameraRig.transform.position.z + 0.2f), Quaternion.identity);
+    }
+
+    void SpawnBow()
+    {
+        RemoveBow();
+        bow = bowPrefab;
+        bow = GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y + 1f, cameraRig.transform.position.z), Quaternion.identity);
+        bow.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    void DropItems()
+    {
+
     }
 
     void SetupGameObjects()
