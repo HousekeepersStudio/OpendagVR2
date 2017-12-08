@@ -6,10 +6,12 @@ public class WaveController : MonoBehaviour {
     List<Vector3> spawnLocations;
     List<GameObject> enemies;
     public GameObject enemyPrefab;
+    public float waitingTime;
     int waveNr = 0;
     int enemiesCount = 3;
-    float enemyMultiply = 1.2f;
+    float enemyMultiply = 1.3f;
     float enemyLevelMultiply = 1.01f;
+    bool waveInitialized = false;
 
     void Awake () {
         spawnLocations = new List<Vector3>();
@@ -23,13 +25,18 @@ public class WaveController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (enemies.Count == 0)
+        if (enemies.Count == 0 && !waveInitialized)
         {
-            Debug.Log("Wave Won!");
             waveNr++;
             InitWave();
         }
-	}
+
+        if(enemies.Count == 0 && waveInitialized)
+        {
+            Debug.Log("Wave Won!");
+            StartCoroutine(WaveWaiter(waitingTime));
+        }
+    }
 
     public void RemoveFromWave(string name)
     {
@@ -53,12 +60,19 @@ public class WaveController : MonoBehaviour {
         for(int i = 0; i < enemiesCount; i++)
         {
             System.Random rnd = new System.Random();
-            int level = rnd.Next(1, (int)(waveNr * enemyLevelMultiply));
+            int level = rnd.Next(1, (int)(waveNr / 2 * enemyLevelMultiply));
             GameObject enemy = GameObject.Instantiate(enemyPrefab, spawnLocations[rnd.Next(0, spawnLocations.Count)], new Quaternion(0, 0, 0, 0));
             enemy.GetComponent<StandardEnemy>().SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent());
             enemy.name = "Enemy[" + i + "]";
             enemies.Add(enemy);
             yield return new WaitForSeconds(1f);
         }
+        waveInitialized = true;
+    }
+
+    IEnumerator WaveWaiter(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        waveInitialized = false;
     }
 }

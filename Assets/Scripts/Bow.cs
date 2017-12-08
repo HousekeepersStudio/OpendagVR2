@@ -64,6 +64,9 @@ public class Bow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.GetComponent<RWVR_InteractionObject>().IsFree() && GetComponent<Rigidbody>().isKinematic)
+            GetComponent<Rigidbody>().isKinematic = false;
+
         if (!IsArmed() && other.CompareTag("InteractionObject") && other.GetComponent<RealArrow>() && !other.GetComponent<RWVR_InteractionObject>().IsFree())
         {
             Destroy(other.gameObject);

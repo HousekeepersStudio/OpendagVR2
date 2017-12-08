@@ -60,16 +60,29 @@ public class RealArrow : MonoBehaviour
 
     private void GetStuck(Collider other)
     {
+        StandardEnemy enemy = null;
         launched = false;
         rb.isKinematic = true;
         stuckInWall = true;
         SetAllowPickup(true);
         transform.SetParent(other.transform);
         GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
-        if(other.gameObject.tag == "EnemyHead")
+        if(other.gameObject.tag.Contains("Enemy"))
+            enemy = other.gameObject.GetComponentInParent<StandardEnemy>();
+        switch (other.gameObject.tag)
         {
-            StandardEnemy enemy = other.gameObject.GetComponentInParent<StandardEnemy>();
-            enemy.TakeDamage(enemy.GetCurrentHealth());
+            
+            case "EnemyHead":
+                enemy.TakeDamage(enemy.GetCurrentHealth());
+                break;
+
+            case "EnemyBody":
+                enemy.TakeDamage(enemy.GetCurrentHealth() / 3);
+                break;
+
+            case "EnemyLimb":
+                enemy.TakeDamage(enemy.GetCurrentHealth() / 9);
+                break;
         }
     }
 

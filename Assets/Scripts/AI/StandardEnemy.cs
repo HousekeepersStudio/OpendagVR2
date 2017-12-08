@@ -17,6 +17,7 @@ public class StandardEnemy : Enemy {
 
     public StandardEnemy() : base(enemyType, health, enemyDamage, startLevel)
     {
+
     }
 
     private void Awake()
