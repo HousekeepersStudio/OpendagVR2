@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class StandardEnemy : Enemy {
     NavMeshAgent nav;
@@ -22,8 +23,9 @@ public class StandardEnemy : Enemy {
 
     private void Awake()
     {
-        nav = GetComponent<NavMeshAgent>();
-        MoveTo(GameObject.FindGameObjectWithTag("Target"), nav);
+        healthBar = transform.Find("HealthBarCanvas").Find("HealthBG").GetComponentInChildren<Image>();
+        agent = GetComponent<NavMeshAgent>();
+        //MoveTo(GameObject.FindGameObjectWithTag("Target"));
     }
 
     private void Update()
@@ -37,15 +39,15 @@ public class StandardEnemy : Enemy {
         }
         else
         {
-            if (!nav.isOnNavMesh)
+            if (!agent.isOnNavMesh)
             {
-                nav.enabled = false;
-                nav.enabled = true;
-                NavMeshHit closesthit;
-                NavMesh.SamplePosition(gameObject.transform.position, out closesthit, 500f, NavMesh.AllAreas);
-                transform.position = closesthit.position;
-                nav.isStopped = false;
-                MoveTo(GameObject.FindGameObjectWithTag("Target"), nav);
+                //agent.enabled = false;
+                //agent.enabled = true;
+                //NavMeshHit closesthit;
+                //NavMesh.SamplePosition(gameObject.transform.position, out closesthit, 500f, NavMesh.AllAreas);
+                //transform.position = closesthit.position;
+                //agent.isStopped = false;
+                //MoveTo(GameObject.FindGameObjectWithTag("Target"));
             }
         }
     }
@@ -59,7 +61,7 @@ public class StandardEnemy : Enemy {
     {
         if (other.gameObject.tag == "Target")
         {
-            StopMove(nav);
+            StopMove();
             mainTowerAttack = true;
             StartCoroutine(EnemyAttackTower(mainTowerAttack, other));
         }
@@ -71,10 +73,5 @@ public class StandardEnemy : Enemy {
         {
             mainTowerAttack = false;
         }
-    }
-
-    public NavMeshAgent GetNavMeshAgent()
-    {
-        return nav;
     }
 }
