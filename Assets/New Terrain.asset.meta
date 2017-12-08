@@ -1,10 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< refs/remotes/origin/testing
 guid: 203a8fb1d97eacf47a8fedc2097f0d2e
 timeCreated: 1512465180
 licenseType: Free
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 15600000
+=======
+guid: 679aeacac5c3778478f1330c59abc6ef
+timeCreated: 1512724462
+licenseType: Free
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+>>>>>>> scripts IntroScene
   userData: 
   assetBundleName: 
   assetBundleVariant: 

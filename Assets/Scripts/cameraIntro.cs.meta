@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< refs/remotes/origin/testing
-guid: 777cad4e555305f47a80c85fec8f0684
-timeCreated: 1512728271
-=======
-guid: 1e61eb2a260d7974486de4e83e6fe808
-timeCreated: 1512724454
->>>>>>> scripts IntroScene
+guid: a2cf858d4816cb145baa2a0c4f416f35
+timeCreated: 1512726465
 licenseType: Free
 MonoImporter:
   externalObjects: {}
