@@ -73,15 +73,15 @@ public class RealArrow : MonoBehaviour
         {
             
             case "EnemyHead":
-                enemy.TakeDamage(enemy.GetCurrentHealth());
+                enemy.TakeDamage(enemy.GetMaxHealth());
                 break;
 
             case "EnemyBody":
-                enemy.TakeDamage(enemy.GetCurrentHealth() / 3);
+                enemy.TakeDamage(enemy.GetMaxHealth() / 3);
                 break;
 
             case "EnemyLimb":
-                enemy.TakeDamage(enemy.GetCurrentHealth() / 9);
+                enemy.TakeDamage(enemy.GetMaxHealth() / 9);
                 break;
         }
     }
