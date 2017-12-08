@@ -74,14 +74,17 @@ public class RealArrow : MonoBehaviour
             
             case "EnemyHead":
                 enemy.TakeDamage(enemy.GetMaxHealth());
+                Debug.Log("HeadShot");
                 break;
 
             case "EnemyBody":
                 enemy.TakeDamage(enemy.GetMaxHealth() / 3);
+                Debug.Log("Body Hit");
                 break;
 
             case "EnemyLimb":
                 enemy.TakeDamage(enemy.GetMaxHealth() / 9);
+                Debug.Log("Limb Hit");
                 break;
         }
     }

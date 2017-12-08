@@ -32,7 +32,7 @@ public class temp_WeaponSwitch : MonoBehaviour {
         SetupGameObjects();
         if (!pressed)
         {
-            if (buttonsLeft.gripped || buttonsRight.gripped)
+            if (buttonsLeft.padPressed || buttonsRight.padPressed)
             {
                 pressed = true;
                 ChangeWeapon();
@@ -41,7 +41,7 @@ public class temp_WeaponSwitch : MonoBehaviour {
         }
         else
         {
-            if (!buttonsLeft.gripped && !buttonsRight.gripped)
+            if (!buttonsLeft.padPressed && !buttonsRight.padPressed)
             {
                 pressed = false;
                 //StartCoroutine(WeaponSwitchDelay());

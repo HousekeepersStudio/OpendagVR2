@@ -9,7 +9,7 @@ public class WaveController : MonoBehaviour {
     public float waitingTime;
     int waveNr = 0;
     int enemiesCount = 3;
-    float enemyMultiply = 1.3f;
+    float enemyMultiply = 1.5f;
     float enemyLevelMultiply = 1.01f;
     bool waveInitialized = false;
 
@@ -19,9 +19,9 @@ public class WaveController : MonoBehaviour {
         foreach(GameObject spawn in GameObject.FindGameObjectsWithTag("Spawn"))
         {
             spawnLocations.Add(spawn.transform.position);
-            Debug.Log(string.Format("Spawn Location Added (X: {0}, Y: {1}, Z: {2})", spawn.transform.position.x, spawn.transform.position.y, spawn.transform.position.z));
+            //Debug.Log(string.Format("Spawn Location Added (X: {0}, Y: {1}, Z: {2})", spawn.transform.position.x, spawn.transform.position.y, spawn.transform.position.z));
         }
-        Debug.Log("Spawn Locations: " + spawnLocations.Count);
+        //Debug.Log("Spawn Locations: " + spawnLocations.Count);
         InitWave();
 
     }
@@ -66,10 +66,10 @@ public class WaveController : MonoBehaviour {
             int level = 1;
             if ((waveNr / 2 * enemyLevelMultiply) > 1)
                 level = rnd.Next(1, (int)(waveNr / 2 * enemyLevelMultiply));
-            Debug.Log(spawnLocations[rnd.Next(0, spawnLocations.Count - 1)]);
+            //Debug.Log(spawnLocations[rnd.Next(0, spawnLocations.Count - 1)]);
             GameObject enemy = GameObject.Instantiate(enemyPrefab, spawnLocations[rnd.Next(0, spawnLocations.Count -1)], new Quaternion(0, 0, 0, 0));
             StandardEnemy enemyScript = enemy.GetComponent<StandardEnemy>();
-            //enemyScript.SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent());
+            enemyScript.SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent());
             enemy.name = "Enemy[" + i + "]";
             enemies.Add(enemy);
             StartCoroutine(enemyScript.TurnOnNavMeshAgent());

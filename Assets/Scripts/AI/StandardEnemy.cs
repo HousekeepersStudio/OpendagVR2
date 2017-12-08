@@ -25,7 +25,7 @@ public class StandardEnemy : Enemy {
     {
         healthBar = transform.Find("HealthBarCanvas").Find("HealthBG").GetComponentInChildren<Image>();
         agent = GetComponent<NavMeshAgent>();
-        //MoveTo(GameObject.FindGameObjectWithTag("Target"));
+        MoveTo(GameObject.FindGameObjectWithTag("Target"));
     }
 
     private void Update()
@@ -41,13 +41,13 @@ public class StandardEnemy : Enemy {
         {
             if (!agent.isOnNavMesh)
             {
-                //agent.enabled = false;
-                //agent.enabled = true;
-                //NavMeshHit closesthit;
-                //NavMesh.SamplePosition(gameObject.transform.position, out closesthit, 500f, NavMesh.AllAreas);
-                //transform.position = closesthit.position;
-                //agent.isStopped = false;
-                //MoveTo(GameObject.FindGameObjectWithTag("Target"));
+                agent.enabled = false;
+                agent.enabled = true;
+                NavMeshHit closesthit;
+                NavMesh.SamplePosition(gameObject.transform.position, out closesthit, 500f, NavMesh.AllAreas);
+                transform.position = closesthit.position;
+                agent.isStopped = false;
+                MoveTo(GameObject.FindGameObjectWithTag("Target"));
             }
         }
     }
