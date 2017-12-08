@@ -25,7 +25,6 @@ public class StandardEnemy : Enemy {
     {
         healthBar = this.transform.Find("HealthBarCanvas").Find("HealthBG").Find("HealthBar").GetComponent<Image>();
         agent = GetComponent<NavMeshAgent>();
-        MoveTo(GameObject.FindGameObjectWithTag("Target"));
     }
 
     private void Update()
@@ -39,6 +38,9 @@ public class StandardEnemy : Enemy {
         }
         else
         {
+            if (agent.enabled && agent.isOnNavMesh)
+                MoveTo(GameObject.FindGameObjectWithTag("Target"));
+
             if (!agent.isOnNavMesh)
             {
                 agent.enabled = false;

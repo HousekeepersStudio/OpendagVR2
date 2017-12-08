@@ -9,9 +9,10 @@ public class WaveController : MonoBehaviour {
     public float waitingTime;
     int waveNr = 0;
     int enemiesCount = 3;
-    float enemyMultiply = 1.35f;
+    float enemyMultiply = 1.2f;
     float enemyLevelMultiply = 1.05f;
     bool waveInitialized = false;
+    bool timerStarted = false;
 
     void Awake () {
         enemies = new List<GameObject>();
@@ -37,7 +38,8 @@ public class WaveController : MonoBehaviour {
         if(enemies.Count == 0 && waveInitialized)
         {
             Debug.Log("Wave Won!");
-            StartCoroutine(WaveWaiter(waitingTime));
+            if (!timerStarted)
+                StartCoroutine(WaveWaiter(waitingTime));
         }
     }
 
@@ -52,8 +54,9 @@ public class WaveController : MonoBehaviour {
 
     void InitWave()
     {
-        for (int i = 0; i < waveNr; i++)
-            enemiesCount = (int)(enemiesCount * enemyMultiply);
+        if (timerStarted)
+            timerStarted = false;
+        enemiesCount = (int)(enemiesCount * (waveNr * enemyMultiply));
         
         StartCoroutine(SpawnEnemies());
     }
@@ -80,6 +83,7 @@ public class WaveController : MonoBehaviour {
 
     IEnumerator WaveWaiter(float seconds)
     {
+        timerStarted = true;
         yield return new WaitForSeconds(seconds);
         waveInitialized = false;
     }

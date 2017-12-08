@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour{
         if(healthBar != null)
             healthBar.fillAmount = curHealth / maxHealth;
 
-        Debug.Log("Healthbar Amount = " + healthBar.fillAmount);
+        //Debug.Log("Healthbar Amount = " + healthBar.fillAmount);
     }
 
     public string GetEnemyType()
