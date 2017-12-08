@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< refs/remotes/origin/testing
 guid: a039087457c49f645897d300d066599d
 timeCreated: 1512728365
+=======
+guid: 34322dd6c58157f4eaff020cf55a9757
+timeCreated: 1512728323
+>>>>>>> fixed IntroScene
 licenseType: Free
 TextScriptImporter:
   externalObjects: {}
