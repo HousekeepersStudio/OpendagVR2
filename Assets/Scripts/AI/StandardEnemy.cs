@@ -23,7 +23,7 @@ public class StandardEnemy : Enemy {
 
     private void Awake()
     {
-        healthBar = transform.Find("HealthBarCanvas").Find("HealthBG").GetComponentInChildren<Image>();
+        healthBar = this.transform.Find("HealthBarCanvas").Find("HealthBG").Find("HealthBar").GetComponent<Image>();
         agent = GetComponent<NavMeshAgent>();
         MoveTo(GameObject.FindGameObjectWithTag("Target"));
     }

@@ -9,8 +9,8 @@ public class WaveController : MonoBehaviour {
     public float waitingTime;
     int waveNr = 0;
     int enemiesCount = 3;
-    float enemyMultiply = 1.5f;
-    float enemyLevelMultiply = 1.01f;
+    float enemyMultiply = 1.35f;
+    float enemyLevelMultiply = 1.05f;
     bool waveInitialized = false;
 
     void Awake () {

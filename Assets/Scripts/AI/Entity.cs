@@ -32,7 +32,10 @@ public class Entity : MonoBehaviour{
     public void TakeDamage(float damage)
     {
         curHealth -= damage;
-        healthBar.fillAmount = curHealth / maxHealth;
+        if(healthBar != null)
+            healthBar.fillAmount = curHealth / maxHealth;
+
+        Debug.Log("Healthbar Amount = " + healthBar.fillAmount);
     }
 
     public string GetEnemyType()
