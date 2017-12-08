@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/testing
 guid: ccab4b2cd02992343b76cdbc1a75ed6a
 folderAsset: yes
@@ -8,6 +9,11 @@ guid: 5be5a3d87eb83c648866045f0c25fea6
 folderAsset: yes
 timeCreated: 1512724453
 >>>>>>> scripts IntroScene
+=======
+guid: 5be5a3d87eb83c648866045f0c25fea6
+folderAsset: yes
+timeCreated: 1512724453
+>>>>>>> Patrick
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
