@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportObject : MonoBehaviour {
-    public GameObject cameraRig;
+    GameObject cameraRig;
 
-    private void FixedUpdate()
+    GameObject parent;
+
+    private void Awake()
     {
-        if (!cameraRig.GetComponentInChildren<Teleportation>().isActiveAndEnabled)
-        {
-            this.gameObject.transform.parent.gameObject.SetActive(false);
-        }
+        cameraRig = GameObject.Find("[CameraRig]");
+        parent = this.gameObject.transform.parent.gameObject;
     }
 
     public void Teleport(Transform camera, GameObject prevTeleport)
@@ -19,7 +19,7 @@ public class TeleportObject : MonoBehaviour {
             prevTeleport.SetActive(true);
         Vector3 pos = this.gameObject.transform.position;
         camera.position = pos;
-        this.gameObject.transform.parent.gameObject.SetActive(false);
+        parent.SetActive(false);
     }
 
     public Vector3 GetPos()
