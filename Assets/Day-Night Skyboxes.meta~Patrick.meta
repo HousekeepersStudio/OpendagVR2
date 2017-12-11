@@ -1,4 +1,8 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> Patrick
 <<<<<<< refs/remotes/origin/testing
 guid: 0c7adc0efa1e5a6488808da7ec6d5a11
 timeCreated: 1512728258
@@ -6,6 +10,13 @@ timeCreated: 1512728258
 guid: 74c4f24390437a9468d1df5887bb76fb
 timeCreated: 1512728277
 >>>>>>> fixed IntroScene
+<<<<<<< HEAD
+=======
+=======
+guid: 74c4f24390437a9468d1df5887bb76fb
+timeCreated: 1512728277
+>>>>>>> Patrick
+>>>>>>> Patrick
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

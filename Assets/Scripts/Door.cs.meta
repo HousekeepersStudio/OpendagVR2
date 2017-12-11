@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/testing
 <<<<<<< refs/remotes/origin/testing
 guid: 777cad4e555305f47a80c85fec8f0684
@@ -11,6 +12,10 @@ timeCreated: 1512724454
 guid: 1e61eb2a260d7974486de4e83e6fe808
 timeCreated: 1512724454
 >>>>>>> scripts IntroScene
+=======
+guid: 1e61eb2a260d7974486de4e83e6fe808
+timeCreated: 1512724454
+>>>>>>> Patrick
 licenseType: Free
 MonoImporter:
   externalObjects: {}
