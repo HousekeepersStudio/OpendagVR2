@@ -63,7 +63,6 @@ public class StandardEnemy : Enemy {
     {
         if (other.gameObject.tag == "Target")
         {
-            Debug.Log("Collided");
             StopMove();
             mainTowerAttack = true;
             StartCoroutine(EnemyAttackTower(mainTowerAttack, other));

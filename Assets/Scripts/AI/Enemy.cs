@@ -50,9 +50,17 @@ public class Enemy : Entity {
     {
         if (mainTowerAttack)
         {
-            Attack(tower.gameObject);
-            yield return new WaitForSeconds(1);
-            StartCoroutine(EnemyAttackTower(mainTowerAttack, tower));
+            if(tower.gameObject.GetComponent<Target>().GetCurrentHealth() <= 0)
+            {
+                Destroy(tower.gameObject);
+                mainTowerAttack = false;
+            }
+            else
+            {
+                Attack(tower.gameObject);
+                yield return new WaitForSeconds(1);
+                StartCoroutine(EnemyAttackTower(mainTowerAttack, tower));
+            }           
         }
     }
 
