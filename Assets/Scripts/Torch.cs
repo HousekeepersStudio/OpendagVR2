@@ -8,40 +8,46 @@ public class Torch : MonoBehaviour {
     private int amountOfBanners = 4;
     private bool dragonBanner = true;
     private bool vikingBanner = true;
-    private bool ravenBanner = true;
+    private bool ravenBanner = true;    
     private bool serpantBanner = true;
-    public string house;
 
-    private void OnCollisionEnter(Collision col)
+
+    private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.name == "dragonBanner")
         {
+            Destroy(col.gameObject);
             amountOfBanners -= 1;
             dragonBanner = false;
-            Destroy(col.gameObject);
         }
-        if (col.gameObject.name == "ravenBanner")
+        else if (col.gameObject.name == "ravenBanner")
         {
+            Destroy(col.gameObject);
             amountOfBanners -= 1;
             ravenBanner = false;
-            Destroy(col.gameObject);
         }
-        if (col.gameObject.name == "vikingBanner")
+        else if (col.gameObject.name == "vikingBanner")
         {
+            Destroy(col.gameObject);
             amountOfBanners -= 1;
             vikingBanner = false;
-            Destroy(col.gameObject);
         }
-        if (col.gameObject.name == "serpantBanner")
+        else if (col.gameObject.name == "serpentBanner")
         {
+            Destroy(col.gameObject);
             amountOfBanners -= 1;
             serpantBanner = false;
-            Destroy(col.gameObject);
         }
 
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (amountOfBanners == 1)
         {
             SetHouse();
+            LoadIntroScene();
         }
     }
 
@@ -49,23 +55,19 @@ public class Torch : MonoBehaviour {
     {
         if (serpantBanner)
         {
-            house = "Serpant";
-            LoadIntroScene();
+            PlayerPrefs.SetString("house", "serpents");
         }
         else if (vikingBanner)
         {
-            house = "Viking";
-            LoadIntroScene();
+            PlayerPrefs.SetString("house", "vikings");
         }
         else if (dragonBanner)
         {
-            house = "Dragon";
-            LoadIntroScene();
+            PlayerPrefs.SetString("house", "dragons");
         }
         else if (ravenBanner)
         {
-            house = "Raven";
-            LoadIntroScene();
+            PlayerPrefs.SetString("house", "ravens");
         }
     }
 
