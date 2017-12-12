@@ -13,8 +13,7 @@ public class Torch : MonoBehaviour {
 
     private float _fadeDuration = 2f;
     public GameObject particle;
-    public GameObject light;
-
+    public GameObject lighting;
 
 
     private void OnCollisionEnter(Collision col)
@@ -63,19 +62,19 @@ public class Torch : MonoBehaviour {
     {
         if (serpantBanner)
         {
-            GameObject.Instantiate(light, GameObject.Find("serpentBanner").transform);
+            GameObject.Instantiate(lighting, GameObject.Find("serpentBanner").transform);
         }
         else if (vikingBanner)
         {
-            GameObject.Instantiate(light, GameObject.Find("vikingBanner").transform);
+            GameObject.Instantiate(lighting, GameObject.Find("vikingBanner").transform);
         }
         else if (dragonBanner)
         {
-            GameObject.Instantiate(light, GameObject.Find("dragonBanner").transform);
+            GameObject.Instantiate(lighting, GameObject.Find("dragonBanner").transform);
         }
         else if (ravenBanner)
         {
-            GameObject.Instantiate(light, GameObject.Find("ravenBanner").transform);
+            GameObject.Instantiate(lighting, GameObject.Find("ravenBanner").transform);
         }
     }
 
