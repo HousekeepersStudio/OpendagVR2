@@ -12,7 +12,10 @@ namespace CurvedVRKeyboard {
         [SerializeField]
         public int maxOutputLength;
         [SerializeField]
+        public GameObject Point;
+        [SerializeField]
         public GameObject targetGameObject;
+
 
 
         //----CurrentKeysStatus----
@@ -84,7 +87,7 @@ namespace CurvedVRKeyboard {
 
         public void OkeyKey()
         {
-            Debug.Log(output);
+            Point.gameObject.GetComponent<PointssSystem>().SubmitScore(output);
 
         }
 
