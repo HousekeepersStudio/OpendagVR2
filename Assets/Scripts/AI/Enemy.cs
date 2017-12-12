@@ -18,8 +18,16 @@ public class Enemy : Entity {
 
     public void MoveTo(GameObject target)
     {
-        agent.isStopped = false;
-        agent.SetDestination(target.transform.position);
+        if(agent.isStopped)
+        {
+
+        }
+        else
+        {
+            agent.isStopped = false;
+            agent.SetDestination(target.transform.position);
+        }
+        
         //Debug.Log(agent.speed);
         //ani.SetBool("isWalking", true);
     }

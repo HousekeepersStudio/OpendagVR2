@@ -253,7 +253,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 16188536}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 9.502304, y: 9.918154, z: 8.857444}
@@ -325,7 +325,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 47505567}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 9.502304, y: 9.918154, z: 8.857444}
@@ -392,6 +392,21 @@ Prefab:
     - target: {fileID: 1566249185417416, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 136260821179500828, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54328053878841656, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
@@ -607,12 +622,27 @@ Prefab:
     - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 208863782226902326, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136260821179500828, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54328053878841656, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136260821179500828, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
@@ -908,6 +938,21 @@ Prefab:
     - target: {fileID: 1566249185417416, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 136260821179500828, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54328053878841656, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
@@ -1959,6 +2004,21 @@ Prefab:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 136260821179500828, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54328053878841656, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
@@ -2470,7 +2530,7 @@ GameObject:
   - component: {fileID: 864451867}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2639,7 +2699,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 891107416}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 9.5023, y: 9.918149, z: 8.857441}
@@ -2666,7 +2726,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 917045267}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.670269, y: 3.6702688, z: 2.8826084}
@@ -5320,6 +5380,21 @@ Prefab:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 136260821179500828, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54328053878841656, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
@@ -5836,6 +5911,21 @@ Prefab:
     - target: {fileID: 1566249185417416, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 136260821179500828, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54328053878841656, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
@@ -7014,7 +7104,7 @@ GameObject:
   - component: {fileID: 2081750907}
   m_Layer: 0
   m_Name: Wave
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7230,7 +7320,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2137206542}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 9.5023, y: 9.918149, z: 8.857441}
