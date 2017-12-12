@@ -8,10 +8,11 @@ public class Torch : MonoBehaviour {
     private int amountOfBanners = 4;
     private bool dragonBanner = true;
     private bool vikingBanner = true;
-    private bool ravenBanner = true;
+    private bool ravenBanner = true;    
     private bool serpantBanner = true;
 
-    private void OnCollisionEnter(Collision col)
+
+    private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.name == "dragonBanner")
         {
@@ -19,25 +20,30 @@ public class Torch : MonoBehaviour {
             amountOfBanners -= 1;
             dragonBanner = false;
         }
-        if (col.gameObject.name == "ravenBanner")
+        else if (col.gameObject.name == "ravenBanner")
         {
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             ravenBanner = false;
         }
-        if (col.gameObject.name == "vikingBanner")
+        else if (col.gameObject.name == "vikingBanner")
         {
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             vikingBanner = false;
         }
-        if (col.gameObject.name == "serpantBanner")
+        else if (col.gameObject.name == "serpentBanner")
         {
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             serpantBanner = false;
         }
 
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (amountOfBanners == 1)
         {
             SetHouse();
