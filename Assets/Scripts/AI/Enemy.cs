@@ -8,23 +8,25 @@ public class Enemy : Entity {
     protected static float damageMultiplier = 1.3f;
     protected static float speedMultiplier = 1.001f;
     protected static float maxSpeed = 1.8f;
-    
+    protected NavMeshAgent agent;
 
-    public Enemy(string type, int maxHealth, int damage, int level) : base(type, maxHealth, damage, level)
+
+    public Enemy(string type, float maxHealth, float damage, int level) : base(type, maxHealth, damage, level)
     {
 
     }
 
-    public void MoveTo(GameObject target, NavMeshAgent pathFinder)
+    public void MoveTo(GameObject target)
     {
-        pathFinder.isStopped = false;
-        pathFinder.SetDestination(target.transform.position);
+        agent.isStopped = false;
+        agent.SetDestination(target.transform.position);
+        //Debug.Log(agent.speed);
         //ani.SetBool("isWalking", true);
     }
 
-    public void StopMove(NavMeshAgent pathFinder)
+    public void StopMove()
     {
-        pathFinder.isStopped = true;
+        agent.isStopped = true;
         //ani.SetBool("isWalking", false);
     }
 
@@ -46,13 +48,24 @@ public class Enemy : Entity {
         }
     }
 
+    public IEnumerator TurnOnNavMeshAgent()
+    {
+        yield return new WaitForSeconds(0.5f);
+        agent.enabled = true;
+    }
+
     public void SetLevel(int level, NavMeshAgent pathFinder)
     {
         this.level = level;
         if((pathFinder.speed * speedMultiplier) * this.level <= maxSpeed)
             pathFinder.speed = ((pathFinder.speed * speedMultiplier) * this.level);
-        maxHealth = (int)((maxHealth * healthMultiplier) * this.level);
+        maxHealth = (float)((maxHealth * healthMultiplier) * this.level);
         curHealth = maxHealth;
-        damage = (int)((damage * damageMultiplier) * this.level);
+        damage = (float)((damage * damageMultiplier) * this.level);
+    }
+
+    public NavMeshAgent GetNavMeshAgent()
+    {
+        return agent;
     }
 }

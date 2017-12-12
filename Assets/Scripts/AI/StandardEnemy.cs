@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class StandardEnemy : Enemy {
     NavMeshAgent nav;
@@ -17,12 +18,13 @@ public class StandardEnemy : Enemy {
 
     public StandardEnemy() : base(enemyType, health, enemyDamage, startLevel)
     {
+
     }
 
     private void Awake()
     {
-        nav = GetComponent<NavMeshAgent>();
-        MoveTo(GameObject.FindGameObjectWithTag("Target"), nav);
+        healthBar = this.transform.Find("HealthBarCanvas").Find("HealthBG").Find("HealthBar").GetComponent<Image>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
@@ -36,15 +38,18 @@ public class StandardEnemy : Enemy {
         }
         else
         {
-            if (!nav.isOnNavMesh)
+            if (agent.enabled && agent.isOnNavMesh)
+                MoveTo(GameObject.FindGameObjectWithTag("Target"));
+
+            if (!agent.isOnNavMesh)
             {
-                nav.enabled = false;
-                nav.enabled = true;
+                agent.enabled = false;
+                agent.enabled = true;
                 NavMeshHit closesthit;
                 NavMesh.SamplePosition(gameObject.transform.position, out closesthit, 500f, NavMesh.AllAreas);
                 transform.position = closesthit.position;
-                nav.isStopped = false;
-                MoveTo(GameObject.FindGameObjectWithTag("Target"), nav);
+                agent.isStopped = false;
+                MoveTo(GameObject.FindGameObjectWithTag("Target"));
             }
         }
     }
@@ -58,7 +63,7 @@ public class StandardEnemy : Enemy {
     {
         if (other.gameObject.tag == "Target")
         {
-            StopMove(nav);
+            StopMove();
             mainTowerAttack = true;
             StartCoroutine(EnemyAttackTower(mainTowerAttack, other));
         }
@@ -70,10 +75,5 @@ public class StandardEnemy : Enemy {
         {
             mainTowerAttack = false;
         }
-    }
-
-    public NavMeshAgent GetNavMeshAgent()
-    {
-        return nav;
     }
 }

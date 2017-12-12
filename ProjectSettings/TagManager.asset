@@ -10,6 +10,11 @@ TagManager:
   - InteractionObject
   - Controller
   - EnemyHead
+  - TeleportZone
+  - EnemyLimb
+  - EnemyBody
+  - turret
+  - Torch
   layers:
   - Default
   - TransparentFX

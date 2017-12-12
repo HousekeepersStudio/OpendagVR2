@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Entity : MonoBehaviour{
     protected string type;
-    protected int curHealth;
-    protected int maxHealth;
-    protected int damage;
+    protected float curHealth;
+    protected float maxHealth;
+    protected float damage;
     protected int level;
+    protected Image healthBar;
 
-    public Entity(string type, int maxHealth, int damage, int level)
+    public Entity(string type, float maxHealth, float damage, int level)
     {
         this.type = type;
         this.maxHealth = maxHealth;
@@ -27,22 +29,26 @@ public class Entity : MonoBehaviour{
         Debug.Log("Main Tower Health: " + mainTower.GetComponent<Target>().curHealth);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         curHealth -= damage;
+        if(healthBar != null)
+            healthBar.fillAmount = curHealth / maxHealth;
+
+        //Debug.Log("Healthbar Amount = " + healthBar.fillAmount);
     }
 
-    public string GetType()
+    public string GetEnemyType()
     {
         return this.type;
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return maxHealth;
     }
 
-    public int GetCurrentHealth()
+    public float GetCurrentHealth()
     {
         return curHealth;
     }
