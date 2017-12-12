@@ -11,38 +11,80 @@ public class Torch : MonoBehaviour {
     private bool ravenBanner = true;
     private bool serpantBanner = true;
 
+    private float _fadeDuration = 2f;
+    public GameObject particle;
+    public GameObject light;
+
+
+
     private void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.name == "dragonBanner")
         {
+            GameObject.Instantiate(particle, col.gameObject.transform);
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             dragonBanner = false;
         }
-        if (col.gameObject.name == "ravenBanner")
+        else if (col.gameObject.name == "ravenBanner")
         {
+            GameObject.Instantiate(particle, col.gameObject.transform);
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             ravenBanner = false;
         }
-        if (col.gameObject.name == "vikingBanner")
+        else if (col.gameObject.name == "vikingBanner")
         {
+            GameObject.Instantiate(particle, col.gameObject.transform);
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             vikingBanner = false;
         }
-        if (col.gameObject.name == "serpantBanner")
+        else if (col.gameObject.name == "serpantBanner")
         {
+            GameObject.Instantiate(particle, col.gameObject.transform);
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             serpantBanner = false;
         }
+    }
 
+    private void FixedUpdate()
+    {
         if (amountOfBanners == 1)
         {
+            BrightenFlag();
             SetHouse();
             LoadIntroScene();
         }
+    }
+
+    private void BrightenFlag()
+    {
+        if (serpantBanner)
+        {
+            GameObject.Instantiate(light, GameObject.Find("serpentBanner").transform);
+        }
+        else if (vikingBanner)
+        {
+            GameObject.Instantiate(light, GameObject.Find("vikingBanner").transform);
+        }
+        else if (dragonBanner)
+        {
+            GameObject.Instantiate(light, GameObject.Find("dragonBanner").transform);
+        }
+        else if (ravenBanner)
+        {
+            GameObject.Instantiate(light, GameObject.Find("ravenBanner").transform);
+        }
+    }
+
+    private void FadeOut()
+    {
+        //set start color
+        SteamVR_Fade.Start(Color.clear, 0f);
+        //set and start fade to
+        SteamVR_Fade.Start(Color.black, _fadeDuration);
     }
 
     private void SetHouse()
@@ -67,6 +109,9 @@ public class Torch : MonoBehaviour {
 
     private void LoadIntroScene()
     {
+        BrightenFlag();
+        FadeOut();
         SceneManager.LoadScene(1);
     }
+
 }
