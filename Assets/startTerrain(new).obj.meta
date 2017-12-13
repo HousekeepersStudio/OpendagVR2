@@ -1,38 +1,35 @@
 fileFormatVersion: 2
-guid: b52602c0facf1414984610d9ae540d35
-timeCreated: 1491901303
-licenseType: Store
+guid: 84a9e8075ce534345834845eb77dcdba
+timeCreated: 1513077113
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Plane.193
-    100004: Plane.194
-    100006: Plane.196
-    100008: Plane.198
-    400000: //RootNode
-    400002: Plane.193
-    400004: Plane.194
-    400006: Plane.196
-    400008: Plane.198
-    2300000: Plane.193
-    2300002: Plane.194
-    2300004: Plane.196
-    2300006: Plane.198
-    3300000: Plane.193
-    3300002: Plane.194
-    3300004: Plane.196
-    3300006: Plane.198
-    4300000: Plane.194
-    4300002: Plane.193
-    4300004: Plane.198
-    4300006: Plane.196
+    100000: default
+    100002: default_MeshPart0
+    100004: default_MeshPart1
+    100006: //RootNode
+    400000: default
+    400002: default_MeshPart0
+    400004: default_MeshPart1
+    400006: //RootNode
+    2300000: default_MeshPart0
+    2300002: default_MeshPart1
+    3300000: default_MeshPart0
+    3300002: default_MeshPart1
+    4300000: default_MeshPart0
+    4300002: default_MeshPart1
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: LowPolyBase
-    second: {fileID: 2100000, guid: cfafc05c0bdcefc46b19911a93dbde24, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 5f98c389b1857c541b62c1a620aecc83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: c72ce5171b279f6408d6163e9102bbdd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -65,10 +62,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -84,7 +81,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 0
+    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
