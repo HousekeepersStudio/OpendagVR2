@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+[System.Serializable]
+public class Pointer
+{
+    public string name;
+    public Color color;
+}
 
 [System.Serializable]
 public class Control {
 	public string name;
 	public KeyCode key;
 	public string joyName;
+   
 
-
-	public SteamVR_TrackedController steamVR;
+    public SteamVR_TrackedController steamVR;
 
     /*public Control(SteamVR_TrackedController steamVR)
     {
@@ -58,17 +64,74 @@ public class Control {
 }
 
 public class MyManager : MonoBehaviour {
-
 	public Control[] controls;
-
+    public SteamVR_LaserPointer pointer;
 	public int score;
     public string House;
+    public Pointer[] colors;
 
     public SteamVR_TrackedController steamVR;
 
     private void Awake()
     {
+        
         House = PlayerPrefs.GetString("House");
+        Debug.Log(House);
+
+        Pointer result = new Pointer();
+        switch (House)
+        {
+            
+            case "db_dragons":
+           
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    if ("dragons" == colors[i].name)
+                    {
+                        pointer.color = colors[i].color;
+                       
+                    }
+                }
+                break;
+            case "s_serpents":
+             
+
+              
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    if ("serpents" == colors[i].name)
+                    {
+                        pointer.color = colors[i].color;
+                       
+                    }
+                }
+                break;
+            case "v_vikings":
+                Debug.Log(1);
+
+                Debug.Log(colors.Length);
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    if ("vikings" == colors[i].name)
+                    {
+                        pointer.color = colors[i].color;
+                      
+                    }
+                }
+                break;
+            case "r_ravens":
+               
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    if ("ravens" == colors[i].name)
+                    {
+                        pointer.color = colors[i].color;
+                       
+                    }
+                }
+                break;
+        }
+
         PlayerPrefs.DeleteAll();
     }
 
