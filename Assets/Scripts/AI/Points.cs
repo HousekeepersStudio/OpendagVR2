@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Networking;
 
 public class PointssSystem : MonoBehaviour {
 
@@ -11,20 +14,42 @@ public class PointssSystem : MonoBehaviour {
         if(typeOfKill == "Bow" || typeOfKill == "bow")
         {
             score += rewardPerBowKill;
-            Debug.Log(score);
-
+            Debug.Log("Poinssystem Points:" + score);
         }
         else if(typeOfKill == "Turret" || typeOfKill == "turret"){
             score += rewardPerTurretKill;
-
+            Debug.Log("Poinssystem Points:" + score);
         }
         else
             Debug.Log("The given string is not an option!");
     }
 
-    void SubmitScore(string name)
+    public void SubmitScore(string name)
     {
-        // Submit score to database
-        // Test
+        StartCoroutine(Upload());
+        
+
+        IEnumerator Upload()
+        {
+            List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+            formData.Add(new MultipartFormDataSection("score="+ score +"&name="+ name));
+
+            UnityWebRequest www = UnityWebRequest.Post("https://www.koenvuurens.tk/school/vr/submitHandler.php", formData);
+            yield return www.Send();
+
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Form upload complete!");
+            }
+        }
     }
-}
+
+    public int GetScore()
+    {
+        return score;
+    }
+};
