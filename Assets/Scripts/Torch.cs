@@ -10,42 +10,44 @@ public class Torch : MonoBehaviour
     private bool dragonBanner = true;
     private bool vikingBanner = true;
     private bool ravenBanner = true;
-    private bool serpantBanner = true;
+    private bool serpentBanner = true;
+
+    private bool loadSceneStarted;
 
     private float _fadeDuration = 2f;
     public GameObject particle;
     public GameObject lighting;
 
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "dragonBanner")
+        if (col.gameObject.name == "dragonBanner" && dragonBanner)
         {
-            GameObject.Instantiate(particle, col.gameObject.transform);
-            Destroy(col.gameObject);
+            CreateSmoke(col.gameObject);
+            StartCoroutine(RemoveFlag(col.gameObject, 2f));
             amountOfBanners -= 1;
             dragonBanner = false;
         }
-        else if (col.gameObject.name == "ravenBanner")
+        else if (col.gameObject.name == "ravenBanner" && ravenBanner)
         {
-            GameObject.Instantiate(particle, col.gameObject.transform);
-            Destroy(col.gameObject);
+            CreateSmoke(col.gameObject);
+            StartCoroutine(RemoveFlag(col.gameObject, 2f));
             amountOfBanners -= 1;
             ravenBanner = false;
         }
-        else if (col.gameObject.name == "vikingBanner")
+        else if (col.gameObject.name == "vikingBanner" && vikingBanner)
         {
-            GameObject.Instantiate(particle, col.gameObject.transform);
-            Destroy(col.gameObject);
+            CreateSmoke(col.gameObject);
+            StartCoroutine(RemoveFlag(col.gameObject, 2f));
             amountOfBanners -= 1;
             vikingBanner = false;
         }
-        else if (col.gameObject.name == "serpantBanner")
+        else if (col.gameObject.name == "serpentBanner" & serpentBanner)
         {
-            GameObject.Instantiate(particle, col.gameObject.transform);
-            Destroy(col.gameObject);
+            CreateSmoke(col.gameObject);
+            StartCoroutine(RemoveFlag(col.gameObject, 2f));
             amountOfBanners -= 1;
-            serpantBanner = false;
+            serpentBanner = false;
         }
     }
 
@@ -53,30 +55,45 @@ public class Torch : MonoBehaviour
     {
         if (amountOfBanners == 1)
         {
-            BrightenFlag();
-            SetHouse();
-            LoadIntroScene();
+            if (!loadSceneStarted)
+            {
+                BrightenFlag();
+                SetHouse();
+                StartCoroutine(LoadNextScene(2f));
+            }
         }
     }
 
     private void BrightenFlag()
     {
-        if (serpantBanner)
+        if (serpentBanner)
         {
-            GameObject.Instantiate(lighting, GameObject.Find("serpentBanner").transform);
+            CreateLight(GameObject.Find("serpentBanner"));
         }
         else if (vikingBanner)
         {
-            GameObject.Instantiate(lighting, GameObject.Find("vikingBanner").transform);
+            CreateLight(GameObject.Find("vikingBanner"));
         }
         else if (dragonBanner)
         {
-            GameObject.Instantiate(lighting, GameObject.Find("dragonBanner").transform);
+            CreateLight(GameObject.Find("dragonBanner"));
         }
         else if (ravenBanner)
         {
-            GameObject.Instantiate(lighting, GameObject.Find("ravenBanner").transform);
+            CreateLight(GameObject.Find("ravenBanner"));
         }
+    }
+
+    private void CreateSmoke(GameObject banner)
+    {
+        GameObject smoke = GameObject.Instantiate(particle, banner.transform);
+        smoke.transform.localPosition = new Vector3(0, 0, 0.5f);
+    }
+
+    private void CreateLight(GameObject banner)
+    {
+        GameObject light = GameObject.Instantiate(lighting, banner.transform);
+        light.transform.localPosition = new Vector3(0, 0, 0.5f);
     }
 
     private void FadeOut()
@@ -84,12 +101,12 @@ public class Torch : MonoBehaviour
         //set start color
         SteamVR_Fade.Start(Color.clear, 0f);
         //set and start fade to
-        SteamVR_Fade.Start(Color.black, _fadeDuration);
+        SteamVR_Fade.Start(Color.black, _fadeDuration, true);
     }
 
     private void SetHouse()
     {
-        if (serpantBanner)
+        if (serpentBanner)
         {
             PlayerPrefs.SetString("house", "serpents");
         }
@@ -109,9 +126,21 @@ public class Torch : MonoBehaviour
 
     private void LoadIntroScene()
     {
-        BrightenFlag();
         FadeOut();
         SceneManager.LoadScene(1);
+    }
+
+    IEnumerator RemoveFlag(GameObject flag, float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject.Destroy(flag);
+    }
+
+    IEnumerator LoadNextScene(float time)
+    {
+        loadSceneStarted = true;
+        yield return new WaitForSeconds(time);
+        LoadIntroScene();
     }
 
 }
