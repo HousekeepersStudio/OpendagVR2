@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: ae84e0c0baa70cf4dbb11820b9f144b7
+folderAsset: yes
+timeCreated: 1513069464
+=======
 guid: a925376959f160e48b2b221342d31fba
 folderAsset: yes
 timeCreated: 1512728277
+>>>>>>> Lex
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

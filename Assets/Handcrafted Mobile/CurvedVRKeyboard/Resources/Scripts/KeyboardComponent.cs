@@ -10,6 +10,7 @@ namespace CurvedVRKeyboard {
         // Special signs. Feel free to change
         public const string SPACE = "  ";
         public const string BACK = "Back";
+        public const string OKAY = "Okay";
         public const string ABC = "ABC";
         public const string QEH = "123\n?!#";
         public const string UP = "UP";
