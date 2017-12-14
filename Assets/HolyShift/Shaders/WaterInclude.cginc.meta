@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 8fa65de73ee55784e847cf81178b3c5b
+guid: 8c6a4cb5ce5c646928adfc2c466d52dd
 labels:
 - Lowpoly
 - Shader
 - Water
 ShaderImporter:
-  externalObjects: {}
   defaultTextures: []
   userData: 
   assetBundleName: 
