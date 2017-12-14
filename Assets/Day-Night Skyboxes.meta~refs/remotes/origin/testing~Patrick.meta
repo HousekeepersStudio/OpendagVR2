@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 90bc61fd405845649bce88c131da4039
 timeCreated: 1513239764
+=======
+<<<<<<< HEAD
+guid: 90bc61fd405845649bce88c131da4039
+timeCreated: 1513069475
+=======
+guid: cab46d198549b2943be09742f0dfc2d7
+timeCreated: 1513066036
+>>>>>>> Lex
+>>>>>>> testing
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
