@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: ae84e0c0baa70cf4dbb11820b9f144b7
 folderAsset: yes
 timeCreated: 1513239762
@@ -14,6 +15,11 @@ folderAsset: yes
 timeCreated: 1512728277
 >>>>>>> Lex
 >>>>>>> testing
+=======
+guid: 713ab1322d1163b42bc9b7c5d57af864
+folderAsset: yes
+timeCreated: 1513074796
+>>>>>>> Koen
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: b0897ac2d014e4144a10459ff6a3b369
 timeCreated: 1513239764
+=======
+guid: 9e6e78dd73dfcbc4ba90fd4734d43f7b
+timeCreated: 1513074805
+>>>>>>> Koen
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
