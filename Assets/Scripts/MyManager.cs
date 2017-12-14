@@ -75,14 +75,14 @@ public class MyManager : MonoBehaviour {
     private void Awake()
     {
         
-        House = PlayerPrefs.GetString("House");
+        House = PlayerPrefs.GetString("house");
         Debug.Log(House);
 
         Pointer result = new Pointer();
         switch (House)
         {
             
-            case "db_dragons":
+            case "dragons":
            
                 for (int i = 0; i < colors.Length; i++)
                 {
@@ -93,7 +93,7 @@ public class MyManager : MonoBehaviour {
                     }
                 }
                 break;
-            case "s_serpents":
+            case "serpents":
              
 
               
@@ -106,7 +106,7 @@ public class MyManager : MonoBehaviour {
                     }
                 }
                 break;
-            case "v_vikings":
+            case "vikings":
                 Debug.Log(1);
 
                 Debug.Log(colors.Length);
@@ -119,7 +119,7 @@ public class MyManager : MonoBehaviour {
                     }
                 }
                 break;
-            case "r_ravens":
+            case "ravens":
                
                 for (int i = 0; i < colors.Length; i++)
                 {
