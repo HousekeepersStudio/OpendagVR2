@@ -8,11 +8,10 @@ public class Torch : MonoBehaviour {
     private int amountOfBanners = 4;
     private bool dragonBanner = true;
     private bool vikingBanner = true;
-    private bool ravenBanner = true;    
+    private bool ravenBanner = true;
     private bool serpantBanner = true;
 
-
-    private void OnTriggerEnter(Collider col)
+    private void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.name == "dragonBanner")
         {
@@ -20,30 +19,25 @@ public class Torch : MonoBehaviour {
             amountOfBanners -= 1;
             dragonBanner = false;
         }
-        else if (col.gameObject.name == "ravenBanner")
+        if (col.gameObject.name == "ravenBanner")
         {
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             ravenBanner = false;
         }
-        else if (col.gameObject.name == "vikingBanner")
+        if (col.gameObject.name == "vikingBanner")
         {
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             vikingBanner = false;
         }
-        else if (col.gameObject.name == "serpentBanner")
+        if (col.gameObject.name == "serpantBanner")
         {
             Destroy(col.gameObject);
             amountOfBanners -= 1;
             serpantBanner = false;
         }
 
-        
-    }
-
-    private void FixedUpdate()
-    {
         if (amountOfBanners == 1)
         {
             SetHouse();
@@ -76,3 +70,110 @@ public class Torch : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 }
+using UnityEngine.SceneManagement;
+
+public class Torch : MonoBehaviour {
+
+    private int amountOfBanners = 4;
+    private bool dragonBanner = true;
+    private bool vikingBanner = true;
+    private bool ravenBanner = true;
+    private bool serpantBanner = true;
+
+    private float _fadeDuration = 2f;
+    public GameObject particle;
+    public GameObject lighting;
+
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.name == "dragonBanner")
+        {
+            GameObject.Instantiate(particle, col.gameObject.transform);
+            Destroy(col.gameObject);
+            amountOfBanners -= 1;
+            dragonBanner = false;
+        }
+        else if (col.gameObject.name == "ravenBanner")
+        {
+            GameObject.Instantiate(particle, col.gameObject.transform);
+            Destroy(col.gameObject);
+            amountOfBanners -= 1;
+            ravenBanner = false;
+        }
+        else if (col.gameObject.name == "vikingBanner")
+        {
+            GameObject.Instantiate(particle, col.gameObject.transform);
+            Destroy(col.gameObject);
+            amountOfBanners -= 1;
+            vikingBanner = false;
+        }
+        else if (col.gameObject.name == "serpantBanner")
+        {
+            GameObject.Instantiate(particle, col.gameObject.transform);
+            Destroy(col.gameObject);
+            amountOfBanners -= 1;
+            serpantBanner = false;
+        }
+    private void FixedUpdate()
+    {
+        if (amountOfBanners == 1)
+        {
+            BrightenFlag();
+            SetHouse();
+            LoadIntroScene();
+        }
+    private void BrightenFlag()
+    {
+        if (serpantBanner)
+        {
+            GameObject.Instantiate(lighting, GameObject.Find("serpentBanner").transform);
+        }
+        else if (vikingBanner)
+        {
+            GameObject.Instantiate(lighting, GameObject.Find("vikingBanner").transform);
+        }
+        else if (dragonBanner)
+        {
+            GameObject.Instantiate(lighting, GameObject.Find("dragonBanner").transform);
+        }
+        else if (ravenBanner)
+        {
+            GameObject.Instantiate(lighting, GameObject.Find("ravenBanner").transform);
+        }
+    }
+
+    private void FadeOut()
+    {
+        //set start color
+        SteamVR_Fade.Start(Color.clear, 0f);
+        //set and start fade to
+        SteamVR_Fade.Start(Color.black, _fadeDuration);
+    }
+
+    private void SetHouse()
+    {
+        if (serpantBanner)
+        {
+            PlayerPrefs.SetString("house", "serpents");
+        }
+        else if (vikingBanner)
+        {
+            PlayerPrefs.SetString("house", "vikings");
+        }
+        else if (dragonBanner)
+        {
+            PlayerPrefs.SetString("house", "dragons");
+        }
+        else if (ravenBanner)
+        {
+            PlayerPrefs.SetString("house", "ravens");
+        }
+    }
+
+    private void LoadIntroScene()
+    {
+        BrightenFlag();
+        FadeOut();
+        SceneManager.LoadScene(1);
+    }
