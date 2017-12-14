@@ -26,30 +26,29 @@ public class PointssSystem : MonoBehaviour {
 
     public void SubmitScore(string name)
     {
-        StartCoroutine(Upload());
-        
-
-        IEnumerator Upload()
-        {
-            List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-            formData.Add(new MultipartFormDataSection("score="+ score +"&name="+ name));
-
-            UnityWebRequest www = UnityWebRequest.Post("https://www.koenvuurens.tk/school/vr/submitHandler.php", formData);
-            yield return www.Send();
-
-            if (www.isNetworkError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Debug.Log("Form upload complete!");
-            }
-        }
+        StartCoroutine(Upload());   
     }
 
+    IEnumerator Upload()
+    {
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("score=" + score + "&name=" + name));
+
+        UnityWebRequest www = UnityWebRequest.Post("https://www.koenvuurens.tk/school/vr/submitHandler.php", formData);
+        yield return www.Send();
+
+        if (www.isNetworkError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log("Form upload complete!");
+        }
+    }
+    
     public int GetScore()
     {
         return score;
     }
-};
+}
