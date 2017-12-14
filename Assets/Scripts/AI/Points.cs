@@ -25,5 +25,6 @@ public class PointssSystem : MonoBehaviour {
     void SubmitScore(string name)
     {
         // Submit score to database
+        // Test
     }
 }
