@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c25bf874edbbd9a4eb01cae4ecb916ce
 timeCreated: 1513069476
+=======
+guid: 8bec39846dafa3e45893b8242b82b40a
+timeCreated: 1513066036
+>>>>>>> Lex
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
