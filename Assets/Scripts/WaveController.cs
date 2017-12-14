@@ -37,7 +37,6 @@ public class WaveController : MonoBehaviour {
 
         if(enemies.Count == 0 && waveInitialized)
         {
-            Debug.Log("Wave Won!");
             if (!timerStarted)
                 StartCoroutine(WaveWaiter(waitingTime));
         }

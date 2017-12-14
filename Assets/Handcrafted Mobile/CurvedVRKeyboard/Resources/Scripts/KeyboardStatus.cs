@@ -12,7 +12,10 @@ namespace CurvedVRKeyboard {
         [SerializeField]
         public int maxOutputLength;
         [SerializeField]
+        public GameObject Point;
+        [SerializeField]
         public GameObject targetGameObject;
+
 
 
         //----CurrentKeysStatus----
@@ -42,6 +45,10 @@ namespace CurvedVRKeyboard {
                 TypeKey(BLANKSPACE);
             } else if(value.Equals(BACK)) {
                 BackspaceKey();
+            }
+            else if (value.Equals(OKAY))
+            {
+                OkeyKey();
             } else {// Normal letter
                 TypeKey(value[0]);
             }
@@ -76,6 +83,12 @@ namespace CurvedVRKeyboard {
                 textComponent.GetType().GetProperty(TEXT).SetValue(textComponent, output.Remove(output.Length - 1, 1), null);
                 output = output.Remove(output.Length - 1, 1);
             }
+        }
+
+        public void OkeyKey()
+        {
+            Point.gameObject.GetComponent<PointssSystem>().SubmitScore(output);
+
         }
 
         private void TypeKey ( char key ) {
