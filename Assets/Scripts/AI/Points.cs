@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PointssSystem : MonoBehaviour {
+public class Points : MonoBehaviour {
 
     public int score = 20;
     public int rewardPerBowKill = 10;

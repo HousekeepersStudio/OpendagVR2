@@ -34,7 +34,7 @@ public class StandardEnemy : Enemy {
 
         if(curHealth <= 0)
         {
-            PointssSystem sn = gameObject.GetComponent<PointssSystem>();
+            Points sn = gameObject.GetComponent<Points>();
             sn.AddPoints("Bow");
             Die();
         }

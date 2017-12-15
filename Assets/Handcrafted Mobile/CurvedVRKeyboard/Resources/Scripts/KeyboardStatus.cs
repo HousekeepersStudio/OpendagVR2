@@ -87,7 +87,7 @@ namespace CurvedVRKeyboard {
 
         public void OkeyKey()
         {
-            Point.gameObject.GetComponent<PointssSystem>().SubmitScore(output);
+            Point.gameObject.GetComponent<Points>().SubmitScore(output);
 
         }
 
