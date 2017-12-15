@@ -7,7 +7,7 @@ public class Enemy : Entity {
     protected static float healthMultiplier = 1.2f;
     protected static float damageMultiplier = 1.3f;
     protected static float speedMultiplier = 1.001f;
-    protected static float maxSpeed = 10f;
+    protected static float maxSpeed = 50f;
     protected NavMeshAgent agent;
 
 
