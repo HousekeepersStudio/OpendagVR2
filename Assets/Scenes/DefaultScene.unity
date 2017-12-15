@@ -33065,11 +33065,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 114706144218386650, guid: 41ab930100150364b8c3c75513aa0188,
         type: 2}
       propertyPath: colors.Array.size
       value: 4
       objectReference: {fileID: 0}
+=======
+>>>>>>> Patrick
     - target: {fileID: 4590208227555894, guid: 41ab930100150364b8c3c75513aa0188, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -33102,6 +33105,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 114706144218386650, guid: 41ab930100150364b8c3c75513aa0188,
         type: 2}
       propertyPath: colors.Array.data[0].name
@@ -33187,6 +33191,8 @@ Prefab:
       propertyPath: colors.Array.data[3].color.b
       value: 0.8602941
       objectReference: {fileID: 0}
+=======
+>>>>>>> Patrick
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41ab930100150364b8c3c75513aa0188, type: 2}
   m_IsPrefabParent: 0
