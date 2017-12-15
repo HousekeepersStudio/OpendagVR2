@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: ae84e0c0baa70cf4dbb11820b9f144b7
 folderAsset: yes
 timeCreated: 1513239762
@@ -21,6 +22,10 @@ folderAsset: yes
 timeCreated: 1513074796
 >>>>>>> Koen
 licenseType: Free
+=======
+guid: ae84e0c0baa70cf4dbb11820b9f144b7
+folderAsset: yes
+>>>>>>> Koen
 DefaultImporter:
   externalObjects: {}
   userData: 
