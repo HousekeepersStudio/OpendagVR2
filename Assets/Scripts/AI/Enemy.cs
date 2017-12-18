@@ -18,8 +18,16 @@ public class Enemy : Entity {
 
     public void MoveTo(GameObject target)
     {
-        agent.isStopped = false;
-        agent.SetDestination(target.transform.position);
+        if(agent.isStopped)
+        {
+
+        }
+        else
+        {
+            agent.isStopped = false;
+            agent.SetDestination(target.transform.position);
+        }
+        
         //Debug.Log(agent.speed);
         //ani.SetBool("isWalking", true);
     }
@@ -44,9 +52,17 @@ public class Enemy : Entity {
     {
         if (mainTowerAttack)
         {
-            Attack(tower.gameObject);
-            yield return new WaitForSeconds(1);
-            StartCoroutine(EnemyAttackTower(mainTowerAttack, tower));
+            if(tower.gameObject.GetComponent<Target>().GetCurrentHealth() <= 0)
+            {
+                Destroy(tower.gameObject);
+                mainTowerAttack = false;
+            }
+            else
+            {
+                Attack(tower.gameObject);
+                yield return new WaitForSeconds(1);
+                StartCoroutine(EnemyAttackTower(mainTowerAttack, tower));
+            }           
         }
     }
 
