@@ -7,7 +7,7 @@ public class Enemy : Entity {
     protected static float healthMultiplier = 1.2f;
     protected static float damageMultiplier = 1.3f;
     protected static float speedMultiplier = 1.001f;
-    protected static float maxSpeed = 50f;
+    protected static float maxSpeed = 10f;
     protected NavMeshAgent agent;
 
 
@@ -37,6 +37,8 @@ public class Enemy : Entity {
         GameObject.Find("WaveController").GetComponent<WaveController>().RemoveFromWave(enemy.name);
         Debug.Log("Enemy Died");
         Destroy(enemy);
+        Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
+        sn.AddPoints("Bow");
     }
     protected IEnumerator EnemyAttackTower(bool mainTowerAttack, Collider tower)
     {

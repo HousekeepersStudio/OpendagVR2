@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadOnClick : MonoBehaviour {
 
-	// When pressed on start, load game.
+    // When pressed on start, load game.
+    public ChangeImgOnClick changeImg;
+
 
     public void LoadScene(int level)
     {

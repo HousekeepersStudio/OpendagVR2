@@ -7,7 +7,11 @@ timeCreated: 1513069463
 guid: 17abf44d538bbfc4590ae24fe75a14a8
 folderAsset: yes
 timeCreated: 1512728277
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> Lex
+>>>>>>> testing
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
