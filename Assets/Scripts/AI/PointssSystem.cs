@@ -8,18 +8,25 @@ public class PointssSystem : MonoBehaviour {
     
     public void AddPoints(string typeOfKill)
     {
-        if(typeOfKill == "Bow" || typeOfKill == "bow")
+        Debug.Log("PRE: " + typeOfKill);
+        typeOfKill = typeOfKill.ToUpper();
+        Debug.Log("POST: " + typeOfKill);
+
+        if (typeOfKill == "BOW")
         {
             score += rewardPerBowKill;
             Debug.Log(score);
 
         }
-        else if(typeOfKill == "Turret" || typeOfKill == "turret"){
+        else if(typeOfKill == "TURRET"){
             score += rewardPerTurretKill;
 
         }
         else
+        {
             Debug.Log("The given string is not an option!");
+
+        }
     }
 
     public void SubmitScore(string name)
