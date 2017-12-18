@@ -1,6 +1,11 @@
 fileFormatVersion: 2
 guid: b7795aea484b54afbb2011addaa251af
 folderAsset: yes
+<<<<<<< HEAD
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+=======
 timeCreated: 1513325660
 licenseType: Free
 DefaultImporter:
@@ -8,3 +13,4 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+>>>>>>> Koen

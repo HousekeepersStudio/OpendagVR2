@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PointssSystem : MonoBehaviour {
+public class Points : MonoBehaviour {
 
-    public int score = 20;
+    public int score = 0;
     public int rewardPerBowKill = 10;
     public int rewardPerTurretKill = 5;
+    public bool scoreAdded = false;
     
     public void AddPoints(string typeOfKill)
     {
@@ -26,15 +27,16 @@ public class PointssSystem : MonoBehaviour {
 
     public void SubmitScore(string name)
     {
-        StartCoroutine(Upload());   
+        StartCoroutine(Upload(name));   
     }
 
-    IEnumerator Upload()
+    IEnumerator Upload(string name)
     {
+        scoreAdded = false;
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormDataSection("score=" + score + "&name=" + name));
 
-        UnityWebRequest www = UnityWebRequest.Post("https://www.koenvuurens.tk/school/vr/submitHandler.php", formData);
+        UnityWebRequest www = UnityWebRequest.Get("https://www.koenvuurens.tk/school/vr/submitHandler.php?score=" + score + "&name=" + name + "&key=aeae846e5d69ecaee6c76f37c143f263");
         yield return www.Send();
 
         if (www.isNetworkError)
@@ -44,6 +46,7 @@ public class PointssSystem : MonoBehaviour {
         else
         {
             Debug.Log("Form upload complete!");
+            scoreAdded = true;
         }
     }
     
