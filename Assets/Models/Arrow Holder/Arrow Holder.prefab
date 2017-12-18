@@ -631,7 +631,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 55f5ed7fe02d8cb418c1b6bae3467e30, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 5dfbe2225f65b62468b14450d3b29c84, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -665,7 +666,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b881e88394d0c15409236b08f2100d02, type: 2}
+  - {fileID: 2100000, guid: 382465dd4c78e424b876e5703067beff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -835,7 +836,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b881e88394d0c15409236b08f2100d02, type: 2}
+  - {fileID: 2100000, guid: 382465dd4c78e424b876e5703067beff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -903,7 +904,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b881e88394d0c15409236b08f2100d02, type: 2}
+  - {fileID: 2100000, guid: 382465dd4c78e424b876e5703067beff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1221,7 +1222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316839840540490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efb507d9f1086364fbf6bc69ae7b614e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ba136e1364b82e4896dc9c2174d17a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 1702354496119314, guid: 453657d622eaf2249bc5ed0a1c1ca038,
