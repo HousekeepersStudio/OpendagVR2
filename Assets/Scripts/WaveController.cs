@@ -7,7 +7,7 @@ public class WaveController : MonoBehaviour {
     List<GameObject> enemies;
     public GameObject enemyPrefab;
     public float waitingTime;
-    int waveNr = 0;
+    int waveNr = 1;
     int enemiesCount = 3;
     float enemyMultiply = 1.2f;
     float enemyLevelMultiply = 1.05f;
@@ -37,7 +37,6 @@ public class WaveController : MonoBehaviour {
 
         if(enemies.Count == 0 && waveInitialized)
         {
-            Debug.Log("Wave Won!");
             if (!timerStarted)
                 StartCoroutine(WaveWaiter(waitingTime));
         }
@@ -57,7 +56,6 @@ public class WaveController : MonoBehaviour {
         if (timerStarted)
             timerStarted = false;
         enemiesCount = (int)(enemiesCount * (waveNr * enemyMultiply));
-        
         StartCoroutine(SpawnEnemies());
     }
 

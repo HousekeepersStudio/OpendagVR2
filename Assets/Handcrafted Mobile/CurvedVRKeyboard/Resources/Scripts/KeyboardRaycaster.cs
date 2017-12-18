@@ -24,11 +24,13 @@ namespace CurvedVRKeyboard {
 
         private bool tp;
         public SteamVR_TrackedController buttons;
+        
 
         void Start () {
             keyboardStatus = gameObject.GetComponent<KeyboardStatus>();
             int layerNumber = gameObject.layer;
             layer = 1 << layerNumber;
+
         }
 
         void Update () {
@@ -49,20 +51,32 @@ namespace CurvedVRKeyboard {
                 if(focusedKeyItem != null) { // Hit may occur on item without script
                     ChangeCurrentKeyItem(focusedKeyItem);
                     keyItemCurrent.Hovering();
-                    if (!tp)
+                    if(buttons != null)
                     {
-                        if (buttons.triggerPressed)
-                        {// If key clicked
-                            tp = true;
-                            keyItemCurrent.Click();
-                            keyboardStatus.HandleClick(keyItemCurrent);
+                        if (!tp)
+                        {
+                            if (buttons.triggerPressed)
+                            {// If key clicked
+                                tp = true;
+                                keyItemCurrent.Click();
+                                keyboardStatus.HandleClick(keyItemCurrent);
+                            }
+                        }
+                        else
+                        {
+                            if (!buttons.triggerPressed)
+                                tp = false;
                         }
                     }
                     else
                     {
-                        if (!buttons.triggerPressed)
-                            tp = false;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {// If key clicked
+                            keyItemCurrent.Click();
+                            keyboardStatus.HandleClick(keyItemCurrent);
+                        }
                     }
+                    
                     
                 }
             } else if(keyItemCurrent != null) {// If no target hit and lost focus on item
