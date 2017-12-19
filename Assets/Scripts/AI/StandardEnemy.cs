@@ -39,7 +39,12 @@ public class StandardEnemy : Enemy {
         else
         {
             if (agent.enabled && agent.isOnNavMesh)
-                MoveTo(GameObject.FindGameObjectWithTag("Target"));
+            {
+                targets = GameObject.FindGameObjectsWithTag("Target");
+                MoveTo(targets[0]);
+            }
+                
+
 
             if (!agent.isOnNavMesh)
             {
@@ -49,7 +54,8 @@ public class StandardEnemy : Enemy {
                 NavMesh.SamplePosition(gameObject.transform.position, out closesthit, 500f, NavMesh.AllAreas);
                 transform.position = closesthit.position;
                 agent.isStopped = false;
-                MoveTo(GameObject.FindGameObjectWithTag("Target"));
+                targets = GameObject.FindGameObjectsWithTag("Target");
+                MoveTo(targets[0]);
             }
         }
     }
