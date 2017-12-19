@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -408,7 +408,18 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82560439984926022, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &70368422
@@ -644,7 +655,18 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82560439984926022, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &155316928 stripped
@@ -954,7 +976,18 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82560439984926022, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &254578400
@@ -1624,7 +1657,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607654968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.63}
+  m_LocalPosition: {x: 0, y: 0, z: -2.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1447295007}
@@ -2019,7 +2052,18 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82560439984926022, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &689873003 stripped
@@ -5430,7 +5474,18 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82560439984926022, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1638935127 stripped
@@ -5877,7 +5932,18 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195092042172614482, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+        type: 2}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 82560439984926022, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 90fe7d7b12a2f944eba14c7c8f702b96, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1695185198
