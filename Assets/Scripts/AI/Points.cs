@@ -6,23 +6,38 @@ using UnityEngine.Networking;
 public class Points : MonoBehaviour {
 
     public int score = 0;
+    public int balance = 0;
     public int rewardPerBowKill = 10;
     public int rewardPerTurretKill = 5;
     public bool scoreAdded = false;
     
     public void AddPoints(string typeOfKill)
     {
-        if(typeOfKill == "Bow" || typeOfKill == "bow")
+        typeOfKill = typeOfKill.ToUpper();
+
+        switch (typeOfKill)
         {
-            score += rewardPerBowKill;
-            Debug.Log("Poinssystem Points:" + score);
+            case "BOW":
+                score += rewardPerBowKill;
+                balance += rewardPerBowKill;
+
+                Debug.Log("Poinssystem Points:" + score);
+                Debug.Log("Balance :" + balance);
+
+                break;
+            case "TURRET":
+                score += rewardPerTurretKill;
+                balance += rewardPerTurretKill;
+
+                Debug.Log("Poinssystem Points:" + score);
+                Debug.Log("Balance :" + balance);
+
+                break;
+            default:
+                Debug.Log("The given string is not an option!");
+
+                break;
         }
-        else if(typeOfKill == "Turret" || typeOfKill == "turret"){
-            score += rewardPerTurretKill;
-            Debug.Log("Poinssystem Points:" + score);
-        }
-        else
-            Debug.Log("The given string is not an option!");
     }
 
     public void SubmitScore(string name)
@@ -53,5 +68,10 @@ public class Points : MonoBehaviour {
     public int GetScore()
     {
         return score;
+    }
+
+    public void BuyTower(int cost)
+    {
+        balance -= cost;
     }
 }
