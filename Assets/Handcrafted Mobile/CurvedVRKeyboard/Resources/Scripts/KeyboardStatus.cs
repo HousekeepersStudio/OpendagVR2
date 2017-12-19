@@ -30,6 +30,9 @@ namespace CurvedVRKeyboard {
         private const string TEXT = "text";
         private Component textComponent;
 
+        private Points pointSystem;
+        private bool okayPressed = false;
+
 
         /// <summary>
         /// Handles click on keyboarditem
@@ -87,8 +90,8 @@ namespace CurvedVRKeyboard {
 
         public void OkeyKey()
         {
-            Point.gameObject.GetComponent<PointssSystem>().SubmitScore(output);
-
+            okayPressed = true;
+            pointSystem.SubmitScore(output);
         }
 
         private void TypeKey ( char key ) {
@@ -106,6 +109,15 @@ namespace CurvedVRKeyboard {
 
         public void setOutput (ref string stringRef) {
             output = stringRef;
+        }
+
+        private void Update()
+        {
+            if (pointSystem == null)
+                pointSystem = Point.gameObject.GetComponent<Points>();
+
+            if (okayPressed && pointSystem.scoreAdded)
+                gameObject.SetActive(false);
         }
     }
 }

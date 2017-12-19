@@ -30,6 +30,7 @@ namespace CurvedVRKeyboard {
             keyboardStatus = gameObject.GetComponent<KeyboardStatus>();
             int layerNumber = gameObject.layer;
             layer = 1 << layerNumber;
+
         }
 
         void Update () {
