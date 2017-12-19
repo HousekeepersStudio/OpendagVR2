@@ -9,6 +9,7 @@ public class Enemy : Entity {
     protected static float speedMultiplier = 1.001f;
     protected static float maxSpeed = 10f;
     protected NavMeshAgent agent;
+    protected GameObject[] targets;
 
 
     public Enemy(string type, float maxHealth, float damage, int level) : base(type, maxHealth, damage, level)
@@ -54,8 +55,18 @@ public class Enemy : Entity {
         {
             if(tower.gameObject.GetComponent<Target>().GetCurrentHealth() <= 0)
             {
-                Destroy(tower.gameObject);
+                tower.transform.position = new Vector3(10000,10000,1000);
+                tower.gameObject.SetActive(false);
                 mainTowerAttack = false;
+                agent.isStopped = false;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    if(targets[i].activeSelf)
+                    {
+                        MoveTo(targets[i]);
+                        break;
+                    }
+                }
             }
             else
             {
