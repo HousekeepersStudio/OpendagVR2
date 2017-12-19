@@ -12,7 +12,6 @@ public class TouchpadCross : MonoBehaviour {
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
-
     }
 
 
@@ -33,27 +32,27 @@ public class TouchpadCross : MonoBehaviour {
         if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
         {
             Vector2 touchpad = (device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0));
-            print("Pressing Touchpad");
+            Debug.Log("Pressing Touchpad");
 
             if (touchpad.y > 0.7f)
             {
-                print("Moving Up");
+                Debug.Log("Moving Up");
             }
 
             else if (touchpad.y < -0.7f)
             {
-                print("Moving Down");
+                Debug.Log("Moving Down");
             }
 
             if (touchpad.x > 0.7f)
             {
-                print("Moving Right");
+                Debug.Log("Moving Right");
 
             }
 
             else if (touchpad.x < -0.7f)
             {
-                print("Moving left");
+                Debug.Log("Moving left");
             }
 
         }
