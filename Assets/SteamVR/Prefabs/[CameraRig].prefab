@@ -103,9 +103,9 @@ GameObject:
   - component: {fileID: 114248449421187418}
   - component: {fileID: 114811149306971838}
   - component: {fileID: 114363714235859382}
-  - component: {fileID: 114906977761730322}
-  - component: {fileID: 114694438295885852}
-  - component: {fileID: 114185421942499276}
+  - component: {fileID: 114755905100243132}
+  - component: {fileID: 114579930299238332}
+  - component: {fileID: 114123995255897092}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Controller
@@ -1093,8 +1093,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 90f3dff4ce4342446bafe79d2179b9c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1230,7 +1229,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f1a99e5819a09ec4e81c3a0a4e5cabf2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1332,7 +1331,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f1a99e5819a09ec4e81c3a0a4e5cabf2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1536,7 +1535,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f1a99e5819a09ec4e81c3a0a4e5cabf2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1832,7 +1831,7 @@ MonoBehaviour:
   ControllerModel: {fileID: 147176}
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
---- !u!114 &114185421942499276
+--- !u!114 &114123995255897092
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1925,6 +1924,19 @@ MonoBehaviour:
   buttons: {fileID: 0}
   pointer: {fileID: 0}
   CurrentTeleportPos: {fileID: 0}
+--- !u!114 &114579930299238332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  origin: {fileID: 0}
 --- !u!114 &114605615438931702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1954,7 +1966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f6d719b478fee4db10c4ab208dbf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114694438295885852
+--- !u!114 &114755905100243132
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1962,11 +1974,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 159396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
-  origin: {fileID: 0}
 --- !u!114 &114811149306971838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1982,17 +1992,6 @@ MonoBehaviour:
   ControllerModel: {fileID: 192944}
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
---- !u!114 &114906977761730322
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135729604589745850
 SphereCollider:
   m_ObjectHideFlags: 1
