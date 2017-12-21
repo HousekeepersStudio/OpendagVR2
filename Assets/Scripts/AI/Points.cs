@@ -42,16 +42,18 @@ public class Points : MonoBehaviour {
 
     public void SubmitScore(string name)
     {
-        StartCoroutine(Upload(name));   
+        string faction = PlayerPrefs.GetString("house");
+
+        StartCoroutine(Upload(name, faction));   
     }
 
-    IEnumerator Upload(string name)
+    IEnumerator Upload(string name, string faction)
     {
         scoreAdded = false;
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormDataSection("score=" + score + "&name=" + name));
 
-        UnityWebRequest www = UnityWebRequest.Get("https://www.koenvuurens.tk/school/vr/submitHandler.php?score=" + score + "&name=" + name + "&key=aeae846e5d69ecaee6c76f37c143f263");
+        UnityWebRequest www = UnityWebRequest.Get("http://www.housekeepers.ga/api/submitHandler.php" + score + "&name=" + name + "&key=aeae846e5d69ecaee6c76f37c143f263");
         yield return www.Send();
 
         if (www.isNetworkError)
