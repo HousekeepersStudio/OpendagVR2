@@ -53,8 +53,8 @@ public class Points : MonoBehaviour {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormDataSection("score=" + score + "&name=" + name));
 
-        UnityWebRequest www = UnityWebRequest.Get("http://www.housekeepers.ga/api/submitHandler.php" + score + "&name=" + name + "&key=aeae846e5d69ecaee6c76f37c143f263");
-        yield return www.Send();
+        UnityWebRequest www = UnityWebRequest.Get("http://www.housekeepers.ga/api/submitHandler.php?score=" + score + "&name=" + name + "&key=aeae846e5d69ecaee6c76f37c143f263");
+        yield return www.SendWebRequest();
 
         if (www.isNetworkError)
         {
