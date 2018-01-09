@@ -32,11 +32,6 @@ public class TouchpadCross : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start()
-    {
-
-    }
-
     void FixedUpdate()
     {
         SetupGameObjects();
