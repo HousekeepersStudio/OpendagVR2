@@ -90,8 +90,11 @@ namespace CurvedVRKeyboard {
 
         public void OkeyKey()
         {
-            okayPressed = true;
-            pointSystem.SubmitScore(output);
+            if (!string.IsNullOrEmpty(output))
+            {
+                okayPressed = true;
+                pointSystem.SubmitScore(output);
+            }
         }
 
         private void TypeKey ( char key ) {

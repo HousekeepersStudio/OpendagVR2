@@ -70,11 +70,8 @@ namespace CurvedVRKeyboard {
                     }
                     else
                     {
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {// If key clicked
-                            keyItemCurrent.Click();
-                            keyboardStatus.HandleClick(keyItemCurrent);
-                        }
+                        keyItemCurrent.Click();
+                        keyboardStatus.HandleClick(keyItemCurrent);
                     }
                     
                     

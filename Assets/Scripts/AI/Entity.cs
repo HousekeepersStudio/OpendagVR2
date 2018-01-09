@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour{
     protected float damage;
     protected int level;
     protected Image healthBar;
-
+    
     public Entity(string type, float maxHealth, float damage, int level)
     {
         this.type = type;
