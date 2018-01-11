@@ -106,7 +106,9 @@ public class TestingMenuScript : MonoBehaviour
 
 				loaded = true;
 			}
-		}
+            if (openMenu == 0)
+                this.scoreLabel.text = FormatScore();
+        }
 		else
 		{
 			CloseAll ();
@@ -115,6 +117,7 @@ public class TestingMenuScript : MonoBehaviour
 	}
 
 	string FormatScore() {
+        myManager.UpdateScore();
 		return myManager.score.ToString () + " Points";
 	}
 

@@ -6,38 +6,55 @@ using UnityEngine.Networking;
 public class Points : MonoBehaviour {
 
     public int score = 0;
+    public int balance = 0;
     public int rewardPerBowKill = 10;
     public int rewardPerTurretKill = 5;
     public bool scoreAdded = false;
     
     public void AddPoints(string typeOfKill)
     {
-        if(typeOfKill == "Bow" || typeOfKill == "bow")
+        typeOfKill = typeOfKill.ToUpper();
+
+        switch (typeOfKill)
         {
-            score += rewardPerBowKill;
-            Debug.Log("Poinssystem Points:" + score);
+            case "BOW":
+                score += rewardPerBowKill;
+                balance += rewardPerBowKill;
+
+                Debug.Log("Poinssystem Points:" + score);
+                Debug.Log("Balance :" + balance);
+
+                break;
+            case "TURRET":
+                score += rewardPerTurretKill;
+                balance += rewardPerTurretKill;
+
+                Debug.Log("Poinssystem Points:" + score);
+                Debug.Log("Balance :" + balance);
+
+                break;
+            default:
+                Debug.Log("The given string is not an option!");
+
+                break;
         }
-        else if(typeOfKill == "Turret" || typeOfKill == "turret"){
-            score += rewardPerTurretKill;
-            Debug.Log("Poinssystem Points:" + score);
-        }
-        else
-            Debug.Log("The given string is not an option!");
     }
 
     public void SubmitScore(string name)
     {
-        StartCoroutine(Upload(name));   
+        string faction = PlayerPrefs.GetString("house");
+
+        StartCoroutine(Upload(name, faction));   
     }
 
-    IEnumerator Upload(string name)
+    IEnumerator Upload(string name, string faction)
     {
         scoreAdded = false;
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        formData.Add(new MultipartFormDataSection("score=" + score + "&name=" + name));
+        formData.Add(new MultipartFormDataSection("score=" + score + "&name=" + name + "&faction=" + faction));
 
-        UnityWebRequest www = UnityWebRequest.Get("https://www.koenvuurens.tk/school/vr/submitHandler.php?score=" + score + "&name=" + name + "&key=aeae846e5d69ecaee6c76f37c143f263");
-        yield return www.Send();
+        UnityWebRequest www = UnityWebRequest.Get("http://www.housekeepers.ga/api/submitHandler.php?score=" + score + "&name=" + name + "&faction=" + faction + "&key=aeae846e5d69ecaee6c76f37c143f263");
+        yield return www.SendWebRequest();
 
         if (www.isNetworkError)
         {
@@ -53,5 +70,10 @@ public class Points : MonoBehaviour {
     public int GetScore()
     {
         return score;
+    }
+
+    public void BuyTower(int cost)
+    {
+        balance -= cost;
     }
 }

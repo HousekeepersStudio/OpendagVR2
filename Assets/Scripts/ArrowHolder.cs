@@ -29,7 +29,7 @@ public class ArrowHolder : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger " + other.gameObject.tag);
+        //Debug.Log("trigger " + other.gameObject.tag);
         if(spawnedObject == null && other.gameObject.tag == "Controller")
         {
             spawnedObject = Instantiate(arrowPrefab, this.gameObject.transform.position + arrowSpawnPosition, Quaternion.identity);

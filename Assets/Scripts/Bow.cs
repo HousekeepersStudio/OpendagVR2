@@ -83,7 +83,9 @@ public class Bow : MonoBehaviour
 
         arrow.GetComponent<Rigidbody>().velocity = arrow.transform.forward * distance * maxShootSpeed * velocity;
         AudioSource.PlayClipAtPoint(fireSound, transform.position);
-        GetComponent<RWVR_InteractionObject>().currentController.Vibrate(3500);
+        RWVR_InteractionObject rwvrobj = GetComponent<RWVR_InteractionObject>();
+        //Debug.Log(rwvrobj.currentController.ToString());
+        rwvrobj.currentController.Vibrate(3500);
         arrow.GetComponent<RealArrow>().Launch();
         arrow.transform.GetComponentInChildren<ParticleSystem>().gameObject.SetActive(true);
 

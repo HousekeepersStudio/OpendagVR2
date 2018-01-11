@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 195092042172614482}
   m_Layer: 0
   m_Name: EnemyDatabaseDragons
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +266,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566249185417416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.070364, y: 10.637403, z: 19.59425}
+  m_LocalPosition: {x: 29.990341, y: 10.807304, z: 23.358948}
   m_LocalScale: {x: 0.7266996, y: 0.79113823, z: 0.6019709}
   m_Children:
   - {fileID: 4292571024855304}
@@ -795,7 +795,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1566249185417416}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.8470024
   m_Height: 3.674198
   m_Direction: 1

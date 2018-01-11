@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.UI;
 [System.Serializable]
 public class Pointer
@@ -70,11 +69,13 @@ public class MyManager : MonoBehaviour {
     public string House;
     public Pointer[] colors;
 
+    public Points points;
+
     public SteamVR_TrackedController steamVR;
 
     private void Awake()
     {
-        
+        points = GameObject.Find("Points").GetComponent<Points>();
         House = PlayerPrefs.GetString("house");
         Debug.Log(House);
 
@@ -132,7 +133,11 @@ public class MyManager : MonoBehaviour {
                 break;
         }
 
-        PlayerPrefs.DeleteAll();
+    }
+
+    public void UpdateScore()
+    {
+        score = points.GetScore();
     }
 
     public Control GetControl(string name) {

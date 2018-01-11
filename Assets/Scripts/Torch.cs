@@ -17,10 +17,16 @@ public class Torch : MonoBehaviour
     private float _fadeDuration = 2f;
     public GameObject particle;
     public GameObject lighting;
+    public GameObject fireParticle;
 
 
     private void OnTriggerEnter(Collider col)
     {
+        if (col.gameObject.name.StartsWith("Controller"))
+        {
+            CreateFire(this.gameObject);
+        }
+
         if (col.gameObject.name == "dragonBanner" && dragonBanner)
         {
             CreateSmoke(col.gameObject);
@@ -94,6 +100,13 @@ public class Torch : MonoBehaviour
     {
         GameObject light = GameObject.Instantiate(lighting, banner.transform);
         light.transform.localPosition = new Vector3(0, 0, 0.5f);
+    }
+
+    private void CreateFire(GameObject banner)
+    {
+        GameObject fire = GameObject.Instantiate(fireParticle, banner.transform);
+        fire.transform.localScale = new Vector3(0.125f, 0.125f, 0.125f);
+        fire.transform.localPosition = new Vector3(0, 0, 0.5f);
     }
 
     private void FadeOut()

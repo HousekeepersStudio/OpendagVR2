@@ -41,7 +41,8 @@ public class StandardEnemy : Enemy {
             if (agent.enabled && agent.isOnNavMesh)
             {
                 targets = GameObject.FindGameObjectsWithTag("Target");
-                MoveTo(targets[0]);
+                if (targets.Length > 0)
+                    MoveTo(targets[0]);
             }
                 
 
