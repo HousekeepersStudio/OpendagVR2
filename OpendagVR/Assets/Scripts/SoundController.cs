@@ -2,71 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Sound
-{
-    public int id;
-    public string name;
-    public AudioClip clip;
-    public SoundType soundType;
-}
 
-[System.Serializable]
-public class SoundType
-{
-    public int id;
-    public string name;
-}
 
 public class SoundController : MonoBehaviour {
-    public Sound[] sounds;
-    public SoundType[] soundTypes;
+	public static SoundCollection collection;
 
-    public Sound FindSoundById(int id)
+	public SoundController() {
+		collection = GameObject.Find ("GameManager").GetComponent<SoundCollection> ();
+	}
+
+	private static SoundController _instance = null;
+	public static SoundController Instance()
+	{
+		if (_instance == null)
+			_instance = new SoundController();
+		return _instance;
+	}
+
+    private Sound FindSoundById(int id)
     {
         Sound s = new Sound();
         s.id = -1;
-        s.name = "invalid";
+        s.Name = "invalid";
         s.soundType.id = -1;
 
-        for (int i = 0; i < sounds.Length; i++)
+        for (int i = 0; i < collection.sounds.Length; i++)
         {
-            if (id == sounds[i].id)
+			if (id == collection.sounds[i].id)
             {
-                s = sounds[i];
+				s = collection.sounds[i];
             }
         }
 
         return s;
     }
 
-    public Sound FindSoundByName(string name)
+	private Sound FindSoundByName(string name)
     {
         Sound s = new Sound();
         s.id = -1;
-        s.name = "invalid";
+        s.Name = "invalid";
         s.soundType.id = -1;
 
-        for (int i = 0; i < sounds.Length; i++)
+		for (int i = 0; i < collection.sounds.Length; i++)
         {
-            if (name == sounds[i].name)
+			if (name == collection.sounds[i].Name)
             {
-                s = sounds[i];
+				s = collection.sounds[i];
             }
         }
 
         return s;
     }
 
-    public Sound FindSoundsByType(SoundType soundType)
+	private Sound FindSoundsByType(SoundType soundType)
     {
         Sound s = new Sound();
 
-        for (int i = 0; i < sounds.Length; i++)
+		for (int i = 0; i < collection.sounds.Length; i++)
         {
-            if (soundType.id == sounds[i].soundType.id || soundType.name == sounds[i].name)
+			if (soundType.id == collection.sounds[i].soundType.id || soundType.Name == collection.sounds[i].Name)
             {
-                s = sounds[i];
+				s = collection.sounds[i];
                 break;
             }
         }
@@ -74,37 +71,34 @@ public class SoundController : MonoBehaviour {
         return s;
     }
 
-    public void PlaySound(int id, AudioSource source)
+	public void PlaySound(int id, AudioSource source, bool loop = false)
     {
         Sound s = FindSoundById(id);
         source.clip = s.clip;
+		source.loop = loop;
 
         source.Play();
     }
 
-    public void PlaySound(string name, AudioSource source)
+	public void PlaySound(string name, AudioSource source, bool loop = false)
     {
         Sound s = FindSoundByName(name);
         source.clip = s.clip;
+		source.loop = loop;
 
         source.Play();
     }
 
-    public void PlaySound(SoundType soundType, AudioSource source)
+	public void PlaySound(SoundType soundType, AudioSource source, bool loop = false)
     {
         Sound s = FindSoundsByType(soundType);
         source.clip = s.clip;
+		source.loop = loop;
 
         source.Play();
     }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void StopSound(AudioSource source) {
+		source.Stop ();
 	}
 }
