@@ -66,10 +66,12 @@ public class MyManager : MonoBehaviour {
 	public Control[] controls;
     public SteamVR_LaserPointer pointer;
 	public int score;
+    public int balance;
     public string House;
     public Pointer[] colors;
 
     public Points points;
+    
 
     public SteamVR_TrackedController steamVR;
 
@@ -135,9 +137,10 @@ public class MyManager : MonoBehaviour {
 
     }
 
-    public void UpdateScore()
+    public void UpdatePoints()
     {
         score = points.GetScore();
+        balance = points.GetBalance();
     }
 
     public Control GetControl(string name) {

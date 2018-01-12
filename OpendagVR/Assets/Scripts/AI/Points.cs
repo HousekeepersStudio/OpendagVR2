@@ -72,7 +72,12 @@ public class Points : MonoBehaviour {
         return score;
     }
 
-    public void BuyTower(int cost)
+    public int GetBalance()
+    {
+        return balance;
+    }
+
+public void BuyTower(int cost)
     {
         balance -= cost;
     }

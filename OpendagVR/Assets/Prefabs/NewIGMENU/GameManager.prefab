@@ -48,63 +48,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147485200085678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e97fba0266846946939e70713c6d8d9, type: 3}
+  m_Script: {fileID: 11500000, guid: e12d6607f42e3f24fbdc37881a2aa48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controls:
   - name: menu_button
     key: 101
     joyName: menu_button
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
   - name: trigger_button
     key: 324
-    joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
+    joyName: trigger_button
     steamVR: {fileID: 0}
   - name: 
     key: 101
     joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
   - name: 
     key: 101
     joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
   - name: 
     key: 101
     joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
   - name: 
     key: 101
     joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
   - name: 
     key: 101
     joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
   - name: 
     key: 101
     joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
   - name: 
     key: 101
     joyName: 
-    kbBtn: {fileID: 0}
-    jkBtn: {fileID: 0}
     steamVR: {fileID: 0}
+  pointer: {fileID: 0}
   score: 0
+  balance: 0
+  House: 
+  colors:
+  - name: dragons
+    color: {r: 1, g: 0, b: 0, a: 0}
+  - name: serpents
+    color: {r: 0.034482718, g: 1, b: 0, a: 0}
+  - name: vikings
+    color: {r: 0.7853776, g: 0.006109435, b: 0.8308824, a: 0}
+  - name: ravens
+    color: {r: 0.13916521, g: 0.8602941, b: 0.8602941, a: 0}
+  points: {fileID: 0}
   steamVR: {fileID: 0}

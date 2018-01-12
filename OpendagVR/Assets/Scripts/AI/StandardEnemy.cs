@@ -29,9 +29,6 @@ public class StandardEnemy : Enemy {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-            curHealth -= 100;
-
         if(curHealth <= 0)
         {
             Die();
