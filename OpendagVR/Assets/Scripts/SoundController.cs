@@ -42,7 +42,7 @@ public class SoundController : MonoBehaviour {
         Sound s = new Sound();
         s.id = -1;
         s.Name = "invalid";
-        s.soundType.id = -1;
+        s.soundType = null;
 
 		for (int i = 0; i < collection.sounds.Length; i++)
         {
