@@ -36,6 +36,7 @@ public class TestingMenuScript : MonoBehaviour
 	public MenuItem[] menuItems;
 
 	public Text scoreLabel;
+    public Text balanceLabel;
 
 	[Header("Sound objects")]
 	public Slider volumeSlider;
@@ -93,6 +94,7 @@ public class TestingMenuScript : MonoBehaviour
 				switch (openMenu) {
 				case 0:
 					this.scoreLabel.text = FormatScore();
+                        this.balanceLabel.text = FormatBalance();
 					break;
 				case 4:
 					foreach (MenuItem m in menuItems) {
@@ -116,8 +118,17 @@ public class TestingMenuScript : MonoBehaviour
 		}
 	}
 
+    void UpdatePoints()
+    {
+        myManager.UpdatePoints();
+    }
+
+    string FormatBalance()
+    {
+        return myManager.balance.ToString() + " Cash";
+    }
+
 	string FormatScore() {
-        myManager.UpdateScore();
 		return myManager.score.ToString () + " Points";
 	}
 
