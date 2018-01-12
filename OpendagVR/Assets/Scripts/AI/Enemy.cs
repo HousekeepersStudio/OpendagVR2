@@ -83,14 +83,25 @@ public class Enemy : Entity {
         agent.enabled = true;
     }
 
-    public void SetLevel(int level, NavMeshAgent pathFinder)
+    public void SetLevel(int level, NavMeshAgent pathFinder, bool isIntroWave)
     {
-        this.level = level;
-        if((pathFinder.speed * speedMultiplier) * this.level <= maxSpeed && level > 1)
-            pathFinder.speed = ((pathFinder.speed * speedMultiplier) * this.level);
-        maxHealth = (float)((maxHealth * healthMultiplier) * this.level);
-        curHealth = maxHealth;
-        damage = (float)((damage * damageMultiplier) * this.level);
+        if (isIntroWave)
+        {
+            this.level = level;
+            pathFinder.speed = 0;
+            maxHealth = (float)((maxHealth * healthMultiplier) * this.level);
+            curHealth = maxHealth;
+            damage = (float)((damage * damageMultiplier) * this.level);
+        }
+        else
+        {
+            this.level = level;
+            if ((pathFinder.speed * speedMultiplier) * this.level <= maxSpeed && level > 1)
+                pathFinder.speed = ((pathFinder.speed * speedMultiplier) * this.level);
+            maxHealth = (float)((maxHealth * healthMultiplier) * this.level);
+            curHealth = maxHealth;
+            damage = (float)((damage * damageMultiplier) * this.level);
+        }
     }
 
     public NavMeshAgent GetNavMeshAgent()
