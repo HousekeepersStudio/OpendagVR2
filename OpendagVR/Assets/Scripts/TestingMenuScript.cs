@@ -53,9 +53,7 @@ public class TestingMenuScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		if (myManager == null) {
-			myManager = GameObject.Find ("GameManager").GetComponent<MyManager> ();
-		}
+		
 		menu = myManager.GetControl("menu_button");
 		trigger = myManager.GetControl ("trigger_button");
 		CloseAll ();
@@ -64,10 +62,14 @@ public class TestingMenuScript : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
 	{
-		/*==================== Main menu controls==========================*/
+        if (myManager == null)
+        {
+            myManager = GameObject.Find("GameManager").GetComponent<MyManager>();
+        }
+        /*==================== Main menu controls==========================*/
 
 
-		if (!joyPressed) {
+        if (!joyPressed) {
 			if (menu.GetJoyKey ()) {
 				ChangeMenu ();
 				joyPressed = true;
@@ -109,7 +111,11 @@ public class TestingMenuScript : MonoBehaviour
 				loaded = true;
 			}
             if (openMenu == 0)
+            {
+                UpdatePoints();
                 this.scoreLabel.text = FormatScore();
+                this.balanceLabel.text = FormatBalance();
+            }
         }
 		else
 		{
