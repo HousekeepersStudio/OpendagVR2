@@ -8,7 +8,7 @@ public class Sound
 	public string Name;
 	public int id;
 	public AudioClip clip;
-	public SoundType soundType;
+	public int typeId;
 }
 
 [System.Serializable]

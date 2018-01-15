@@ -30,8 +30,8 @@ public class StandardEnemy : Enemy {
         healthBar = this.transform.Find("HealthBarCanvas").Find("HealthBG").Find("HealthBar").GetComponent<Image>();
         agent = GetComponent<NavMeshAgent>();
 		audioSource = this.GetComponentInParent<AudioSource>();
-		controller = new SoundController ();
-		controller.PlaySound ("MonsterSound", audioSource, true);
+		controller = new SoundController();
+		controller.PlaySound ("MonsterSound", audioSource, 1.0f, true);
     }
 
     private void Update()
