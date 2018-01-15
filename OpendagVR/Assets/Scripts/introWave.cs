@@ -6,7 +6,7 @@ public class introWave : MonoBehaviour
 {
     // set this variable to false to disable all the console logs on this page 
     // or set this to true to enable all the console logs on this page
-    public bool consoleLogs = false;
+    public bool consoleLogs = true;
     private bool enemySpawned = false;
     private bool enemyDied = false;
     List<GameObject>  enemies;
@@ -50,12 +50,11 @@ public class introWave : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.Find("IntroSceneEnemy") != null && enemySpawned == true)
+        if (GameObject.Find("IntroSceneEnemy") != null && enemySpawned == true && GameObject.Find("IntroSceneEnemy").GetComponent<StandardEnemy>().GetCurrentHealth() <= 0)
         {
             DebugLog("Enemy died", consoleLogs);
             enemyDied = true;
         }
-
     }
 
     //WaveController.gameObject.SetActive(true);

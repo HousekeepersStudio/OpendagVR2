@@ -41,13 +41,15 @@ public class Enemy : Entity {
 
     protected IEnumerator DieT(GameObject enemy)
     {
-        transform.SetPositionAndRotation(new Vector3(0, -20, 0), new Quaternion(0, 0, 0, 0));
-        yield return new WaitForSeconds(1);
-        GameObject.Find("WaveController").GetComponent<WaveController>().RemoveFromWave(enemy.name);
-        Debug.Log("Enemy Died");
+        if (enemy.name != "IntroSceneEnemy")
+        {
+            transform.SetPositionAndRotation(new Vector3(0, -20, 0), new Quaternion(0, 0, 0, 0));
+            yield return new WaitForSeconds(1);
+            GameObject.Find("WaveController").GetComponent<WaveController>().RemoveFromWave(enemy.name);
+            Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
+            sn.AddPoints("Bow");
+        }
         Destroy(enemy);
-        Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
-        sn.AddPoints("Bow");
     }
     protected IEnumerator EnemyAttackTower(bool mainTowerAttack, Collider tower)
     {
