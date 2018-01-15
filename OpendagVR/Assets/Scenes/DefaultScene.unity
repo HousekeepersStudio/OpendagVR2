@@ -5586,11 +5586,6 @@ Transform:
   m_Father: {fileID: 1061315420}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &250052975 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1808634292125746, guid: 6f4fbd744d2744b46aa645280a814214,
-    type: 2}
-  m_PrefabInternal: {fileID: 62924457}
 --- !u!1001 &250107740
 Prefab:
   m_ObjectHideFlags: 0
@@ -6908,7 +6903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  shader: {fileID: 0}
   verbose: 0
   createComponents: 1
   updateDynamically: 1
@@ -7234,8 +7229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fcf447c5b6c6148a3229cf754897fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapColliderOrigin: {fileID: 667747344}
-  ControllerModel: {fileID: 321391962}
+  snapColliderOrigin: {fileID: 0}
+  ControllerModel: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &342215588
@@ -7250,7 +7245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: -1
+  index: 0
   origin: {fileID: 0}
 --- !u!1001 &343035664
 Prefab:
@@ -22714,9 +22709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e4a68890fe4e74bbe65c1edc33683c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraRig: {fileID: 1388915049}
-  animationCanvas: {fileID: 250052975}
-  StartingPosition: {fileID: 1449517393}
+  cameraRig: {fileID: 0}
+  animationCanvas: {fileID: 0}
+  StartingPosition: {fileID: 0}
   buttons: {fileID: 0}
   pointer: {fileID: 0}
   CurrentTeleportPos: {fileID: 0}
@@ -22732,8 +22727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fcf447c5b6c6148a3229cf754897fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapColliderOrigin: {fileID: 1594606921}
-  ControllerModel: {fileID: 1978006844}
+  snapColliderOrigin: {fileID: 0}
+  ControllerModel: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1129543374
@@ -22760,7 +22755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: -1
+  index: 0
   origin: {fileID: 0}
 --- !u!114 &1129543376
 MonoBehaviour:
@@ -22774,7 +22769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cffbaa6dd4cd06468a89c45f963c696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowPrefab: {fileID: 1802431788597480, guid: f354a616c21ac7b40af5e12383ab7d10, type: 2}
+  bowPrefab: {fileID: 0}
 --- !u!1001 &1130758713
 Prefab:
   m_ObjectHideFlags: 0
@@ -24294,8 +24289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _head: {fileID: 2019363144}
-  _ears: {fileID: 730026010}
+  _head: {fileID: 0}
+  _ears: {fileID: 0}
   wireframe: 0
 --- !u!124 &1208975986
 Behaviour:
@@ -24900,6 +24895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaveController: {fileID: 1391152822}
+  enemyPrefab: {fileID: 1566249185417416, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
+    type: 2}
 --- !u!4 &1231645584
 Transform:
   m_ObjectHideFlags: 0
@@ -27947,18 +27944,10 @@ MonoBehaviour:
   borderThickness: 0.15
   wireframeHeight: 2
   drawWireframeWhenSelectedOnly: 0
-  drawInGame: 0
-  size: 2
+  drawInGame: 1
+  size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
-  vertices:
-  - {x: 1.5, y: 0.01, z: -1.125}
-  - {x: -1.5, y: 0.01, z: -1.125}
-  - {x: -1.5, y: 0.01, z: 1.125}
-  - {x: 1.5, y: 0.01, z: 1.125}
-  - {x: 1.65, y: 0.01, z: -1.275}
-  - {x: -1.65, y: 0.01, z: -1.275}
-  - {x: -1.65, y: 0.01, z: 1.275}
-  - {x: 1.65, y: 0.01, z: 1.275}
+  vertices: []
 --- !u!33 &1388915053
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -28014,8 +28003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b47c2980b93bc48844a54641dab5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left: {fileID: 342215584}
-  right: {fileID: 1129543367}
+  left: {fileID: 0}
+  right: {fileID: 0}
   objects: []
   assignAllBeforeIdentified: 0
 --- !u!1 &1390876919
@@ -28089,6 +28078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1566249185417416, guid: 90fe7d7b12a2f944eba14c7c8f702b96,
     type: 2}
+  introWaveScript: {fileID: 1231645582}
   waitingTime: 0
 --- !u!4 &1391607358 stripped
 Transform:
@@ -29664,11 +29654,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 434652, guid: d18bc5c5a34308844a5c5684e48318db, type: 2}
   m_PrefabInternal: {fileID: 1724720687}
---- !u!1 &1449517393 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1077585155612278, guid: e2ab980cb7cb62d4b9d373586eceb036,
-    type: 2}
-  m_PrefabInternal: {fileID: 1642487363}
 --- !u!1001 &1451271891
 Prefab:
   m_ObjectHideFlags: 0
@@ -30039,10 +30024,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca8d29a79f8a9e47b09c13278011f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 1702354496119314, guid: 453657d622eaf2249bc5ed0a1c1ca038,
-    type: 2}
-  arrowSpawnPosition: {x: 0, y: 0.3, z: 0}
-  arrowSpawnRotation: {x: 0, y: 90, z: -90, w: 0}
+  arrowPrefab: {fileID: 0}
+  arrowSpawnPosition: {x: 0, y: 0, z: 0}
+  arrowSpawnRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1463254131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40794,7 +40778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  shader: {fileID: 0}
   verbose: 0
   createComponents: 1
   updateDynamically: 1

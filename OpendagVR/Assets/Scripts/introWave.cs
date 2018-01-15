@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class introWave : MonoBehaviour {
-
-    List<GameObject> enemies;
+public class introWave : MonoBehaviour
+{
+    // set this variable to false to disable all the console logs on this page 
+    // or set this to true to enable all the console logs on this page
+    public bool consoleLogs = false;
+    private bool enemySpawned = false;
+    private bool enemyDied = false;
+    List<GameObject>  enemies;
     public GameObject WaveController;
     public GameObject enemyPrefab;
-    Vector3 spawnLocation;
+    Vector3           spawnLocation;
 
     void Awake()
     {
@@ -27,14 +32,42 @@ public class introWave : MonoBehaviour {
         enemy.name = "IntroSceneEnemy";
         enemies.Add(enemy);
         StartCoroutine(enemyScript.TurnOnNavMeshAgent());
-
+        DebugLog("Enemy Spawned", consoleLogs);
+        enemySpawned = true;
         StartCoroutine(Story());
     }
-
+    // Part one of the story
     IEnumerator Story()
     {
+        // Ben.Say(voicelinesIntro);
+
         yield return new WaitForSeconds(3);
-        Debug.Log("End Reached");
-        WaveController.gameObject.SetActive(true);
+        DebugLog("Waituntil started", consoleLogs);
+        yield return new WaitUntil(() => enemyDied == true);
+        DebugLog("Waituntil ended", consoleLogs);
+
+    }
+
+    void Update()
+    {
+        if (GameObject.Find("IntroSceneEnemy") != null && enemySpawned == true)
+        {
+            DebugLog("Enemy died", consoleLogs);
+            enemyDied = true;
+        }
+
+    }
+
+    //WaveController.gameObject.SetActive(true);
+
+    // Function to disable all the logs in this script
+    // and simplify the bracket stuff 
+    void DebugLog(string message, bool on)
+    {
+        if (on)
+        {
+            message = "[introwave]" + message;
+            Debug.Log(message);
+        }
     }
 }
