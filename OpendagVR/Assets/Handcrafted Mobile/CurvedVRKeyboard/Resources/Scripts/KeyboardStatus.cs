@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 namespace CurvedVRKeyboard {
@@ -94,6 +95,8 @@ namespace CurvedVRKeyboard {
             {
                 okayPressed = true;
                 pointSystem.SubmitScore(output);
+
+                SceneManager.LoadScene(0);
             }
         }
 
