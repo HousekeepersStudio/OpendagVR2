@@ -16,15 +16,22 @@ public class StandardEnemy : Enemy {
     static int enemyDamage = (int)((baseDamage * sDamageMultiplier) * startLevel);
     bool mainTowerAttack = false;
 
+	AudioSource audioSource;
+
     public StandardEnemy() : base(enemyType, health, enemyDamage, startLevel)
     {
-
+		
     }
+
+	private SoundController controller;
 
     private void Awake()
     {
         healthBar = this.transform.Find("HealthBarCanvas").Find("HealthBG").Find("HealthBar").GetComponent<Image>();
         agent = GetComponent<NavMeshAgent>();
+		audioSource = this.GetComponentInParent<AudioSource>();
+		controller = new SoundController();
+		controller.PlaySound ("MonsterSound", audioSource, 1.0f, true);
     }
 
     private void Update()
