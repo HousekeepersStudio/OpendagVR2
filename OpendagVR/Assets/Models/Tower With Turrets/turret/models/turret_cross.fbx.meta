@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: 963c3d6737fcc1f42bb0c2132a13ff23
+timeCreated: 1513242462
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: BezierCurve_Mesh
+    100002: Circle.000
+    100004: Circle.001
+    100006: Cube
+    100008: Cube.001_Cube.000
+    100010: Cube.001_Cube.004
+    100012: Cube.002
+    100014: Cube.002_Cube.001
+    100016: Cube.003_Cube.002
+    100018: Cylinder
+    100020: Cylinder.001_Cylinder.003
+    100022: Cylinder.002_Cylinder.001
+    100024: Cylinder.003_Cylinder.002
+    100026: Plane
+    100028: Plane.001
+    100030: turret_bottem
+    100032: //RootNode
+    400000: BezierCurve_Mesh
+    400002: Circle.000
+    400004: Circle.001
+    400006: Cube
+    400008: Cube.001_Cube.000
+    400010: Cube.001_Cube.004
+    400012: Cube.002
+    400014: Cube.002_Cube.001
+    400016: Cube.003_Cube.002
+    400018: Cylinder
+    400020: Cylinder.001_Cylinder.003
+    400022: Cylinder.002_Cylinder.001
+    400024: Cylinder.003_Cylinder.002
+    400026: Plane
+    400028: Plane.001
+    400030: turret_bottem
+    400032: //RootNode
+    2300000: BezierCurve_Mesh
+    2300002: Circle.000
+    2300004: Circle.001
+    2300006: Cube
+    2300008: Cube.001_Cube.000
+    2300010: Cube.001_Cube.004
+    2300012: Cube.002
+    2300014: Cube.002_Cube.001
+    2300016: Cube.003_Cube.002
+    2300018: Cylinder
+    2300020: Cylinder.001_Cylinder.003
+    2300022: Cylinder.002_Cylinder.001
+    2300024: Cylinder.003_Cylinder.002
+    2300026: Plane
+    2300028: Plane.001
+    2300030: turret_bottem
+    3300000: BezierCurve_Mesh
+    3300002: Circle.000
+    3300004: Circle.001
+    3300006: Cube
+    3300008: Cube.001_Cube.000
+    3300010: Cube.001_Cube.004
+    3300012: Cube.002
+    3300014: Cube.002_Cube.001
+    3300016: Cube.003_Cube.002
+    3300018: Cylinder
+    3300020: Cylinder.001_Cylinder.003
+    3300022: Cylinder.002_Cylinder.001
+    3300024: Cylinder.003_Cylinder.002
+    3300026: Plane
+    3300028: Plane.001
+    3300030: turret_bottem
+    4300000: turret_bottem
+    4300002: Cube
+    4300004: Circle.001
+    4300006: BezierCurve_Mesh
+    4300008: Cube.001_Cube.004
+    4300010: Cube.002
+    4300012: Cube.002_Cube.001
+    4300014: Cube.003_Cube.002
+    4300016: Cylinder
+    4300018: Cylinder.001_Cylinder.003
+    4300020: Cylinder.002_Cylinder.001
+    4300022: Cylinder.003_Cylinder.002
+    4300024: Plane
+    4300026: Plane.001
+    4300028: Circle.000
+    4300030: Cube.001_Cube.000
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 5bfa48aecf063004288141657d72be60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stock
+    second: {fileID: 2100000, guid: a4e05887ce0cba644a07b04fb0a61d5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arrowbody
+    second: {fileID: 2100000, guid: 748f94df203527043851eb86a2ca2651, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arrowhead
+    second: {fileID: 2100000, guid: 61813234dc054f146a07fdc103064f0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arrowslot
+    second: {fileID: 2100000, guid: d7a69bf236a77ee41a9d78ed24fe1079, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bowlimbs
+    second: {fileID: 2100000, guid: 28b9a67ba65c00245b44790c2e6dce1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bowlimbs.001
+    second: {fileID: 2100000, guid: 399979016f3b1a343bc83491f59d0d88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bowstring
+    second: {fileID: 2100000, guid: 6efae25aabe772b418cc5bce84650ba5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crank
+    second: {fileID: 2100000, guid: 215daae520459194a8990c8906b5eda6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: featherflights
+    second: {fileID: 2100000, guid: ef423138e8731424e8d313eaa90a8fed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: side_inner
+    second: {fileID: 2100000, guid: 98ca9268690e5014c8404e3f1fbdff68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: side_outer
+    second: {fileID: 2100000, guid: 58fcf958f8d00e246badc4d67ad7ad9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stirrup
+    second: {fileID: 2100000, guid: 179604a82876ed342bde830758510fe3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stirrup.001
+    second: {fileID: 2100000, guid: e2824e814d74c574cad80d1955471ef9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top_bottem
+    second: {fileID: 2100000, guid: 7f1285385c9bc4a44924325c07790fee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trigger
+    second: {fileID: 2100000, guid: 5ebf7477e747627408546c30127c36a1, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
