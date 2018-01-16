@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class introWave : MonoBehaviour
 {
-    // set this variable to false to disable all the console logs on this page 
-    // or set this to true to enable all the console logs on this page
-    public bool consoleLogs = true;
+
     private bool enemySpawned = false;
     private bool enemyDied = false;
     private bool bowIsInHand = false;
+    private bool bowIsSpawned = false;
     private SoundController controller;
     private AudioSource audioSource;
     List<GameObject>  enemies;
-    public GameObject WaveController;
-    public GameObject cameraRig;
-    public GameObject enemyPrefab;
     Vector3 spawnLocation;
+
+    // set this variable to false to disable all the console logs on this page 
+    // or set this to true to enable all the console logs on this page
+    public bool consoleLogs = true;
+    public GameObject WaveController;
+    public GameObject leftController;
+    public GameObject rightController;
+    public Renderer ImageSpot;
+    public GameObject enemyPrefab;
+
+    // Textures
+    public Texture triggerButton;
+    public Texture touchpadLeft;
+    public Texture touchpadRight;
+    public Texture menuButton;
 
     void Awake()
     {
@@ -50,13 +61,28 @@ public class introWave : MonoBehaviour
         
         yield return new WaitForSeconds(6);
         // show image
-        yield return new WaitUntil(() => enemyDied == true);
-        // WaitFor bow is child of controller
+        ImageSpot.material.mainTexture = touchpadLeft;
+        ImageSpot.gameObject.SetActive(true);
+        yield return new WaitUntil(() => bowIsSpawned == true);
+        ImageSpot.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         controller.PlaySound(3, audioSource);
-        DebugLog("Waituntil enemydied started", consoleLogs);
+        ImageSpot.material.mainTexture = triggerButton;
+        yield return new WaitForSeconds(2.0f);
+        ImageSpot.gameObject.SetActive(true);
+        yield return new WaitUntil(() => bowIsInHand == true);
+        ImageSpot.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        controller.PlaySound(4, audioSource);
+        yield return new WaitForSeconds(9.0f);
+        controller.PlaySound(5, audioSource);
         yield return new WaitUntil(() => enemyDied == true);
-        DebugLog("Waituntil enemydied ended", consoleLogs);
-        WaveController.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        controller.PlaySound(6, audioSource);
+        ImageSpot.material.mainTexture = menuButton;
+        yield return new WaitForSeconds(3.0f);
+        ImageSpot.gameObject.SetActive(true);
+        //WaveController.gameObject.SetActive(true);
 
     }
 
@@ -68,11 +94,20 @@ public class introWave : MonoBehaviour
             enemyDied = true;
         }
 
-        if (cameraRig.transform.Find("Gun").gameObject != null)
+        if (leftController.transform.childCount > 2 || rightController.transform.childCount > 3)
+        {
             bowIsInHand = true;
+        }
     }
 
-    //WaveController.gameObject.SetActive(true);
+
+    public void ExternalInput(string input)
+    {
+        if(input == "BowHasBeenSpawned")
+        {
+            bowIsSpawned = true;
+        }
+    }
 
     // Function to disable all the logs in this script
     // and simplify the bracket stuff 

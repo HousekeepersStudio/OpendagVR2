@@ -124,6 +124,15 @@ public class TouchpadCross : MonoBehaviour {
         bow = bowPrefab;
         bow = GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y + 1f, cameraRig.transform.position.z), Quaternion.identity);
         bow.GetComponent<Rigidbody>().isKinematic = true;
+
+        // say to the introwave script that the bow has been spawned (only 1st time)
+        int i = 0;
+        if (i == 0)
+        {
+            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("BowHasBeenSpawned");
+            i++;
+        }
+
     }
 
     void SetupGameObjects()
