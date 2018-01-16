@@ -45,6 +45,7 @@ public class introWave : MonoBehaviour
         DebugLog("Waituntil started", consoleLogs);
         yield return new WaitUntil(() => enemyDied == true);
         DebugLog("Waituntil ended", consoleLogs);
+        WaveController.gameObject.SetActive(true);
 
     }
 
