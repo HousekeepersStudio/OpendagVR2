@@ -107,8 +107,6 @@ GameObject:
   - component: {fileID: 4201785300292290}
   - component: {fileID: 114178128629129760}
   - component: {fileID: 54328053878841656}
-  - component: {fileID: 208863782226902326}
-  - component: {fileID: 136260821179500828}
   - component: {fileID: 82560439984926022}
   - component: {fileID: 195092042172614482}
   m_Layer: 0
@@ -266,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566249185417416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.990341, y: 10.807304, z: 23.358948}
+  m_LocalPosition: {x: -3.8797712, y: 0.37436706, z: -42.43}
   m_LocalScale: {x: 0.7266996, y: 0.79113823, z: 0.6019709}
   m_Children:
   - {fileID: 4292571024855304}
@@ -699,6 +697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022d6aadd96b88749bef85533c36b95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainTowerObjectName: Target
+  mainTowerAttack: 0
 --- !u!114 &114256565022620898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -787,19 +787,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136260821179500828
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566249185417416}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 0.8470024
-  m_Height: 3.674198
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.383122, z: 0}
 --- !u!136 &136332823148945782
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -873,21 +860,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!208 &208863782226902326
-NavMeshObstacle:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566249185417416}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 2, y: 1, z: 2}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 3.28, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!222 &222298341676961036
 CanvasRenderer:
   m_ObjectHideFlags: 1

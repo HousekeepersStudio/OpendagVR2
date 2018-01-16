@@ -3,17 +3,20 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class StandardEnemy : Enemy {
+    public string mainTowerObjectName;
     NavMeshAgent nav;
     static string enemyType = "Standard";
     static int baseHealth = 100;
-    static int baseDamage = 2;
+    static float baseDamage = 2f;
     static float sHealthMultiplier = healthMultiplier;
     static float sDamageMultiplier = damageMultiplier;
 
     static int startLevel = 1;
     static int health = (int)((baseHealth * sHealthMultiplier) * startLevel);
     static int enemyDamage = (int)((baseDamage * sDamageMultiplier) * startLevel);
-    bool mainTowerAttack = false;
+    public bool mainTowerAttack = false;
+    private bool isAttacking = false;
+    private GameObject mainTower;
 
     public StandardEnemy() : base(enemyType, health, enemyDamage, startLevel)
     {
@@ -28,6 +31,27 @@ public class StandardEnemy : Enemy {
 
     private void Update()
     {
+        if (mainTower == null)
+            mainTower = GameObject.Find(mainTowerObjectName);
+
+
+        if (!isAttacking)
+        {
+            if (mainTowerAttack && mainTower != null)
+            {
+                Attack();
+                isAttacking = true;
+            }
+        }
+        else
+        {
+            if (!mainTowerAttack && mainTower != null)
+            {
+                isAttacking = false;
+            }
+        }
+        
+
         if(curHealth <= 0)
         {
             Die();
@@ -59,24 +83,13 @@ public class StandardEnemy : Enemy {
 
     private void Die()
     {
+        mainTowerAttack = false;
         StartCoroutine(DieT(gameObject));
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Attack()
     {
-        if (other.gameObject.tag == "Target")
-        {
-            StopMove();
-            mainTowerAttack = true;
-            StartCoroutine(EnemyAttackTower(mainTowerAttack, other));
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Target")
-        {
-            mainTowerAttack = false;
-        }
+        StopMove();
+        StartCoroutine(EnemyAttackTower(mainTowerAttack, mainTower.GetComponent<Collider>()));
     }
 }

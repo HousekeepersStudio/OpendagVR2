@@ -37,4 +37,24 @@ public class Target : Entity {
         yield return new WaitForSeconds(waitTime);
         // Add sound for gameover
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger Enter " + other.tag);
+        if(other.tag.Contains("Enemy"))
+        {
+            StandardEnemy se = other.transform.parent.parent.GetComponent<StandardEnemy>();
+            se.mainTowerAttack = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Trigger Exit " + other.tag);
+        if (other.tag.Contains("Enemy"))
+        {
+            StandardEnemy se = other.transform.parent.parent.GetComponent<StandardEnemy>();
+            se.mainTowerAttack = false;
+        }
+    }
 }
