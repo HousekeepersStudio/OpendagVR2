@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,44 +22,53 @@ public class BuildTower : MonoBehaviour {
         {
             if (pointer != null && buttons != null)
                 Raycast();
-            else
+
+            if (pointer == null)
                 pointer = controllerRight.GetComponent<SteamVR_LaserPointer>();
 
             if (buttons == null)
                 buttons = controllerRight.GetComponent<SteamVR_TrackedController>();
         }
-        catch { }
+        catch(Exception e) {
+            //Debug.Log(e);
+        }
 	}
 
     void Raycast()
     {
         RaycastHit hit;
-        Physics.Raycast(pointer.pointer.transform.position, pointer.pointer.transform.forward, out hit);
-        if (hit.collider.tag == unbuildTowerTag && buttons.triggerPressed)
+        if (pointer.holder.activeSelf)
         {
-            Vector3 pos = hit.transform.parent.position;
-            Quaternion rot = hit.transform.parent.rotation;
-
-            Destroy(hit.transform.parent.gameObject);
-
-            string selectedHouse = PlayerPrefs.GetString("house");
-            switch (selectedHouse)
+            Physics.Raycast(pointer.pointer.transform.position, pointer.pointer.transform.forward, out hit);
+            if (hit.collider.tag == unbuildTowerTag && buttons.triggerPressed)
             {
-                case "dragons":
-                    Instantiate(towerDragons, pos, rot);
-                    break;
+                Transform parent = hit.transform.parent.parent;
+                Vector3 pos = hit.transform.parent.position;
+                Quaternion rot = hit.transform.parent.rotation;
 
-                case "serpents":
-                    Instantiate(towerSerpents, pos, rot);
-                    break;
+                Destroy(hit.transform.parent.gameObject);
 
-                case "vikings":
-                    Instantiate(towerVikings, pos, rot);
-                    break;
+                string selectedHouse;// = PlayerPrefs.GetString("house");
+                selectedHouse = "ravens";
 
-                case "ravens":
-                    Instantiate(towerRavens, pos, rot);
-                    break;
+                switch (selectedHouse)
+                {
+                    case "dragons":
+                        Instantiate(towerDragons, pos, rot, parent);
+                        break;
+
+                    case "serpents":
+                        Instantiate(towerSerpents, pos, rot, parent);
+                        break;
+
+                    case "vikings":
+                        Instantiate(towerVikings, pos, rot, parent);
+                        break;
+
+                    case "ravens":
+                        Instantiate(towerRavens, pos, rot, parent);
+                        break;
+                }
             }
         }
     }
