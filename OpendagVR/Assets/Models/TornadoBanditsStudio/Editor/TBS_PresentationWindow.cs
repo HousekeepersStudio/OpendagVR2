@@ -31,7 +31,7 @@ namespace TornadoBanditsStudio.LowPolyFreePack
 
         public static TBS_PresentationWindow presentationWindow;
 
-        //[MenuItem ("Tornado Bandits Studio/Package Presentation")]
+        [MenuItem ("Tornado Bandits Studio/Package Presentation")]
         public static void InitializePresentationWindow ()
         {
             // Get existing open window or if none, make a new one:

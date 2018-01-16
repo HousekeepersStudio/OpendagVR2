@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
@@ -13,21 +14,30 @@ public class StandardEnemy : Enemy {
     static int startLevel = 1;
     static int health = (int)((baseHealth * sHealthMultiplier) * startLevel);
     static int enemyDamage = (int)((baseDamage * sDamageMultiplier) * startLevel);
+
+    Animator animator;
     bool mainTowerAttack = false;
 
     public StandardEnemy() : base(enemyType, health, enemyDamage, startLevel)
     {
-		
+
     }
 
     private void Awake()
     {
         healthBar = this.transform.Find("HealthBarCanvas").Find("HealthBG").Find("HealthBar").GetComponent<Image>();
         agent = GetComponent<NavMeshAgent>();
+        animator = this.GetComponent<Animator>();
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+            curHealth -= 100;
+		if (curHealth / maxHealth <= 0.5F) 
+		{
+			animator.SetTrigger ("Hurt");
+		}
         if(curHealth <= 0)
         {
             Die();
@@ -35,13 +45,7 @@ public class StandardEnemy : Enemy {
         else
         {
             if (agent.enabled && agent.isOnNavMesh)
-            {
-                targets = GameObject.FindGameObjectsWithTag("Target");
-                if (targets.Length > 0)
-                    MoveTo(targets[0]);
-            }
-                
-
+                MoveTo(GameObject.FindGameObjectWithTag("Target"));
 
             if (!agent.isOnNavMesh)
             {
@@ -51,8 +55,7 @@ public class StandardEnemy : Enemy {
                 NavMesh.SamplePosition(gameObject.transform.position, out closesthit, 500f, NavMesh.AllAreas);
                 transform.position = closesthit.position;
                 agent.isStopped = false;
-                targets = GameObject.FindGameObjectsWithTag("Target");
-                MoveTo(targets[0]);
+                MoveTo(GameObject.FindGameObjectWithTag("Target"));
             }
         }
     }
@@ -67,6 +70,7 @@ public class StandardEnemy : Enemy {
         if (other.gameObject.tag == "Target")
         {
             StopMove();
+            animator.SetTrigger("Attack");
             mainTowerAttack = true;
             StartCoroutine(EnemyAttackTower(mainTowerAttack, other));
         }
@@ -76,6 +80,7 @@ public class StandardEnemy : Enemy {
     {
         if (other.gameObject.tag == "Target")
         {
+            animator.SetTrigger("Walk");
             mainTowerAttack = false;
         }
     }

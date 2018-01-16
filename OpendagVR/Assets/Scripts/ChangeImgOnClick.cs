@@ -31,7 +31,7 @@ public class ChangeImgOnClick : MonoBehaviour {
         {
             currentSprite = 3;
         }
-        this.nextSprite = allSprites[currentSprite];        
+        this.nextSprite = allSprites[currentSprite];
     }
 
 
@@ -39,14 +39,5 @@ public class ChangeImgOnClick : MonoBehaviour {
     {
         ChangeSprite(isForward);
         target.gameObject.GetComponent<Image>().sprite = nextSprite;
-        PlayerPrefs.SetString("House", nextSprite.name);
     }
-    //private void update()
-    //{
-    //    if (input.getkeydown(keycode.rightarrow))
-    //        changesprite(true);
-
-    //    else if(input.getkeydown(keycode.leftarrow))
-    //        changesprite(false);
-    //}
 }

@@ -65,7 +65,9 @@ public class Bow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         try
-        {          
+        {
+            if (other.GetComponent<RWVR_InteractionObject>().IsFree() && GetComponent<Rigidbody>().isKinematic)
+                GetComponent<Rigidbody>().isKinematic = false;
 
             if (!IsArmed() && other.CompareTag("InteractionObject") && other.GetComponent<RealArrow>() && !other.GetComponent<RWVR_InteractionObject>().IsFree())
             {
@@ -83,9 +85,7 @@ public class Bow : MonoBehaviour
 
         arrow.GetComponent<Rigidbody>().velocity = arrow.transform.forward * distance * maxShootSpeed * velocity;
         AudioSource.PlayClipAtPoint(fireSound, transform.position);
-        RWVR_InteractionObject rwvrobj = GetComponent<RWVR_InteractionObject>();
-        //Debug.Log(rwvrobj.currentController.ToString());
-        rwvrobj.currentController.Vibrate(3500);
+        GetComponent<RWVR_InteractionObject>().currentController.Vibrate(3500);
         arrow.GetComponent<RealArrow>().Launch();
         arrow.transform.GetComponentInChildren<ParticleSystem>().gameObject.SetActive(true);
 

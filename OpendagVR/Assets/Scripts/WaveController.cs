@@ -5,22 +5,16 @@ using UnityEngine;
 public class WaveController : MonoBehaviour {
     List<Vector3> spawnLocations;
     List<GameObject> enemies;
-    public GameObject ravenPrefab;
-    public GameObject dragonPrefab;
-    public GameObject serpentPrefab;
-    public GameObject vikingPrefab;
-    private GameObject enemyPrefab;
-    public GameObject introWaveScript;
+    public GameObject enemyPrefab;
     public float waitingTime;
     int waveNr = 1;
     int enemiesCount = 3;
+    float enemyMultiply = 1.2f;
     float enemyLevelMultiply = 1.05f;
     bool waveInitialized = false;
     bool timerStarted = false;
-    public float enemyMultiply = 3.0f;
 
     void Awake () {
-        introWaveScript.gameObject.SetActive(false);
         enemies = new List<GameObject>();
         spawnLocations = new List<Vector3>();
         foreach(GameObject spawn in GameObject.FindGameObjectsWithTag("Spawn"))
@@ -29,7 +23,6 @@ public class WaveController : MonoBehaviour {
             //Debug.Log(string.Format("Spawn Location Added (X: {0}, Y: {1}, Z: {2})", spawn.transform.position.x, spawn.transform.position.y, spawn.transform.position.z));
         }
         //Debug.Log("Spawn Locations: " + spawnLocations.Count);
-        InitEnemy();
         InitWave();
 
     }
@@ -62,7 +55,7 @@ public class WaveController : MonoBehaviour {
     {
         if (timerStarted)
             timerStarted = false;
-        enemiesCount = (int)(waveNr * enemyMultiply) +2;
+        enemiesCount = (int)(enemiesCount * (waveNr * enemyMultiply));
         StartCoroutine(SpawnEnemies());
     }
 
@@ -77,7 +70,7 @@ public class WaveController : MonoBehaviour {
             //Debug.Log(spawnLocations[rnd.Next(0, spawnLocations.Count - 1)]);
             GameObject enemy = GameObject.Instantiate(enemyPrefab, spawnLocations[rnd.Next(0, spawnLocations.Count -1)], new Quaternion(0, 0, 0, 0));
             StandardEnemy enemyScript = enemy.GetComponent<StandardEnemy>();
-            enemyScript.SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent(), false);
+            enemyScript.SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent());
             enemy.name = "Enemy[" + i + "]";
             enemies.Add(enemy);
             StartCoroutine(enemyScript.TurnOnNavMeshAgent());
@@ -91,24 +84,5 @@ public class WaveController : MonoBehaviour {
         timerStarted = true;
         yield return new WaitForSeconds(seconds);
         waveInitialized = false;
-    }
-
-    private void InitEnemy()
-    {
-        switch (PlayerPrefs.GetString("house"))
-        {
-            case "serpents":
-                enemyPrefab = dragonPrefab;
-                break;
-            case "vikings":
-                enemyPrefab = ravenPrefab;
-                break;
-            case "dragons":
-                enemyPrefab = serpentPrefab;
-                break;
-            case "ravens":
-                enemyPrefab = vikingPrefab;
-                break;
-        }
     }
 }

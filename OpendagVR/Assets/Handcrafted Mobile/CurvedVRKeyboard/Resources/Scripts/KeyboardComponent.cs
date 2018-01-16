@@ -17,7 +17,7 @@ namespace CurvedVRKeyboard {
         public const string LOW = "low";
 
         public const int CENTER_ITEM = 15;
-        public const int KEY_NUMBER = 31;
+        public const int KEY_NUMBER = 30;
         public const int POSITION_SPACE = 28;
 
         public enum KeyLetterEnum {

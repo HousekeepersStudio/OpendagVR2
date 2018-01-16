@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 namespace CurvedVRKeyboard {
@@ -30,9 +29,6 @@ namespace CurvedVRKeyboard {
         private const char BLANKSPACE = ' ';
         private const string TEXT = "text";
         private Component textComponent;
-
-        private Points pointSystem;
-        private bool okayPressed = false;
 
 
         /// <summary>
@@ -91,13 +87,8 @@ namespace CurvedVRKeyboard {
 
         public void OkeyKey()
         {
-            if (!string.IsNullOrEmpty(output))
-            {
-                okayPressed = true;
-                pointSystem.SubmitScore(output);
+            Point.gameObject.GetComponent<PointssSystem>().SubmitScore(output);
 
-                SceneManager.LoadScene(0);
-            }
         }
 
         private void TypeKey ( char key ) {
@@ -115,15 +106,6 @@ namespace CurvedVRKeyboard {
 
         public void setOutput (ref string stringRef) {
             output = stringRef;
-        }
-
-        private void Update()
-        {
-            if (pointSystem == null)
-                pointSystem = Point.gameObject.GetComponent<Points>();
-
-            if (okayPressed && pointSystem.scoreAdded)
-                gameObject.SetActive(false);
         }
     }
 }

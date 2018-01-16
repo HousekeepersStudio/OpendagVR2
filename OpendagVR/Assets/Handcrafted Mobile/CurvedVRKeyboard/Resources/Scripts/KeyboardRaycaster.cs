@@ -30,7 +30,6 @@ namespace CurvedVRKeyboard {
             keyboardStatus = gameObject.GetComponent<KeyboardStatus>();
             int layerNumber = gameObject.layer;
             layer = 1 << layerNumber;
-
         }
 
         void Update () {
@@ -70,8 +69,11 @@ namespace CurvedVRKeyboard {
                     }
                     else
                     {
-                        keyItemCurrent.Click();
-                        keyboardStatus.HandleClick(keyItemCurrent);
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {// If key clicked
+                            keyItemCurrent.Click();
+                            keyboardStatus.HandleClick(keyItemCurrent);
+                        }
                     }
                     
                     
