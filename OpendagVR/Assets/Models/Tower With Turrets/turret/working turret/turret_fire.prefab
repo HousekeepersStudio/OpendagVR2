@@ -479,4 +479,4 @@ MonoBehaviour:
     type: 2}
   firePoint: {fileID: 4940208883340672}
   damage: 10
-  bulletSpeed: 1500
+  bulletSpeed: 1000
