@@ -15,6 +15,7 @@ TagManager:
   - EnemyBody
   - turret
   - Torch
+  - IntrowaveSpawn
   layers:
   - Default
   - TransparentFX

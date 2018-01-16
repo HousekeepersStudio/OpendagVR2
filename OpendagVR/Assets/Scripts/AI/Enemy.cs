@@ -41,13 +41,15 @@ public class Enemy : Entity {
 
     protected IEnumerator DieT(GameObject enemy)
     {
-        transform.SetPositionAndRotation(new Vector3(0, -20, 0), new Quaternion(0, 0, 0, 0));
-        yield return new WaitForSeconds(1);
-        GameObject.Find("WaveController").GetComponent<WaveController>().RemoveFromWave(enemy.name);
-        Debug.Log("Enemy Died");
+        if (enemy.name != "IntroSceneEnemy")
+        {
+            transform.SetPositionAndRotation(new Vector3(0, -20, 0), new Quaternion(0, 0, 0, 0));
+            yield return new WaitForSeconds(1);
+            GameObject.Find("WaveController").GetComponent<WaveController>().RemoveFromWave(enemy.name);
+            Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
+            sn.AddPoints("Bow");
+        }
         Destroy(enemy);
-        Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
-        sn.AddPoints("Bow");
     }
     protected IEnumerator EnemyAttackTower(bool mainTowerAttack, Collider tower)
     {
@@ -83,14 +85,25 @@ public class Enemy : Entity {
         agent.enabled = true;
     }
 
-    public void SetLevel(int level, NavMeshAgent pathFinder)
+    public void SetLevel(int level, NavMeshAgent pathFinder, bool isIntroWave)
     {
-        this.level = level;
-        if((pathFinder.speed * speedMultiplier) * this.level <= maxSpeed && level > 1)
-            pathFinder.speed = ((pathFinder.speed * speedMultiplier) * this.level);
-        maxHealth = (float)((maxHealth * healthMultiplier) * this.level);
-        curHealth = maxHealth;
-        damage = (float)((damage * damageMultiplier) * this.level);
+        if (isIntroWave)
+        {
+            this.level = level;
+            pathFinder.speed = 0;
+            maxHealth = (float)((maxHealth * healthMultiplier) * this.level);
+            curHealth = maxHealth;
+            damage = (float)((damage * damageMultiplier) * this.level);
+        }
+        else
+        {
+            this.level = level;
+            if ((pathFinder.speed * speedMultiplier) * this.level <= maxSpeed && level > 1)
+                pathFinder.speed = ((pathFinder.speed * speedMultiplier) * this.level);
+            maxHealth = (float)((maxHealth * healthMultiplier) * this.level);
+            curHealth = maxHealth;
+            damage = (float)((damage * damageMultiplier) * this.level);
+        }
     }
 
     public NavMeshAgent GetNavMeshAgent()
