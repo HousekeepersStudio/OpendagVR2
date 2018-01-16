@@ -10,14 +10,17 @@ public class WaveController : MonoBehaviour {
     public GameObject serpentPrefab;
     public GameObject vikingPrefab;
     private GameObject enemyPrefab;
+    public GameObject introWaveScript;
     public float waitingTime;
     int waveNr = 1;
     int enemiesCount = 3;
     float enemyLevelMultiply = 1.05f;
     bool waveInitialized = false;
     bool timerStarted = false;
+    public float enemyMultiply = 3.0f;
 
     void Awake () {
+        introWaveScript.gameObject.SetActive(false);
         enemies = new List<GameObject>();
         spawnLocations = new List<Vector3>();
         foreach(GameObject spawn in GameObject.FindGameObjectsWithTag("Spawn"))
@@ -59,7 +62,7 @@ public class WaveController : MonoBehaviour {
     {
         if (timerStarted)
             timerStarted = false;
-        enemiesCount = (int)(waveNr * 3)+2;
+        enemiesCount = (int)(waveNr * enemyMultiply) +2;
         StartCoroutine(SpawnEnemies());
     }
 
