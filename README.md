@@ -15,4 +15,4 @@ Housekeepers The Game
 </p>
 
 # About
-<p>This game it's a school project for open days at Radius College.</p>
+<p>This game is a project made by students of the <a href="https://radiuscollege.nl">Radius college</a> for the <a href="https://radiuscollege.nl/actueel/agenda/2179/open-avond-26-januari-2018">open house</a> of 26 and 27 January 2018</p>

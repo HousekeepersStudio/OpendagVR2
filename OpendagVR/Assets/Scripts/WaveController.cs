@@ -6,6 +6,7 @@ public class WaveController : MonoBehaviour {
     List<Vector3> spawnLocations;
     List<GameObject> enemies;
     public GameObject enemyPrefab;
+    public GameObject introWaveScript;
     public float waitingTime;
     int waveNr = 1;
     int enemiesCount = 3;
@@ -15,6 +16,7 @@ public class WaveController : MonoBehaviour {
     bool timerStarted = false;
 
     void Awake () {
+        introWaveScript.gameObject.SetActive(false);
         enemies = new List<GameObject>();
         spawnLocations = new List<Vector3>();
         foreach(GameObject spawn in GameObject.FindGameObjectsWithTag("Spawn"))
@@ -70,7 +72,7 @@ public class WaveController : MonoBehaviour {
             //Debug.Log(spawnLocations[rnd.Next(0, spawnLocations.Count - 1)]);
             GameObject enemy = GameObject.Instantiate(enemyPrefab, spawnLocations[rnd.Next(0, spawnLocations.Count -1)], new Quaternion(0, 0, 0, 0));
             StandardEnemy enemyScript = enemy.GetComponent<StandardEnemy>();
-            enemyScript.SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent());
+            enemyScript.SetLevel(level, enemy.GetComponent<StandardEnemy>().GetNavMeshAgent(), false);
             enemy.name = "Enemy[" + i + "]";
             enemies.Add(enemy);
             StartCoroutine(enemyScript.TurnOnNavMeshAgent());

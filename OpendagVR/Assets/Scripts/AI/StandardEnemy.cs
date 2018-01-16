@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
@@ -18,7 +17,7 @@ public class StandardEnemy : Enemy {
 
     public StandardEnemy() : base(enemyType, health, enemyDamage, startLevel)
     {
-
+		
     }
 
     private void Awake()
