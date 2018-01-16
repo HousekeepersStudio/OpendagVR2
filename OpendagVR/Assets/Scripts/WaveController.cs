@@ -5,15 +5,19 @@ using UnityEngine;
 public class WaveController : MonoBehaviour {
     List<Vector3> spawnLocations;
     List<GameObject> enemies;
-    public GameObject enemyPrefab;
+    public GameObject ravenPrefab;
+    public GameObject dragonPrefab;
+    public GameObject serpentPrefab;
+    public GameObject vikingPrefab;
+    private GameObject enemyPrefab;
     public GameObject introWaveScript;
     public float waitingTime;
     int waveNr = 1;
     int enemiesCount = 3;
-    float enemyMultiply = 1.2f;
     float enemyLevelMultiply = 1.05f;
     bool waveInitialized = false;
     bool timerStarted = false;
+    public float enemyMultiply = 3.0f;
 
     void Awake () {
         introWaveScript.gameObject.SetActive(false);
@@ -25,6 +29,7 @@ public class WaveController : MonoBehaviour {
             //Debug.Log(string.Format("Spawn Location Added (X: {0}, Y: {1}, Z: {2})", spawn.transform.position.x, spawn.transform.position.y, spawn.transform.position.z));
         }
         //Debug.Log("Spawn Locations: " + spawnLocations.Count);
+        InitEnemy();
         InitWave();
 
     }
@@ -57,7 +62,7 @@ public class WaveController : MonoBehaviour {
     {
         if (timerStarted)
             timerStarted = false;
-        enemiesCount = (int)(enemiesCount * (waveNr * enemyMultiply));
+        enemiesCount = (int)(waveNr * enemyMultiply) +2;
         StartCoroutine(SpawnEnemies());
     }
 
@@ -86,5 +91,24 @@ public class WaveController : MonoBehaviour {
         timerStarted = true;
         yield return new WaitForSeconds(seconds);
         waveInitialized = false;
+    }
+
+    private void InitEnemy()
+    {
+        switch (PlayerPrefs.GetString("house"))
+        {
+            case "serpents":
+                enemyPrefab = dragonPrefab;
+                break;
+            case "vikings":
+                enemyPrefab = ravenPrefab;
+                break;
+            case "dragons":
+                enemyPrefab = serpentPrefab;
+                break;
+            case "ravens":
+                enemyPrefab = vikingPrefab;
+                break;
+        }
     }
 }
