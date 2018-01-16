@@ -9,13 +9,19 @@ public class introWave : MonoBehaviour
     public bool consoleLogs = true;
     private bool enemySpawned = false;
     private bool enemyDied = false;
+    private bool bowIsInHand = false;
+    private SoundController controller;
+    private AudioSource audioSource;
     List<GameObject>  enemies;
     public GameObject WaveController;
+    public GameObject cameraRig;
     public GameObject enemyPrefab;
-    Vector3           spawnLocation;
+    Vector3 spawnLocation;
 
     void Awake()
     {
+        audioSource = this.GetComponentInParent<AudioSource>();
+        controller = new SoundController();
         enemies = new List<GameObject>();
         foreach (GameObject spawn in GameObject.FindGameObjectsWithTag("IntrowaveSpawn"))
         {
@@ -39,12 +45,17 @@ public class introWave : MonoBehaviour
     // Part one of the story
     IEnumerator Story()
     {
-        // Ben.Say(voicelinesIntro);
-
-        yield return new WaitForSeconds(3);
-        DebugLog("Waituntil started", consoleLogs);
+        yield return new WaitForSeconds(1.5f);
+        controller.PlaySound(2, audioSource);
+        
+        yield return new WaitForSeconds(6);
+        // show image
         yield return new WaitUntil(() => enemyDied == true);
-        DebugLog("Waituntil ended", consoleLogs);
+        // WaitFor bow is child of controller
+        controller.PlaySound(3, audioSource);
+        DebugLog("Waituntil enemydied started", consoleLogs);
+        yield return new WaitUntil(() => enemyDied == true);
+        DebugLog("Waituntil enemydied ended", consoleLogs);
         WaveController.gameObject.SetActive(true);
 
     }
@@ -56,6 +67,9 @@ public class introWave : MonoBehaviour
             DebugLog("Enemy died", consoleLogs);
             enemyDied = true;
         }
+
+        if (cameraRig.transform.Find("Gun").gameObject != null)
+            bowIsInHand = true;
     }
 
     //WaveController.gameObject.SetActive(true);
