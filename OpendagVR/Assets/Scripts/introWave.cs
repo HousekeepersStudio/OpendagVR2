@@ -9,6 +9,8 @@ public class introWave : MonoBehaviour
     private bool enemyDied = false;
     private bool bowIsInHand = false;
     private bool bowIsSpawned = false;
+    private bool menuButtonPressed = false;
+    private bool timeToShine = false;
     private SoundController controller;
     private AudioSource audioSource;
     List<GameObject>  enemies;
@@ -17,6 +19,7 @@ public class introWave : MonoBehaviour
     // set this variable to false to disable all the console logs on this page 
     // or set this to true to enable all the console logs on this page
     public bool consoleLogs = true;
+    public SteamVR_TrackedController steamVR;
     public GameObject WaveController;
     public GameObject leftController;
     public GameObject rightController;
@@ -28,6 +31,11 @@ public class introWave : MonoBehaviour
     public Texture touchpadLeft;
     public Texture touchpadRight;
     public Texture menuButton;
+
+    // Skip tutorial stuff
+    public int howLongToHoldToSkip = 250;
+    private int howLongWeAreHolding = 0;
+
 
     void Awake()
     {
@@ -53,7 +61,7 @@ public class introWave : MonoBehaviour
         enemySpawned = true;
         StartCoroutine(Story());
     }
-    // Part one of the story
+
     IEnumerator Story()
     {
         yield return new WaitForSeconds(1.5f);
@@ -82,6 +90,11 @@ public class introWave : MonoBehaviour
         ImageSpot.material.mainTexture = menuButton;
         yield return new WaitForSeconds(3.0f);
         ImageSpot.gameObject.SetActive(true);
+        timeToShine = true;
+        yield return new WaitUntil(() => menuButtonPressed == true);
+        ImageSpot.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        controller.PlaySound(7, audioSource);
         //WaveController.gameObject.SetActive(true);
 
     }
@@ -98,7 +111,36 @@ public class introWave : MonoBehaviour
         {
             bowIsInHand = true;
         }
+
+        if (steamVR.menuPressed && timeToShine)
+        {
+            menuButtonPressed = true;
+        }
+
+        if (steamVR.gripped)
+        {
+            
+            if(howLongWeAreHolding < howLongToHoldToSkip)
+            {
+                howLongWeAreHolding++;
+            }
+            else
+            {
+                DebugLog("Wave Skipped", consoleLogs);
+                StartCoroutine(PlayBadum());
+            }
+        }
     }
+
+    IEnumerator PlayBadum()
+    {
+        
+        controller.PlaySound(12, audioSource);
+        yield return new WaitForSeconds(3.0f);
+        WaveController.gameObject.SetActive(true);
+    }
+
+
 
 
     public void ExternalInput(string input)
