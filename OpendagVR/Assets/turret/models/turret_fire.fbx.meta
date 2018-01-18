@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d62f93185ca8f3e47b93fb29f6bd7303
+guid: 9979267d00ae49645b7f2b21b3c4de2d
 timeCreated: 1513243215
 licenseType: Free
 ModelImporter:
@@ -37,32 +37,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fireBall
-    second: {fileID: 2100000, guid: 69a6d3b4bdaa96242abd3526e3d6e045, type: 2}
+    second: {fileID: 2100000, guid: 27a396cdcf616034bb874f24ccac84e3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: firePart
-    second: {fileID: 2100000, guid: 51c18f4946ab4f541a86aec11aa8150a, type: 2}
+    second: {fileID: 2100000, guid: 22d84bdf8d5f74b4f9f48c66f1d1ac76, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: firePart.001
-    second: {fileID: 2100000, guid: b395e426b35630943b2f37ef517fb53d, type: 2}
+    second: {fileID: 2100000, guid: c5fcc4c023fcca4479ab68434d6c5e99, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: firePart.002
-    second: {fileID: 2100000, guid: bd1b3f774d80e2348865fa6855d88b51, type: 2}
+    second: {fileID: 2100000, guid: c90486ad07f98d742a303e629e03e1bf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: side_inner
-    second: {fileID: 2100000, guid: 98ca9268690e5014c8404e3f1fbdff68, type: 2}
+    second: {fileID: 2100000, guid: c6600cef266a85442b142448d50e9933, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: side_outer
-    second: {fileID: 2100000, guid: 58fcf958f8d00e246badc4d67ad7ad9b, type: 2}
+    second: {fileID: 2100000, guid: c53b42a90b36312409789d8611382591, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
