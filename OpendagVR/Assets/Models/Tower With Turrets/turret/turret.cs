@@ -92,7 +92,7 @@ public class Turret : MonoBehaviour {
         //Destroy(temporaryBulletHandler, 10f);
     }
 
-    void UpgradeTurret()
+    public void UpgradeTurret()
     {
         damage *= 0.05f;
         range *= 0.05f;

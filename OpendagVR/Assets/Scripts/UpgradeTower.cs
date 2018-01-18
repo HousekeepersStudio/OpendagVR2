@@ -42,6 +42,8 @@ public class UpgradeTower : MonoBehaviour {
                 if (true)
                 {
                     Turret t = hit.transform.GetChild(1).GetComponent<Turret>();
+                    t.UpgradeTurret();
+
                 }
             }
         }
