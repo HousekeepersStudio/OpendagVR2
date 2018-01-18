@@ -23,7 +23,8 @@ public class WaveController : MonoBehaviour {
         introWaveScript.gameObject.SetActive(false);
         enemies = new List<GameObject>();
         spawnLocations = new List<Vector3>();
-        foreach(GameObject spawn in GameObject.FindGameObjectsWithTag("Spawn"))
+        
+        foreach (GameObject spawn in GameObject.FindGameObjectsWithTag("Spawn"))
         {
             spawnLocations.Add(spawn.transform.position);
             //Debug.Log(string.Format("Spawn Location Added (X: {0}, Y: {1}, Z: {2})", spawn.transform.position.x, spawn.transform.position.y, spawn.transform.position.z));
@@ -31,7 +32,6 @@ public class WaveController : MonoBehaviour {
         //Debug.Log("Spawn Locations: " + spawnLocations.Count);
         InitEnemy();
         InitWave();
-
     }
 	
 	// Update is called once per frame
@@ -39,6 +39,7 @@ public class WaveController : MonoBehaviour {
         if (enemies.Count == 0 && !waveInitialized)
         {
             waveNr++;
+            GameObject.Find("WaveText").GetComponent<WaveAnnouncement>().Waiter(waveNr);
             InitWave();
         }
 
@@ -108,6 +109,9 @@ public class WaveController : MonoBehaviour {
                 break;
             case "ravens":
                 enemyPrefab = vikingPrefab;
+                break;
+            default:
+                enemyPrefab = dragonPrefab;
                 break;
         }
     }
