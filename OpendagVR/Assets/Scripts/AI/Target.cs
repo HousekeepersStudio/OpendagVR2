@@ -34,7 +34,7 @@ public class Target : Entity {
 
     private void LoadKeyboardScene()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(4);
     }
 
     private void ResetGame()
