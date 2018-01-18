@@ -99,8 +99,10 @@ public class introWave : MonoBehaviour
         // play sound how to shoot with bow
         controller.PlaySound(4, audioSource);
         // wait for ben to finish talking
-        yield return new WaitForSeconds(9.0f);
+        yield return new WaitForSeconds(8.5f);
         // play sound Note headshots
+        controller.PlaySound(13, audioSource);
+        yield return new WaitForSeconds(2.0f);
         controller.PlaySound(5, audioSource);
         // Wait for the player has killed the enemy
         yield return new WaitUntil(() => enemyDied == true);
