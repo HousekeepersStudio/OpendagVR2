@@ -153,6 +153,7 @@ public class introWave : MonoBehaviour
         // wait for player to select teleport mode
         yield return new WaitUntil(() => TeleportMode == true);
         yield return new WaitForSeconds(0.5f);
+        ImageSpot.gameObject.SetActive(false);
         // play sound point at tower
         controller.PlaySound(10, audioSource);
         // wait for ben to finish talking
@@ -203,9 +204,10 @@ public class introWave : MonoBehaviour
 
     IEnumerator skipThis()
     {
-        
         controller.PlaySound(12, audioSource);
         yield return new WaitForSeconds(3.0f);
+        if (GameObject.Find("IntroSceneEnemy") != null)
+            Destroy(GameObject.Find("IntroSceneEnemy"));
         WaveController.gameObject.SetActive(true);
     }
 
