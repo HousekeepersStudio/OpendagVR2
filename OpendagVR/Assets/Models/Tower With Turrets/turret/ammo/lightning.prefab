@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 23513117850695698}
   - component: {fileID: 114517854445327730}
   - component: {fileID: 54962953977628428}
+  - component: {fileID: 65882990117606808}
   m_Layer: 0
   m_Name: lightning
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556639597166734}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -4.001865, y: 0.7365263, z: -3.4678776}
+  m_LocalPosition: {x: 21.301159, y: 11.418, z: 34.743176}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4583756239778692}
@@ -130,6 +131,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65882990117606808
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556639597166734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026675448, y: 0.020110616, z: 0.08196434}
+  m_Center: {x: 0.0037685442, y: -0.000055309378, z: -0.03098217}
 --- !u!114 &114517854445327730
 MonoBehaviour:
   m_ObjectHideFlags: 1

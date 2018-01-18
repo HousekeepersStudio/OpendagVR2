@@ -48,8 +48,8 @@ public class BuildTower : MonoBehaviour {
 
                 Destroy(hit.transform.parent.gameObject);
 
-                string selectedHouse;// = PlayerPrefs.GetString("house");
-                selectedHouse = "ravens";
+                string selectedHouse = PlayerPrefs.GetString("house");
+                //selectedHouse = "serpents";
 
                 switch (selectedHouse)
                 {

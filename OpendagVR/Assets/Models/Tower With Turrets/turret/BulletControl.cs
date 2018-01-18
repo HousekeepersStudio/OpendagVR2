@@ -15,9 +15,8 @@ public class BulletControl : MonoBehaviour {
         Debug.Log("collision");
         if (target.gameObject.tag.Contains("Enemy"))
         {
-            Destroy(gameObject);
             target.gameObject.GetComponent<StandardEnemy>().TakeDamage(curTurret.damage);
-            
         }
+        Destroy(gameObject);
     }
 }

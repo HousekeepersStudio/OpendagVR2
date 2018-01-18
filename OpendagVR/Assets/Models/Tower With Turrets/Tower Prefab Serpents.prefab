@@ -389,7 +389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1534983488269668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.158047, y: 39.9644, z: -18.416645}
+  m_LocalPosition: {x: 22.489964, y: 10.155912, z: 35.976883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4003825708940612}
@@ -839,6 +839,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e93f083c7e4c147a505831e0bcfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 15
+  fireRate: 1
+  enemyTag: Enemy
+  partToRotate: {fileID: 4436935686585420}
+  turnspeed: 10
+  bulletPrefab: {fileID: 1463991907879794, guid: f20043819ce29194dbce4b611f46e2ad,
+    type: 2}
+  firePoint: {fileID: 4265429640309804}
+  damage: 10
+  bulletSpeed: 1300
 --- !u!114 &114848537213401766
 MonoBehaviour:
   m_ObjectHideFlags: 1

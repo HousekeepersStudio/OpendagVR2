@@ -85,15 +85,11 @@ public class Turret : MonoBehaviour {
 
         Rigidbody TemporaryRigidBody;
         TemporaryRigidBody = temporaryBulletHandler.GetComponent<Rigidbody>();
-
         TemporaryRigidBody.AddForce(firePoint.transform.forward * bulletSpeed);
 
 
        
-        Destroy(temporaryBulletHandler, 10f);
-
-
-
+        //Destroy(temporaryBulletHandler, 10f);
     }
 
     
