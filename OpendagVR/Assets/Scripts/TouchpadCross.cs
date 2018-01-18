@@ -51,6 +51,13 @@ public class TouchpadCross : MonoBehaviour {
                 if (touchpad.y > 0.7f)
                 {
                     Debug.Log("Moving Up");
+                    int i = 0;
+                    if (i == 0)
+                    {
+                        GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleporterMode");
+                        i++;
+                    }
+
                 }
 
                 else if (touchpad.y < -0.7f)
