@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11abbca95cbbe6949a3d361d302e181b
+guid: 00b18cc7098da6047b3304ac16dd37db
 timeCreated: 1513591843
 licenseType: Free
 ModelImporter:
@@ -52,72 +52,72 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bamboo
-    second: {fileID: 2100000, guid: 74472fc166cafc643b2af5ffcc934f04, type: 2}
+    second: {fileID: 2100000, guid: 417f5941e1457c541b6f4a789fd891b6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bamboo_end
-    second: {fileID: 2100000, guid: c2ddb379f14a8754ab587735a1d85da2, type: 2}
+    second: {fileID: 2100000, guid: e80d5a8edfe64e54b92ace52f9541c9c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bamboo_rim
-    second: {fileID: 2100000, guid: ee6e5adf7bd46f44990ed487632b3403, type: 2}
+    second: {fileID: 2100000, guid: 4850b405671485c40a9ddbf0587fb60d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: dart_main
-    second: {fileID: 2100000, guid: 7c6b0cd097df3714baed758364514c3c, type: 2}
+    second: {fileID: 2100000, guid: ee21e94fe5bf08a41b65e2a31816979c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: dart_tip
-    second: {fileID: 2100000, guid: 4518755f4e1971345a4347b60254cf98, type: 2}
+    second: {fileID: 2100000, guid: 22de0184cbd8dbb4eaaa5e8f0a510cbd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: inside
-    second: {fileID: 2100000, guid: 946e53cd59a63d54ca7f2ec209bd6cf6, type: 2}
+    second: {fileID: 2100000, guid: 4d80d9a0b2b8fb549b4f7d139bfa850a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rock
-    second: {fileID: 2100000, guid: abe63c053eb98e7458111d1d33d7619c, type: 2}
+    second: {fileID: 2100000, guid: f0d910f62f945484bb1b112d44ebd847, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rock.001
-    second: {fileID: 2100000, guid: 9ceaa5e834253ac42a219f9649dc2ab4, type: 2}
+    second: {fileID: 2100000, guid: 0ed323b05198e6b4cb0451adcfc65ea0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rock.002
-    second: {fileID: 2100000, guid: ea78a63f15dc94347a9ae3ba99636665, type: 2}
+    second: {fileID: 2100000, guid: a574da764ee6ea34192d20dc306edc61, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rock.003
-    second: {fileID: 2100000, guid: b98cc2d2d9217614e8bdd69301ba6b93, type: 2}
+    second: {fileID: 2100000, guid: a4f81941a29a1714e851179334e25449, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rock.004
-    second: {fileID: 2100000, guid: 28d3f1cc7bc04e847a1154f50e371572, type: 2}
+    second: {fileID: 2100000, guid: 7b057793829799b4e8d5a74da55cb77d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: side_inner
-    second: {fileID: 2100000, guid: 98ca9268690e5014c8404e3f1fbdff68, type: 2}
+    second: {fileID: 2100000, guid: c6600cef266a85442b142448d50e9933, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: side_outer
-    second: {fileID: 2100000, guid: 58fcf958f8d00e246badc4d67ad7ad9b, type: 2}
+    second: {fileID: 2100000, guid: c53b42a90b36312409789d8611382591, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: top_bottem
-    second: {fileID: 2100000, guid: 7f1285385c9bc4a44924325c07790fee, type: 2}
+    second: {fileID: 2100000, guid: 195b46f13edb9504e891e06d043945ea, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
