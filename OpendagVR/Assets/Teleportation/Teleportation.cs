@@ -22,7 +22,7 @@ public class Teleportation : MonoBehaviour {
 
     private void Awake()
     {
-        CurrentTeleportPos = StartingPosition;
+        CurrentTeleportPos = StartingPosition.transform.parent.gameObject;
         TeleportObject teleport = CurrentTeleportPos.GetComponentInChildren<TeleportObject>();
         teleport.Teleport(cameraRig.transform, null);
     }
@@ -41,19 +41,22 @@ public class Teleportation : MonoBehaviour {
 
     void Raycast()
     {
-        RaycastHit hit;
-        Physics.Raycast(pointer.pointer.transform.position, pointer.pointer.transform.forward, out hit);
-
-        if (hit.collider != null)
+        if(pointer != null)
         {
-            if (hit.collider.tag == "TeleportZone")
+            RaycastHit hit;
+            Physics.Raycast(pointer.pointer.transform.position, pointer.pointer.transform.forward, out hit);
+
+            if (hit.collider != null)
             {
-                TeleportObject teleport = hit.collider.GetComponentInChildren<TeleportObject>();
-                if (buttons.triggerPressed)
+                if (hit.collider.tag == "TeleportZone")
                 {
-                    if (!(cameraRig.transform.position == teleport.GetPos()))
+                    TeleportObject teleport = hit.collider.GetComponentInChildren<TeleportObject>();
+                    if (buttons.triggerPressed)
                     {
-                        StartCoroutine(Teleport(hit, teleport));
+                        if (!(cameraRig.transform.position == teleport.GetPos()))
+                        {
+                            StartCoroutine(Teleport(hit, teleport));
+                        }
                     }
                 }
             }

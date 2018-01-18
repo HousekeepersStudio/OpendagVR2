@@ -46,36 +46,37 @@ public class Enemy : Entity {
             transform.SetPositionAndRotation(new Vector3(0, -20, 0), new Quaternion(0, 0, 0, 0));
             yield return new WaitForSeconds(1);
             GameObject.Find("WaveController").GetComponent<WaveController>().RemoveFromWave(enemy.name);
-            Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
-            sn.AddPoints("Bow");
         }
+        Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
+        sn.AddPoints("Bow");
         Destroy(enemy);
     }
     protected IEnumerator EnemyAttackTower(bool mainTowerAttack, Collider tower)
     {
         if (mainTowerAttack)
         {
-            if(tower.gameObject.GetComponent<Target>().GetCurrentHealth() <= 0)
+            if(tower != null)
             {
-                tower.transform.position = new Vector3(10000,10000,1000);
-                tower.gameObject.SetActive(false);
+                if (tower.gameObject.GetComponent<Target>().GetCurrentHealth() > 0)
+                {
+                    Attack(tower.gameObject);
+                    yield return new WaitForSeconds(1);
+                    StartCoroutine(EnemyAttackTower(mainTowerAttack, tower));
+                }
+            }
+            else
+            {
                 mainTowerAttack = false;
                 agent.isStopped = false;
                 for (int i = 0; i < targets.Length; i++)
                 {
-                    if(targets[i].activeSelf)
+                    if (targets[i].activeSelf)
                     {
                         MoveTo(targets[i]);
                         break;
                     }
                 }
             }
-            else
-            {
-                Attack(tower.gameObject);
-                yield return new WaitForSeconds(1);
-                StartCoroutine(EnemyAttackTower(mainTowerAttack, tower));
-            }           
         }
     }
 

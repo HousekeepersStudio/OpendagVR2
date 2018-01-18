@@ -62,7 +62,10 @@ public class StandardEnemy : Enemy {
             {
                 targets = GameObject.FindGameObjectsWithTag("Target");
                 if (targets.Length > 0)
+                {
                     MoveTo(targets[0]);
+                    mainTowerObjectName = targets[0].name;
+                }
             }
                 
 
@@ -85,6 +88,7 @@ public class StandardEnemy : Enemy {
     {
         mainTowerAttack = false;
         StartCoroutine(DieT(gameObject));
+
     }
 
     private void Attack()

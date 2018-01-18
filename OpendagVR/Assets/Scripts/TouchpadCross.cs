@@ -27,7 +27,7 @@ public class TouchpadCross : MonoBehaviour {
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         SetupGameObjects();
-        ChangeToTeleporting();
+        ChangeToGrab();
     }
 
 
@@ -103,7 +103,8 @@ public class TouchpadCross : MonoBehaviour {
         teleport = !teleport;
         grab = !grab;
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
-        controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
+        if(controllerRight.transform.Find("New Game Object") != null)
+            controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
         controllerRight.GetComponent<Teleportation>().enabled = false;
         controllerRight.transform.Find("Origin").gameObject.SetActive(true);
         controllerLeft.transform.Find("Origin").gameObject.SetActive(true);
