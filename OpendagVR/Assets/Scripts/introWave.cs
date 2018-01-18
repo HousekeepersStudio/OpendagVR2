@@ -46,7 +46,8 @@ public class introWave : MonoBehaviour
         yield return new WaitUntil(() => enemyDied == true);
         DebugLog("Waituntil ended", consoleLogs);
         WaveController.gameObject.SetActive(true);
-
+        GameObject.Find("Controller (right)").GetComponent<Teleportation>().StartingPosition = GameObject.Find("Tower Prefab (5)").transform.Find("TeleportZone").Find("TeleportPosition").gameObject;
+        GameObject.Find("Controller (right)").GetComponent<Teleportation>().animationCanvas = GameObject.Find("TeleportAnimationCanvas");
     }
 
     void Update()
