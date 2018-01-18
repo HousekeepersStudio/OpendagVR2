@@ -12,6 +12,9 @@ public class introWave : MonoBehaviour
     private bool TeleporterHasBeenSelected = false;
     private bool menuButtonPressed = false;
     private bool timeToShine = false;
+    private bool Towerbuilt = false;
+    private bool TeleportMode = false;
+    private bool playerIsTeleported = false;
     private SoundController controller;
     private AudioSource audioSource;
     List<GameObject>  enemies;
@@ -66,7 +69,7 @@ public class introWave : MonoBehaviour
 
     IEnumerator Story()
     {
-        /*yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.5f);
         // play sound EnemyInfront
         controller.PlaySound(2, audioSource);
         yield return new WaitForSeconds(6);
@@ -116,7 +119,7 @@ public class introWave : MonoBehaviour
         yield return new WaitUntil(() => menuButtonPressed == true);
         // When button is pressed
         // disable the image
-        ImageSpot.gameObject.SetActive(false);*/
+        ImageSpot.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         // Play sound select build tower
         controller.PlaySound(7, audioSource);
@@ -137,24 +140,32 @@ public class introWave : MonoBehaviour
         // wait for ben to finish talking
         yield return new WaitForSeconds(4.0f);
         // wait for player to repair a tower
-
-        //yield return new WaitForSeconds(0.5f);
-        //controller.PlaySound(9, audioSource);
+        yield return new WaitUntil(() => Towerbuilt == true);
+        yield return new WaitForSeconds(0.5f);
+        // play sound tower built
+        controller.PlaySound(9, audioSource);
         // wait for ben to finish talking
-        //ImageSpot.material.mainTexture = touchpadRight;
-        //ImageSpot.gameObject.SetActive(false);
+        yield return new WaitForSeconds(11.0f);
+        ImageSpot.material.mainTexture = touchpadRight;
+        ImageSpot.gameObject.SetActive(true);
         // wait for ben to finish talking s'more
+        yield return new WaitForSeconds(1.0f);
         // wait for player to select teleport mode
-        // enable Teleportation script on controllerRight
-        //yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => TeleportMode == true);
+        yield return new WaitForSeconds(0.5f);
         // play sound point at tower
-        //controller.PlaySound(10, audioSource);
+        controller.PlaySound(10, audioSource);
         // wait for ben to finish talking
+        yield return new WaitForSeconds(4.0f);
         // wait for player to teleport to another tower
-        //yield return new WaitForSeconds(0.5f);
-        //controller.PlaySound(11, audioSource);
+        yield return new WaitUntil(() => playerIsTeleported == true);
+        yield return new WaitForSeconds(0.5f);
+        controller.PlaySound(11, audioSource);
         // wait for ben to finish talking
-        //WaveController.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4.0f);
+
+        // Enable the wavecontroller
+        WaveController.gameObject.SetActive(true);
     }
 
     void Update()
@@ -208,6 +219,14 @@ public class introWave : MonoBehaviour
 
         else if (input == "TeleporterMode")
             TeleporterHasBeenSelected = true;
+
+        else if (input == "TowerBuilt")
+            Towerbuilt = true;
+
+        else if (input == "TeleportMode")
+            TeleportMode = true;
+        else if (input == "Teleported")
+            playerIsTeleported = true;
     }
 
     // Function to disable all the logs in this script

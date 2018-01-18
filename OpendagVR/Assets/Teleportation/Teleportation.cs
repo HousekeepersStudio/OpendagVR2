@@ -53,6 +53,14 @@ public class Teleportation : MonoBehaviour {
                 {
                     if (!(cameraRig.transform.position == teleport.GetPos()))
                     {
+
+                        int i = 0;
+                        if (i == 0)
+                        {
+                            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("Teleported");
+                            i++;
+                        }
+
                         StartCoroutine(Teleport(hit, teleport));
                     }
                 }

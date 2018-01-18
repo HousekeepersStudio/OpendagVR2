@@ -103,6 +103,12 @@ public class TouchpadCross : MonoBehaviour {
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
         controllerRight.transform.Find("Origin").gameObject.SetActive(false);
         controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
+        int i = 0;
+        if (i == 0)
+        {
+            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleportMode");
+            i++;
+        }
     }
 
     void ChangeToGrab()
@@ -117,6 +123,7 @@ public class TouchpadCross : MonoBehaviour {
         controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
         SpawnBow();
+
     }
 
     void RemoveBow()
