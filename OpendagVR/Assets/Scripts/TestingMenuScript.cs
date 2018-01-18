@@ -7,20 +7,6 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-[System.Serializable]
-public class MenuItem {
-	public Button kb;
-	public Button jk;
-	public string key;
-
-	public void UpdateKeyLabels(MyManager mm) {
-		Control c = mm.GetControl (this.key);
-		this.kb.GetComponentInChildren<Text> ().text = c.key.ToString ();
-		this.jk.GetComponentInChildren<Text> ().text = c.joyName.ToString ();
-	}
-		
-}
-
 public class TestingMenuScript : MonoBehaviour 
 {
 
@@ -31,10 +17,11 @@ public class TestingMenuScript : MonoBehaviour
 	bool menuActive = false;
 	bool timerPassed = true;
 
+	public GameObject towerItem;
+	public GameObject towerlist;
+
 	public MyManager myManager;
     
-	public MenuItem[] menuItems;
-
 	public Text scoreLabel;
     public Text balanceLabel;
 
@@ -49,6 +36,8 @@ public class TestingMenuScript : MonoBehaviour
 	public bool loaded = false;
 	public bool keyPressed = false;
 	public bool joyPressed = false;
+
+
 
 	// Use this for initialization
 	void Start () 
@@ -99,12 +88,7 @@ public class TestingMenuScript : MonoBehaviour
                         this.balanceLabel.text = FormatBalance();
 					break;
 				case 4:
-					foreach (MenuItem m in menuItems) {
-						m.UpdateKeyLabels (myManager);
-
-						//m.kb.GetComponentInChildren<Text>().text = myManager.GetControl (m.key).key.ToString();
-						//m.jk.GetComponentInChildren<Text>().text = myManager.GetControl (m.key).joyName.ToString();
-					}
+					UpdateTowers ();
 					break;
 				}
 
@@ -116,6 +100,9 @@ public class TestingMenuScript : MonoBehaviour
                 this.scoreLabel.text = FormatScore();
                 this.balanceLabel.text = FormatBalance();
             }
+			if (openMenu == 4) {
+				UpdateTowers ();
+			}
         }
 		else
 		{
@@ -128,6 +115,20 @@ public class TestingMenuScript : MonoBehaviour
     {
         myManager.UpdatePoints();
     }
+
+	void UpdateTowers() {
+		GameObject[] towers = myManager.GetTowers ();
+		for (int i = 0; i < towers.Length; i++) {
+			Tower t = towers[i].GetComponent<Tower> ();
+			string name = towers[i].name;
+			Transform g = towerlist.transform.Find("PnlTower" + (i + 1));
+
+			g.Find("LblTower").GetComponent<Text> ().text = name;
+			g.Find("BoxPrice").GetComponent<Text> ().text = 100.ToString();
+
+
+		}
+	}
 
     string FormatBalance()
     {
@@ -153,8 +154,9 @@ public class TestingMenuScript : MonoBehaviour
 			if (i == id) 
 			{
 				menus[i].SetActive(true);
-				openMenu = id;
 				loaded = false;
+				openMenu = id;
+
 			}
 			else
 			{
@@ -166,6 +168,9 @@ public class TestingMenuScript : MonoBehaviour
 	void ChangeMenu()
 	{
 		menuActive = !menuActive;
+		if (!menuActive) {
+			loaded = false;
+		}
 	}
 		
 

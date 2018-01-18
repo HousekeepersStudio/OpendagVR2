@@ -70,6 +70,9 @@ public class MyManager : MonoBehaviour {
     public string House;
     public Pointer[] colors;
 
+	[Header("Tower")]
+	public GameObject[] towers;
+
     public Points points;
     
 
@@ -137,14 +140,21 @@ public class MyManager : MonoBehaviour {
 
     }
 
+	public GameObject[] GetTowers() {
+		return this.towers;
+	}
+
     public void UpdatePoints()
     {
         score = points.GetScore();
         balance = points.GetBalance();
     }
 
+
+
     public Control GetControl(string name) {
 		Control result = new Control();
+		Debug.Log (name);
 		result.name = "none";
 		result.key = KeyCode.None;
 		result.joyName = "none";
