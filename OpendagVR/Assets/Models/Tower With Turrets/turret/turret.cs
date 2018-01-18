@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class turret : MonoBehaviour {
+public class Turret : MonoBehaviour {
 
     // Use this for initialization
     
@@ -25,11 +25,7 @@ public class turret : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform firePoint;
     public int damage = 10;
-    public float bulletSpeed = 1000f;
-
-    [Header("Turret lvl")]
-    [Range(1,3)]
-    public int lvl = 1;
+    public float bulletSpeed = 1300f;
 
     
     
@@ -85,19 +81,15 @@ public class turret : MonoBehaviour {
     {
         GameObject temporaryBulletHandler;
         temporaryBulletHandler = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation) as GameObject;
-        temporaryBulletHandler.GetComponent<BulletControl>().weapon = this.gameObject;
+        temporaryBulletHandler.GetComponent<BulletControl>().SetTurret(this);
 
         Rigidbody TemporaryRigidBody;
         TemporaryRigidBody = temporaryBulletHandler.GetComponent<Rigidbody>();
-
         TemporaryRigidBody.AddForce(firePoint.transform.forward * bulletSpeed);
 
 
        
-        Destroy(temporaryBulletHandler, 10f);
-
-
-
+        //Destroy(temporaryBulletHandler, 10f);
     }
 
     
@@ -106,7 +98,6 @@ public class turret : MonoBehaviour {
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, range);
-        
     }
 
 

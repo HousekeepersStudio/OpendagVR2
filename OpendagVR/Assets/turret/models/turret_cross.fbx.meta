@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 963c3d6737fcc1f42bb0c2132a13ff23
+guid: ff14f0a3ae2870f45884a10bea8dea22
 timeCreated: 1513242462
 licenseType: Free
 ModelImporter:
@@ -92,82 +92,82 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 5bfa48aecf063004288141657d72be60, type: 2}
+    second: {fileID: 2100000, guid: a2d3cbd180632cf4e8f84d72c8b39c36, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Stock
-    second: {fileID: 2100000, guid: a4e05887ce0cba644a07b04fb0a61d5a, type: 2}
+    second: {fileID: 2100000, guid: c16ccaef12e865d48866429b513a4608, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: arrowbody
-    second: {fileID: 2100000, guid: 748f94df203527043851eb86a2ca2651, type: 2}
+    second: {fileID: 2100000, guid: 5e6ca5b18faa37846912c6cd460568d2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: arrowhead
-    second: {fileID: 2100000, guid: 61813234dc054f146a07fdc103064f0e, type: 2}
+    second: {fileID: 2100000, guid: b2d87f621635a9a4089a6dd336d9d14a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: arrowslot
-    second: {fileID: 2100000, guid: d7a69bf236a77ee41a9d78ed24fe1079, type: 2}
+    second: {fileID: 2100000, guid: 1df2a575f73e6884892cd3998ca77e60, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bowlimbs
-    second: {fileID: 2100000, guid: 28b9a67ba65c00245b44790c2e6dce1a, type: 2}
+    second: {fileID: 2100000, guid: fa9b36574a5f74c409817f6d8894ad8c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bowlimbs.001
-    second: {fileID: 2100000, guid: 399979016f3b1a343bc83491f59d0d88, type: 2}
+    second: {fileID: 2100000, guid: 990d5b85939ef5747b9904a8db442858, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bowstring
-    second: {fileID: 2100000, guid: 6efae25aabe772b418cc5bce84650ba5, type: 2}
+    second: {fileID: 2100000, guid: 865dcc240c4ed764e9001bafa22fbfd2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: crank
-    second: {fileID: 2100000, guid: 215daae520459194a8990c8906b5eda6, type: 2}
+    second: {fileID: 2100000, guid: d2c9cb5546197634ab0009569860b1ba, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: featherflights
-    second: {fileID: 2100000, guid: ef423138e8731424e8d313eaa90a8fed, type: 2}
+    second: {fileID: 2100000, guid: 03b4cb4a34a18dd429005bd6b7629fd4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: side_inner
-    second: {fileID: 2100000, guid: 98ca9268690e5014c8404e3f1fbdff68, type: 2}
+    second: {fileID: 2100000, guid: c6600cef266a85442b142448d50e9933, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: side_outer
-    second: {fileID: 2100000, guid: 58fcf958f8d00e246badc4d67ad7ad9b, type: 2}
+    second: {fileID: 2100000, guid: c53b42a90b36312409789d8611382591, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: stirrup
-    second: {fileID: 2100000, guid: 179604a82876ed342bde830758510fe3, type: 2}
+    second: {fileID: 2100000, guid: a65951bb64af63b47a0c3448f84d84cc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: stirrup.001
-    second: {fileID: 2100000, guid: e2824e814d74c574cad80d1955471ef9, type: 2}
+    second: {fileID: 2100000, guid: 2c138cc1d095e8445842f7f67ad01061, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: top_bottem
-    second: {fileID: 2100000, guid: 7f1285385c9bc4a44924325c07790fee, type: 2}
+    second: {fileID: 2100000, guid: 195b46f13edb9504e891e06d043945ea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: trigger
-    second: {fileID: 2100000, guid: 5ebf7477e747627408546c30127c36a1, type: 2}
+    second: {fileID: 2100000, guid: 75eb4975bfe70e14c842d9bbca61ec82, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
