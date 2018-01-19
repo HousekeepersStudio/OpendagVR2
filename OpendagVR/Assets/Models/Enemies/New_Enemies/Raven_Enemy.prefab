@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 82839454194358116}
   - component: {fileID: 195136088792999316}
   m_Layer: 0
-  m_Name: Humanoid_Enemy
+  m_Name: Raven_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
