@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 114709438399791552}
   m_Layer: 0
   m_Name: Tower Prefab Dragons
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,7 +462,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142730009170330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.067017, y: 10.910907, z: 18.069172}
+  m_LocalPosition: {x: 25.726185, y: 10.072748, z: 36.328117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453679092542438}
@@ -890,7 +890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e93f083c7e4c147a505831e0bcfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  turretLvl: 1
+  range: 15
   fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 4599658973747632}

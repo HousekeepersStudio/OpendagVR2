@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 114100597400996762}
   m_Layer: 0
   m_Name: Tower Prefab Vikings
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,7 +714,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443999775280142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.4755936, y: 11.127092, z: 27.178854}
+  m_LocalPosition: {x: 6.978344, y: 10.364639, z: 37.516922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4726958642562584}
@@ -1568,7 +1568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e93f083c7e4c147a505831e0bcfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  turretLvl: 1
+  range: 15
   fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 4290558919396090}

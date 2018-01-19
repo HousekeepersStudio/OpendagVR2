@@ -102,7 +102,7 @@ public class introWave : MonoBehaviour
         yield return new WaitForSeconds(8.5f);
         // play sound Note headshots
         controller.PlaySound(13, audioSource);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.5f);
         controller.PlaySound(5, audioSource);
         // Wait for the player has killed the enemy
         yield return new WaitUntil(() => enemyDied == true);
@@ -126,7 +126,10 @@ public class introWave : MonoBehaviour
         // Play sound select build tower
         controller.PlaySound(7, audioSource);
         // wait for ben to finish talking
-        yield return new WaitForSeconds(13.0f);
+        yield return new WaitForSeconds(6.0f);
+        Points sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
+        sn.AddPoints("Tutorial");
+        yield return new WaitForSeconds(7.0f);
         // set image to towerbuild mode
         ImageSpot.material.mainTexture = touchpadTop;
         // Enable image
