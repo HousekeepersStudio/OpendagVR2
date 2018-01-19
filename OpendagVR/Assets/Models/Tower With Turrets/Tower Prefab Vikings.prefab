@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 114100597400996762}
   m_Layer: 0
   m_Name: Tower Prefab Vikings
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +246,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1542291876187662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4013122560445140}
+  - component: {fileID: 65397182946936550}
+  m_Layer: 0
+  m_Name: ColTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1556822292182990
 GameObject:
   m_ObjectHideFlags: 1
@@ -256,6 +272,22 @@ GameObject:
   - component: {fileID: 4290558919396090}
   m_Layer: 0
   m_Name: parttorotate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1589982780407614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4556783551068600}
+  - component: {fileID: 65561381222010994}
+  m_Layer: 0
+  m_Name: ColBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,6 +428,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4013122560445140
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542291876187662}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 11.529534, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4840553796430060}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4048878143063006
 Transform:
   m_ObjectHideFlags: 1
@@ -530,6 +575,19 @@ Transform:
   m_Father: {fileID: 4320842239236542}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4556783551068600
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1589982780407614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 8.480535, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4840553796430060}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4583765900738922
 Transform:
   m_ObjectHideFlags: 1
@@ -656,12 +714,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443999775280142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.978344, y: 10.364639, z: 37.516922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4726958642562584}
   - {fileID: 4301436381378494}
   - {fileID: 4649724647188050}
+  - {fileID: 4013122560445140}
+  - {fileID: 4556783551068600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1462,6 +1522,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1273785463964246}
   m_Mesh: {fileID: 4300026, guid: 963c3d6737fcc1f42bb0c2132a13ff23, type: 3}
+--- !u!65 &65397182946936550
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542291876187662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.84, y: 0.14, z: 3.7}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65561381222010994
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1589982780407614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.84, y: 0.14, z: 3.7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114100597400996762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1484,6 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e93f083c7e4c147a505831e0bcfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretLvl: 1
   range: 15
   fireRate: 1
   enemyTag: Enemy
@@ -1493,7 +1578,7 @@ MonoBehaviour:
     type: 2}
   firePoint: {fileID: 4050710725824944}
   damage: 10
-  bulletSpeed: 1300
+  bulletSpeed: 1500
 --- !u!114 &114592208063609262
 MonoBehaviour:
   m_ObjectHideFlags: 1

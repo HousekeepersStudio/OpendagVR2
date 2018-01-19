@@ -9,14 +9,15 @@ public class TeleportObject : MonoBehaviour {
 
     private void Awake()
     {
-        cameraRig = GameObject.Find("[CameraRig]");
+        
         //parent = this.gameObject.transform.parent.gameObject;
-        this.parent = this.transform.parent.gameObject;
     }
 
     public void Teleport(Transform camera, GameObject prevTeleport)
     {
-        if(prevTeleport != null)
+        cameraRig = GameObject.Find("[CameraRig]");
+        this.parent = this.transform.parent.gameObject;
+        if (prevTeleport != null)
             prevTeleport.SetActive(true);
         Vector3 pos = this.gameObject.transform.position;
         camera.position = pos;
