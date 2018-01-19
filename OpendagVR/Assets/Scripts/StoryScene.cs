@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class StoryScene : MonoBehaviour
 {
+    private SoundController controller;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = this.GetComponentInParent<AudioSource>();
+        controller = new SoundController();
+        controller.PlaySound("Story", audioSource, 0.03f, false);
+        Debug.Log(this.gameObject.name);
+    }
     void Update()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");

@@ -6,10 +6,15 @@ using System.Collections.Generic;
 public class Target : Entity {
     List<GameObject> enemies = new List<GameObject>();
     float timeToWait = 3.0f;
-    public Target() : base("MainTower", 100) {}
+    public Target() : base("MainTower", 1000) {}
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if(this.curHealth > 125)
+                this.curHealth = 125;
+        }
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             if (this.curHealth <= 0)
