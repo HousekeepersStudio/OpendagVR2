@@ -53,10 +53,15 @@ public class Teleportation : MonoBehaviour {
                     TeleportObject teleport = hit.collider.GetComponentInChildren<TeleportObject>();
                     if (buttons.triggerPressed)
                     {
-                        if (!(cameraRig.transform.position == teleport.GetPos()))
+
+                        int i = 0;
+                        if (i == 0)
                         {
-                            StartCoroutine(Teleport(hit, teleport));
+                            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("Teleported");
+                            i++;
                         }
+
+                        StartCoroutine(Teleport(hit, teleport));
                     }
                 }
             }

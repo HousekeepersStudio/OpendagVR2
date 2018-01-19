@@ -23,7 +23,6 @@ public class Control {
         this.steamVR = steamVR;
     }*/
 
-
     public bool GetJoyKey() 
 	{
         
