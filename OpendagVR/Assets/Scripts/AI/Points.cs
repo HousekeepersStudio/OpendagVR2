@@ -33,6 +33,9 @@ public class Points : MonoBehaviour {
                 Debug.Log("Balance :" + balance);
 
                 break;
+            case "TUTORIAL":
+                balance += 140;
+                break;
             default:
                 Debug.Log("The given string is not an option!");
 

@@ -12,12 +12,10 @@ public class UpgradeTower : MonoBehaviour {
     private SteamVR_LaserPointer pointer;
     private SteamVR_TrackedController buttons;
     Points sn;
-    int upgradeCost = 150;
+    public int upgradeCost = 150;
 
     void Update()
     {
-        sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
-
         try
         {
             if (pointer != null && buttons != null)
@@ -28,6 +26,9 @@ public class UpgradeTower : MonoBehaviour {
 
             if (buttons == null)
                 buttons = controllerRight.GetComponent<SteamVR_TrackedController>();
+
+            if (sn == null)
+                sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
         }
         catch (Exception e)
         {

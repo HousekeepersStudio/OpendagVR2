@@ -1263,7 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e93f083c7e4c147a505831e0bcfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 25
   fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 4609229314020340}
@@ -1272,4 +1272,4 @@ MonoBehaviour:
     type: 2}
   firePoint: {fileID: 4793625510234786}
   damage: 10
-  bulletSpeed: 1000
+  bulletSpeed: 1500
