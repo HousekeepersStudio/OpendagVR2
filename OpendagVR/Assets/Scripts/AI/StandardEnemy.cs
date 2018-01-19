@@ -14,6 +14,7 @@ public class StandardEnemy : Enemy {
     static int startLevel = 1;
     static int health = (int)((baseHealth * sHealthMultiplier) * startLevel);
     static int enemyDamage = (int)((baseDamage * sDamageMultiplier) * startLevel);
+	Animator animator; 
     public bool mainTowerAttack = false;
     private bool isAttacking = false;
     private GameObject mainTower;
@@ -27,6 +28,8 @@ public class StandardEnemy : Enemy {
     {
         healthBar = this.transform.Find("HealthBarCanvas").Find("HealthBG").Find("HealthBar").GetComponent<Image>();
         agent = GetComponent<NavMeshAgent>();
+		animator = this.GetComponent<Animator>(); 
+
     }
 
     private void Update()
@@ -51,10 +54,14 @@ public class StandardEnemy : Enemy {
             }
         }
         
-
+		if (curHealth / maxHealth <= 0.5F)  
+		{ 
+			animator.SetTrigger ("Hurt"); 
+		} 
         if(curHealth <= 0)
         {
             Die();
+			animator.SetTrigger ("Die");
         }
         else
         {
@@ -94,6 +101,7 @@ public class StandardEnemy : Enemy {
     private void Attack()
     {
         StopMove();
+		animator.SetTrigger("Attack"); 
         StartCoroutine(EnemyAttackTower(mainTowerAttack, mainTower.GetComponent<Collider>()));
     }
 }
