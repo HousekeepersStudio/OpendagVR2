@@ -6,11 +6,11 @@ public class Turret : MonoBehaviour {
 
     // Use this for initialization
     
-    private Transform target;
+    private Vector3 target;
 
     [Header("Turret Control")]
+    public int turretLvl = Mathf.Min(1);
     public float range = 15f;
-    
     public float fireRate = Mathf.Min(1f);
     private float fireCountDown = 0f;
 
@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour {
     [Header("Ammo")]
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public int damage = 10;
+    public float damage = 10;
     public float bulletSpeed = 1300f;
 
     
@@ -51,21 +51,21 @@ public class Turret : MonoBehaviour {
         }
         if (nearestEnemy != null && shortestDistance < range)
         {
-            target = nearestEnemy.transform;
+            target = new Vector3(nearestEnemy.transform.position.x, nearestEnemy.transform.position.y + ((range / shortestDistance) + 1f), nearestEnemy.transform.position.z);
         }else
         {
-            target = null;
+            target = new Vector3(0,0,0);
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (target == null)
+        if (target == new Vector3(0,0,0))
             return;
         
         // target lockon
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 dir = target - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(dir.x, dir.y, dir.z));
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f);
 
@@ -92,6 +92,14 @@ public class Turret : MonoBehaviour {
         //Destroy(temporaryBulletHandler, 10f);
     }
 
+    public void UpgradeTurret()
+    {
+        damage *= 0.05f;
+        range *= 0.05f;
+        fireRate *= 0.05f;
+        turnspeed *= 0.05f;
+        turretLvl++;
+    }
     
 
     void OnDrawGizmosSelected()
