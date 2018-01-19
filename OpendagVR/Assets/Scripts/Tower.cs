@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Tower : Entity {
     private Tower target;
-    private Text text;
+    public Text text;
+    private Turret turret;
 
     public Tower(string type, float maxHealth, float damage, int level, Tower target)
         :base (type, maxHealth, damage, level)
@@ -21,6 +22,10 @@ public class Tower : Entity {
 	
 	// Update is called once per frame
 	void Update () {
-        this.text.text = this.level.ToString();
-	}
+        if (turret == null)
+            turret = transform.parent.GetComponentInChildren<Turret>();
+        else
+            this.text.text = "PL";
+            //this.text.text = turret.turretLvl.toString();
+    }
 }

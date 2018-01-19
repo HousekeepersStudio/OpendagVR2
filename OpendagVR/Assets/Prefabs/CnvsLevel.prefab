@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114609696286627732}
   - component: {fileID: 114217930349252328}
   m_Layer: 0
-  m_Name: CnvsLevel 1
+  m_Name: CnvsLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
