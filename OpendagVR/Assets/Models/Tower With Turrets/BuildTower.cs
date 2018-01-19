@@ -51,6 +51,13 @@ public class BuildTower : MonoBehaviour {
                 string selectedHouse = PlayerPrefs.GetString("house");
                 //selectedHouse = "serpents";
 
+                int i = 0;
+                if (i == 0)
+                {
+                    GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TowerBuilt");
+                    i++;
+                }
+
                 switch (selectedHouse)
                 {
                     case "dragons":

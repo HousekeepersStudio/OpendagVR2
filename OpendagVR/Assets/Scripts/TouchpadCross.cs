@@ -51,6 +51,13 @@ public class TouchpadCross : MonoBehaviour {
                 if (touchpad.y > 0.7f)
                 {
                     Debug.Log("Moving Up");
+                    int i = 0;
+                    if (i == 0)
+                    {
+                        GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleporterMode");
+                        i++;
+                    }
+
                 }
 
                 else if (touchpad.y < -0.7f)
@@ -96,6 +103,12 @@ public class TouchpadCross : MonoBehaviour {
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
         controllerRight.transform.Find("Origin").gameObject.SetActive(false);
         controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
+        int i = 0;
+        if (i == 0)
+        {
+            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleportMode");
+            i++;
+        }
     }
 
     void ChangeToGrab()
@@ -110,6 +123,7 @@ public class TouchpadCross : MonoBehaviour {
         controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
         SpawnBow();
+
     }
 
     void RemoveBow()
@@ -124,6 +138,15 @@ public class TouchpadCross : MonoBehaviour {
         bow = bowPrefab;
         bow = GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y + 1f, cameraRig.transform.position.z), Quaternion.identity);
         bow.GetComponent<Rigidbody>().isKinematic = true;
+
+        // say to the introwave script that the bow has been spawned (only 1st time)
+        int i = 0;
+        if (i == 0)
+        {
+            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("BowHasBeenSpawned");
+            i++;
+        }
+
     }
 
     void SetupGameObjects()

@@ -108,6 +108,7 @@ public class temp_WeaponSwitch : MonoBehaviour {
     void SpawnBow()
     {
         RemoveBow();
+
         bow = bowPrefab;
         bow = GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y + 1f, cameraRig.transform.position.z), Quaternion.identity);
         bow.GetComponent<Rigidbody>().isKinematic = true;
