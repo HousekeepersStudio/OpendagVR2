@@ -104,7 +104,7 @@ public class TouchpadCross : MonoBehaviour {
             controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
             controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
             cameraRig.GetComponent<BuildTower>().enabled = false;
-            //cameraRig.GetComponent<UpgradeTower>().enabled = true;
+            cameraRig.GetComponent<UpgradeTower>().enabled = true;
         }
 
         teleportEnabled = true;

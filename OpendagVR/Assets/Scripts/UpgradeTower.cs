@@ -45,7 +45,7 @@ public class UpgradeTower : MonoBehaviour {
             {
                 if (sn.GetBalance() >= upgradeCost)
                 {
-                    Turret t = hit.transform.GetChild(1).GetComponent<Turret>();
+                    Turret t = hit.transform.GetComponentInChildren<Turret>();
                     t.UpgradeTurret();
                     sn.BuyTower(upgradeCost);
                 }
