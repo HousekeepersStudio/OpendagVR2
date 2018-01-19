@@ -53,8 +53,8 @@ public class Target : Entity {
         Debug.Log("Trigger Enter " + other.tag);
         if(other.tag.Contains("Enemy"))
         {
-            enemies.Add(other.transform.parent.parent.gameObject);
-            StandardEnemy se = other.transform.parent.parent.GetComponent<StandardEnemy>();
+            enemies.Add(other.transform.parent.gameObject);
+            StandardEnemy se = other.transform.parent.GetComponent<StandardEnemy>();
             se.mainTowerAttack = true;
         }
     }
@@ -64,7 +64,7 @@ public class Target : Entity {
         Debug.Log("Trigger Exit " + other.tag);
         if (other.tag.Contains("Enemy"))
         {
-            StandardEnemy se = other.transform.parent.parent.GetComponent<StandardEnemy>();
+            StandardEnemy se = other.transform.parent.GetComponent<StandardEnemy>();
             se.mainTowerAttack = false;
         }
     }
