@@ -29,7 +29,7 @@ public class TouchpadCross : MonoBehaviour {
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         SetupGameObjects();
-        ChangeToTeleporting();
+        ChangeToGrab();
     }
 
 
@@ -52,6 +52,14 @@ public class TouchpadCross : MonoBehaviour {
 
                 if (touchpad.y > 0.7f)
                 {
+                    Debug.Log("Moving Up");
+                    int i = 0;
+                    if (i == 0)
+                    {
+                        GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleporterMode");
+                        i++;
+                    }
+
                     ChangeToBuy();
                 }
 
@@ -103,6 +111,12 @@ public class TouchpadCross : MonoBehaviour {
         if (controllerRight.transform.Find("New Game Object") != null)
             controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
         controllerRight.GetComponent<Teleportation>().enabled = true;
+        int i = 0;
+        if (i == 0)
+        {
+            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleportMode");
+            i++;
+        }
     }
 
     void ChangeToGrab()
@@ -123,6 +137,7 @@ public class TouchpadCross : MonoBehaviour {
         controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
         SpawnBow();
+
     }
 
     void ChangeToBuy()
@@ -183,6 +198,15 @@ public class TouchpadCross : MonoBehaviour {
         bow = bowPrefab;
         bow = GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y + 1f, cameraRig.transform.position.z), Quaternion.identity);
         bow.GetComponent<Rigidbody>().isKinematic = true;
+
+        // say to the introwave script that the bow has been spawned (only 1st time)
+        int i = 0;
+        if (i == 0)
+        {
+            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("BowHasBeenSpawned");
+            i++;
+        }
+
     }
 
     void SetupGameObjects()

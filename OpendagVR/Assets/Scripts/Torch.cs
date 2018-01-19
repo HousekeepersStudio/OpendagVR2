@@ -140,7 +140,7 @@ public class Torch : MonoBehaviour
     private void LoadIntroScene()
     {
         FadeOut();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
     IEnumerator RemoveFlag(GameObject flag, float time)
