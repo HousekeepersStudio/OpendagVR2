@@ -15,7 +15,7 @@ public class Control {
 	public KeyCode key;
 	public string joyName;
    
-
+	public SteamVR_TrackedController steamVR2;
     public SteamVR_TrackedController steamVR;
 
     /*public Control(SteamVR_TrackedController steamVR)
@@ -33,21 +33,39 @@ public class Control {
 		{
 		case "menu_button":
 			result = steamVR.menuPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.menuPressed;
+			}
 			break;
 		case "steam_button":
 			result = steamVR.steamPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.steamPressed;
+			}
 			break;
 		case "trigger_button":
 			result = steamVR.triggerPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.triggerPressed;
+			}
 			break;
 		case "pad_button":
 			result = steamVR.padPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.padPressed;
+			}
 			break;
 		case "pad_touch":
 			result = steamVR.padTouched;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.padTouched;
+			}
 			break;
 		case "hold_grip":
 			result = steamVR.gripped;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.gripped;
+			}
 			break;
 		}
 
