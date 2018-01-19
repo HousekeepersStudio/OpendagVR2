@@ -90,21 +90,12 @@ public class TouchpadCross : MonoBehaviour {
 
         if (grabEnabled)
         {
-            grabEnabled = false;
-            controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
-            controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
-            controllerRight.transform.Find("Origin").gameObject.SetActive(false);
-            controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
-            RemoveBow();
+            DisableGrab();
         }
 
         if (buyEnabled)
         {
-            buyEnabled = false;
-            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
-            controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
-            cameraRig.GetComponent<BuildTower>().enabled = false;
-            cameraRig.GetComponent<UpgradeTower>().enabled = true;
+            DisableBuy();
         }
 
         teleportEnabled = true;
@@ -118,19 +109,12 @@ public class TouchpadCross : MonoBehaviour {
     {
         if(teleportEnabled)
         {
-            teleportEnabled = false;
-            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
-            controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
-            controllerRight.GetComponent<Teleportation>().enabled = false;
+            DisableTeleport();
         }
 
         if (buyEnabled)
         {
-            buyEnabled = false;
-            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
-            controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
-            cameraRig.GetComponent<BuildTower>().enabled = false;
-            //cameraRig.GetComponent<UpgradeTower>().enabled = true;
+            DisableBuy();
         }
 
         grabEnabled = true;
@@ -145,42 +129,46 @@ public class TouchpadCross : MonoBehaviour {
     {
         if (teleportEnabled)
         {
-            teleportEnabled = false;
-            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
-            controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
-            controllerRight.GetComponent<Teleportation>().enabled = false;
+            DisableTeleport();
         }
 
         if (grabEnabled)
         {
-            grabEnabled = false;
-            controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
-            controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
-            controllerRight.transform.Find("Origin").gameObject.SetActive(false);
-            controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
-            RemoveBow();
+            DisableGrab();
         }
 
         buyEnabled = true;
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
         controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
         cameraRig.GetComponent<BuildTower>().enabled = true;
-        //cameraRig.GetComponent<UpgradeTower>().enabled = true;
+        cameraRig.GetComponent<UpgradeTower>().enabled = true;
     }
 
     void DisableTeleport()
     {
-
+        teleportEnabled = false;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
+        controllerRight.GetComponent<Teleportation>().enabled = false;
     }
 
     void DisableGrab()
     {
-
+        grabEnabled = false;
+        controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
+        controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
+        controllerRight.transform.Find("Origin").gameObject.SetActive(false);
+        controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
+        RemoveBow();
     }
 
     void DisableBuy()
     {
-
+        buyEnabled = false;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
+        cameraRig.GetComponent<BuildTower>().enabled = false;
+        cameraRig.GetComponent<UpgradeTower>().enabled = true;
     }
 
     void RemoveBow()
