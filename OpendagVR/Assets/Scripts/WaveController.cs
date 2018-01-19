@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,12 +40,14 @@ public class WaveController : MonoBehaviour {
         if (enemies.Count == 0 && !waveInitialized)
         {
             waveNr++;
+            RandomSoundSelectorBefore();
             InitWave();
         }
 
         if(enemies.Count == 0 && waveInitialized)
         {
             if (!timerStarted)
+                RandomSoundSelectorAfter();
                 StartCoroutine(WaveWaiter(waitingTime));
         }
     }
@@ -110,5 +113,49 @@ public class WaveController : MonoBehaviour {
                 enemyPrefab = vikingPrefab;
                 break;
         }
+    }
+    //Check the house, and then decide a random voicelines before the wave
+    private int RandomSoundSelectorBefore()
+    {
+        int number;
+        System.Random rnd = new System.Random();
+        switch (PlayerPrefs.GetString("house"))
+        {
+            case "serpents":
+                number = rnd.Next(24, 29);
+                return number;
+            case "vikings":
+                number = rnd.Next(34, 39);
+                return number;
+            case "dragons":
+                number = rnd.Next(14, 19);
+                return number;
+            case "ravens":
+                number = rnd.Next(44, 49);
+                return number;
+        }
+        return 0;
+    }
+    //Check the house, and then decide a random voicelines after the wave
+    private int RandomSoundSelectorAfter()
+    {
+        int number;
+        System.Random rnd = new System.Random();
+        switch (PlayerPrefs.GetString("house"))
+        {
+            case "serpents":
+                number = rnd.Next(29, 34);
+                return number;
+            case "vikings":
+                number = rnd.Next(39, 44);
+                return number;
+            case "dragons":
+                number = rnd.Next(19, 24);
+                return number;
+            case "ravens":
+                number = rnd.Next(49, 54);
+                return number;
+        }
+        return 0;
     }
 }
