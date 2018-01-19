@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Tower : Entity {
     private Tower target;
-    public Text text;
+    private Text text;
 
     public Tower(string type, float maxHealth, float damage, int level, Tower target)
         :base (type, maxHealth, damage, level)
@@ -16,10 +16,11 @@ public class Tower : Entity {
     // Use this for initialization
     void Start () {
         this.target = this.GetComponent<Tower>();
+        this.text = this.GetComponentsInChildren<Text>()[1];
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        text.text = this.level.ToString();
+        this.text.text = this.level.ToString();
 	}
 }
