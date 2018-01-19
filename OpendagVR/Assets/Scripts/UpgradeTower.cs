@@ -11,9 +11,13 @@ public class UpgradeTower : MonoBehaviour {
 
     private SteamVR_LaserPointer pointer;
     private SteamVR_TrackedController buttons;
+    Points sn;
+    int upgradeCost = 150;
 
     void Update()
     {
+        sn = GameObject.Find("Points").gameObject.GetComponent<Points>();
+
         try
         {
             if (pointer != null && buttons != null)
@@ -39,11 +43,11 @@ public class UpgradeTower : MonoBehaviour {
             Physics.Raycast(pointer.pointer.transform.position, pointer.pointer.transform.forward, out hit);
             if (hit.collider.tag == towerTag && buttons.triggerPressed)
             {
-                if (true)
+                if (sn.GetBalance() >= upgradeCost)
                 {
                     Turret t = hit.transform.GetChild(1).GetComponent<Turret>();
                     t.UpgradeTurret();
-
+                    sn.BuyTower(upgradeCost);
                 }
             }
         }
