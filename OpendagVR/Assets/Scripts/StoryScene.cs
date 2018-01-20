@@ -4,6 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class StoryScene : MonoBehaviour
 {
+    private SoundController controller;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = this.GetComponentInParent<AudioSource>();
+        controller = new SoundController();
+        Debug.Log(this.gameObject.name);
+        StartCoroutine(Story());
+    }
+
     void Update()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
@@ -19,4 +30,10 @@ public class StoryScene : MonoBehaviour
             SceneManager.LoadScene(2);
         }
 	}
+
+    IEnumerator Story()
+    {
+        yield return new WaitForSeconds(1f);
+        controller.PlaySound("Story", audioSource);
+    }
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Target : Entity {
     List<GameObject> enemies = new List<GameObject>();
     float timeToWait = 3.0f;
-    public Target() : base("MainTower", 100) {}
+    public Target() : base("MainTower", 130) {}
 
     private void Update()
     {
