@@ -1,5 +1,6 @@
 ﻿//This Script is created by Patrick
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -53,14 +54,16 @@ public class Teleportation : MonoBehaviour {
                     TeleportObject teleport = hit.collider.GetComponentInChildren<TeleportObject>();
                     if (buttons.triggerPressed)
                     {
-
-                        int i = 0;
-                        if (i == 0)
+                        try
                         {
-                            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("Teleported");
-                            i++;
+                            if (GameObject.Find("IntroWave").activeSelf || GameObject.Find("IntroWave") != null)
+                                GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("Teleported");
                         }
-
+                        catch (Exception e)
+                        {
+                            Debug.Log(e);
+                        }
+              
                         StartCoroutine(Teleport(hit, teleport));
                     }
                 }
