@@ -80,6 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4192756113843742}
   - component: {fileID: 137498295214897956}
+  - component: {fileID: 64724348146518900}
   m_Layer: 0
   m_Name: Mask_Viking
   m_TagString: Untagged
@@ -310,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4837963503829788}
   - component: {fileID: 137821217396819062}
+  - component: {fileID: 64213348500705512}
   m_Layer: 0
   m_Name: Body_Body
   m_TagString: Untagged
@@ -853,6 +855,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4850349722786704}
   - component: {fileID: 137179902946151564}
+  - component: {fileID: 64895398146796904}
   m_Layer: 0
   m_Name: Bottoms_Bottom
   m_TagString: Untagged
@@ -885,6 +888,7 @@ GameObject:
   - component: {fileID: 4613780197474924}
   - component: {fileID: 137738776164014852}
   - component: {fileID: 95541947554058602}
+  - component: {fileID: 64687954567570206}
   m_Layer: 0
   m_Name: Tops_Top
   m_TagString: Untagged
@@ -924,7 +928,7 @@ GameObject:
   - component: {fileID: 195094044149647252}
   m_Layer: 0
   m_Name: Enemy_Viking 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1214,6 +1218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4511694712213618}
   - component: {fileID: 137122151106722122}
+  - component: {fileID: 64410347175606316}
   m_Layer: 0
   m_Name: Shoes_Shoes
   m_TagString: Untagged
@@ -1892,7 +1897,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721078947429458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.45992, y: 10.044895, z: 57.354534}
+  m_LocalPosition: {x: 33.97017, y: 0.31920052, z: 26.569128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600656005569940}
@@ -2300,6 +2305,76 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64213348500705512
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1204818697724242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300030, guid: 49f4430dcbeca6a45896efe556ef2934, type: 3}
+--- !u!64 &64410347175606316
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994919454456944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300010, guid: 49f4430dcbeca6a45896efe556ef2934, type: 3}
+--- !u!64 &64687954567570206
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681346401984476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 49f4430dcbeca6a45896efe556ef2934, type: 3}
+--- !u!64 &64724348146518900
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052562825344042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300036, guid: 49f4430dcbeca6a45896efe556ef2934, type: 3}
+--- !u!64 &64895398146796904
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1638571208599562}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300014, guid: 49f4430dcbeca6a45896efe556ef2934, type: 3}
 --- !u!82 &82639773490973550
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2311,7 +2386,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 47ce8dae42e286a4a9b63dee58e4d28a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2462,7 +2537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022d6aadd96b88749bef85533c36b95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTowerObjectName: 
+  mainTowerObjectName: Castle
   mainTowerAttack: 0
 --- !u!114 &114564880201179664
 MonoBehaviour:
@@ -2526,7 +2601,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1721078947429458}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.8470024
   m_Height: 3.674198
   m_Direction: 1
@@ -3188,7 +3263,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777363157208798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.032}
+  m_LocalPosition: {x: 0.0099983215, y: 3.211, z: -0.032}
   m_LocalScale: {x: 0.01816749, y: 0.019778457, z: 1.2039418}
   m_Children:
   - {fileID: 224720448709325552}

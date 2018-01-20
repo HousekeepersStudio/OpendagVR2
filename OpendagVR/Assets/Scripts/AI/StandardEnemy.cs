@@ -104,4 +104,24 @@ public class StandardEnemy : Enemy {
 		animator.SetTrigger("Attack"); 
         StartCoroutine(EnemyAttackTower(mainTowerAttack, mainTower.GetComponent<Collider>()));
     }
-}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Target")
+        {
+            StopMove();
+            animator.SetTrigger("Attack");
+            mainTowerAttack = true;
+            StartCoroutine(EnemyAttackTower(mainTowerAttack, other));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Target")
+        {
+            animator.SetTrigger("Walk");
+            mainTowerAttack = false;
+        }
+    }
+} 
