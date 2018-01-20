@@ -20,9 +20,9 @@ public class TestingMenuScript : MonoBehaviour
 	public GameObject towerItem;
 	public GameObject towerlist;
 
-	public MyManager myManager;
-    
-	public Text scoreLabel;
+    public MyManager myManager;
+
+    public Text scoreLabel;
     public Text balanceLabel;
 
 	[Header("Sound objects")]
@@ -42,8 +42,13 @@ public class TestingMenuScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		
-		menu = myManager.GetControl("menu_button");
+
+        if (myManager == null)
+        {
+            myManager = GameObject.Find("GameManager").GetComponent<MyManager>();
+        }
+
+        menu = myManager.GetControl("menu_button");
 		trigger = myManager.GetControl ("trigger_button");
 		CloseAll ();
 	}
@@ -56,7 +61,6 @@ public class TestingMenuScript : MonoBehaviour
             myManager = GameObject.Find("GameManager").GetComponent<MyManager>();
         }
         /*==================== Main menu controls==========================*/
-
 
         if (!joyPressed) {
 			if (menu.GetJoyKey ()) {
@@ -79,17 +83,18 @@ public class TestingMenuScript : MonoBehaviour
 		/*===================== Menu active ================================*/
 		if (menuActive)
 		{
+            GameObject.Find("Controller (right)").GetComponent<TouchpadCross>().ChangeToTeleporting();
 			Time.timeScale = 0.7f;
-			menus [openMenu].SetActive (true);
+			menus [openMenu].SetActive(true);
 			if (!loaded) {
 				switch (openMenu) {
-				case 0:
-					this.scoreLabel.text = FormatScore();
+				    case 0:
+					    this.scoreLabel.text = FormatScore();
                         this.balanceLabel.text = FormatBalance();
-					break;
-				case 4:
-					UpdateTowers ();
-					break;
+					    break;
+				    case 4:
+					    UpdateTowers();
+					    break;
 				}
 
 				loaded = true;
@@ -101,12 +106,12 @@ public class TestingMenuScript : MonoBehaviour
                 this.balanceLabel.text = FormatBalance();
             }
 			if (openMenu == 4) {
-				UpdateTowers ();
+				UpdateTowers();
 			}
         }
 		else
 		{
-			CloseAll ();
+			CloseAll();
 			Time.timeScale = 1;
 		}
 	}

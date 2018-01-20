@@ -85,7 +85,7 @@ public class MyManager : MonoBehaviour {
     public SteamVR_LaserPointer pointer;
 	public int score;
     public int balance;
-    public string House;
+    public string house;
     public Pointer[] colors;
 
 	[Header("Tower")]
@@ -99,47 +99,35 @@ public class MyManager : MonoBehaviour {
     private void Awake()
     {
         points = GameObject.Find("Points").GetComponent<Points>();
-        House = PlayerPrefs.GetString("house");
-        Debug.Log(House);
+        house = PlayerPrefs.GetString("house");
 
         Pointer result = new Pointer();
-        switch (House)
+        switch (house)
         {
-            
             case "dragons":
-           
                 for (int i = 0; i < colors.Length; i++)
                 {
                     if ("dragons" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                       
                     }
                 }
                 break;
             case "serpents":
-             
-
-              
                 for (int i = 0; i < colors.Length; i++)
                 {
                     if ("serpents" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                       
                     }
                 }
                 break;
             case "vikings":
-                Debug.Log(1);
-
-                Debug.Log(colors.Length);
                 for (int i = 0; i < colors.Length; i++)
                 {
                     if ("vikings" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                      
                     }
                 }
                 break;
@@ -150,12 +138,10 @@ public class MyManager : MonoBehaviour {
                     if ("ravens" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                       
                     }
                 }
                 break;
         }
-
     }
 
 	public GameObject[] GetTowers() {

@@ -108,7 +108,7 @@ public class TouchpadCross : MonoBehaviour {
         }
     }
 
-    void ChangeToTeleporting()
+    public void ChangeToTeleporting()
     {
 
         if (grabEnabled)
