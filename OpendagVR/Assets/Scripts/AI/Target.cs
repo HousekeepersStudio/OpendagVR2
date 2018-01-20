@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Target : Entity {
     List<GameObject> enemies = new List<GameObject>();
     float timeToWait = 3.0f;
-    public Target() : base("MainTower", 130) {}
+    public Target() : base("MainTower", 850) {}
 
     private void Update()
     {
@@ -48,8 +48,8 @@ public class Target : Entity {
         Debug.Log("Trigger Enter " + other.tag);
         if(other.tag.Contains("Enemy"))
         {
-            enemies.Add(other.transform.parent.parent.gameObject);
-            StandardEnemy se = other.transform.parent.parent.GetComponent<StandardEnemy>();
+            enemies.Add(other.transform.parent.gameObject);
+            StandardEnemy se = other.transform.parent.GetComponent<StandardEnemy>();
             se.mainTowerAttack = true;
         }
     }
@@ -59,7 +59,7 @@ public class Target : Entity {
         Debug.Log("Trigger Exit " + other.tag);
         if (other.tag.Contains("Enemy"))
         {
-            StandardEnemy se = other.transform.parent.parent.GetComponent<StandardEnemy>();
+            StandardEnemy se = other.transform.parent.GetComponent<StandardEnemy>();
             se.mainTowerAttack = false;
         }
     }

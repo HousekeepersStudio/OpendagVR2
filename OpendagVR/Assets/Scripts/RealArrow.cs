@@ -69,9 +69,10 @@ public class RealArrow : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
         if(other.gameObject.tag.Contains("Enemy"))
             enemy = other.gameObject.GetComponentInParent<StandardEnemy>();
+        Debug.Log("Hits enemy");
         switch (other.gameObject.tag)
         {
-            
+
             case "EnemyHead":
                 enemy.TakeDamage(enemy.GetMaxHealth());
                 Debug.Log("HeadShot");
