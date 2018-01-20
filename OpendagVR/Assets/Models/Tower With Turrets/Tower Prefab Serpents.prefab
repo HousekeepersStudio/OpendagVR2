@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 114373146313882682}
   m_Layer: 0
   m_Name: Tower Prefab Serpents
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -447,7 +447,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1534983488269668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.7905707, y: 10.80958, z: 19.3531}
+  m_LocalPosition: {x: 8.1443205, y: 10.234556, z: 36.87382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4003825708940612}
@@ -923,7 +923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e93f083c7e4c147a505831e0bcfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  turretLvl: 1
+  range: 15
   fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 4436935686585420}

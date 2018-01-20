@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1563528814959000}
+  m_IsPrefabParent: 1
+--- !u!1 &1563528814959000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4047111734515288}
+  - component: {fileID: 114221788984407200}
+  - component: {fileID: 114166018647893602}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4047111734515288
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563528814959000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114166018647893602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563528814959000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14310d1625ef8e4db45b57cda3b9252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - Name: FireBow
+    id: 0
+    clip: {fileID: 8300000, guid: 79e29c78f480ae94f916f7f9a4192a4f, type: 3}
+    typeId: 0
+  - Name: MonsterSound
+    id: 1
+    clip: {fileID: 8300000, guid: 47ce8dae42e286a4a9b63dee58e4d28a, type: 3}
+    typeId: 1
+  - Name: TutorialEnemyInFront
+    id: 2
+    clip: {fileID: 8300000, guid: e5db123a2f8aa704c8145042f97c4fbf, type: 3}
+    typeId: 2
+  - Name: TutorialPickUpBow
+    id: 3
+    clip: {fileID: 8300000, guid: e465b32db7345b140968cbd87c4053d3, type: 3}
+    typeId: 2
+  - Name: TutorialHowToBow
+    id: 4
+    clip: {fileID: 8300000, guid: dd14b5242b14d804cb7414900f17e203, type: 3}
+    typeId: 2
+  - Name: TutorialNoteHeadshot
+    id: 5
+    clip: {fileID: 8300000, guid: 971262327318c60498597e5cee9ec65a, type: 3}
+    typeId: 2
+  - Name: TutorialOpenMenu
+    id: 6
+    clip: {fileID: 8300000, guid: 5c821f0ceb99da74dbab17e83e00f0ee, type: 3}
+    typeId: 2
+  - Name: TutorialBuildTower
+    id: 7
+    clip: {fileID: 8300000, guid: ca04d45d6287b454c91e1cac34cc40bd, type: 3}
+    typeId: 2
+  - Name: TutorialRepairTower
+    id: 8
+    clip: {fileID: 8300000, guid: db49b20da5de40a4eb0c9b997f58b642, type: 3}
+    typeId: 2
+  - Name: TutorialTowerBuilt
+    id: 9
+    clip: {fileID: 8300000, guid: e1a11ee7f7950e64c8f7fd7b4e76e903, type: 3}
+    typeId: 2
+  - Name: TutorialPointAtTower
+    id: 10
+    clip: {fileID: 8300000, guid: 952dc1abb80906d41a6b14cd0f6e45a6, type: 3}
+    typeId: 2
+  - Name: TutorialProtectTower
+    id: 11
+    clip: {fileID: 8300000, guid: bd8548a83f127ee4fa1fb3e1a05b04bc, type: 3}
+    typeId: 2
+  - Name: SecretMaybeEasteregg
+    id: 12
+    clip: {fileID: 8300000, guid: 05bd08072c62fd34496c3268705aad2c, type: 3}
+    typeId: 0
+  - Name: TutorialQuiver
+    id: 13
+    clip: {fileID: 8300000, guid: 75225f04a3551c644bdb2f5ee124c55f, type: 3}
+    typeId: 2
+  soundTypes:
+  - Name: Bow
+    id: 0
+  - Name: Monster
+    id: 1
+  - Name: Tutorial
+    id: 2
+--- !u!114 &114221788984407200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563528814959000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12d6607f42e3f24fbdc37881a2aa48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controls:
+  - name: menu_button
+    key: 101
+    joyName: menu_button
+    steamVR: {fileID: 0}
+  - name: trigger_button
+    key: 324
+    joyName: trigger_button
+    steamVR: {fileID: 0}
+  - name: 
+    key: 101
+    joyName: 
+    steamVR: {fileID: 0}
+  - name: 
+    key: 101
+    joyName: 
+    steamVR: {fileID: 0}
+  - name: 
+    key: 101
+    joyName: 
+    steamVR: {fileID: 0}
+  - name: 
+    key: 101
+    joyName: 
+    steamVR: {fileID: 0}
+  - name: 
+    key: 101
+    joyName: 
+    steamVR: {fileID: 0}
+  - name: 
+    key: 101
+    joyName: 
+    steamVR: {fileID: 0}
+  - name: 
+    key: 101
+    joyName: 
+    steamVR: {fileID: 0}
+  pointer: {fileID: 0}
+  score: 0
+  balance: 0
+  House: 
+  colors:
+  - name: dragons
+    color: {r: 1, g: 0, b: 0, a: 0}
+  - name: serpents
+    color: {r: 0.034482718, g: 1, b: 0, a: 0}
+  - name: vikings
+    color: {r: 0.7853776, g: 0.006109435, b: 0.8308824, a: 0}
+  - name: ravens
+    color: {r: 0.13916521, g: 0.8602941, b: 0.8602941, a: 0}
+  towers: []
+  points: {fileID: 0}
+  steamVR: {fileID: 0}

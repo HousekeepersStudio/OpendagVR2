@@ -33,6 +33,9 @@ public class Points : MonoBehaviour {
                 Debug.Log("Balance :" + balance);
 
                 break;
+            case "TUTORIAL":
+                balance += 140;
+                break;
             default:
                 Debug.Log("The given string is not an option!");
 
@@ -43,7 +46,8 @@ public class Points : MonoBehaviour {
     public void SubmitScore(string name)
     {
         string faction = PlayerPrefs.GetString("house");
-
+        score = PlayerPrefs.GetInt("Score");
+        PlayerPrefs.DeleteAll();
         StartCoroutine(Upload(name, faction));   
     }
 

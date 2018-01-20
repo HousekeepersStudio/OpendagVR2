@@ -15,13 +15,14 @@ public class Control {
 	public KeyCode key;
 	public string joyName;
    
-
+	public SteamVR_TrackedController steamVR2;
     public SteamVR_TrackedController steamVR;
 
     /*public Control(SteamVR_TrackedController steamVR)
     {
         this.steamVR = steamVR;
     }*/
+
 
     public bool GetJoyKey() 
 	{
@@ -32,21 +33,39 @@ public class Control {
 		{
 		case "menu_button":
 			result = steamVR.menuPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.menuPressed;
+			}
 			break;
 		case "steam_button":
 			result = steamVR.steamPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.steamPressed;
+			}
 			break;
 		case "trigger_button":
 			result = steamVR.triggerPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.triggerPressed;
+			}
 			break;
 		case "pad_button":
 			result = steamVR.padPressed;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.padPressed;
+			}
 			break;
 		case "pad_touch":
 			result = steamVR.padTouched;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.padTouched;
+			}
 			break;
 		case "hold_grip":
 			result = steamVR.gripped;
+			if (!result && steamVR2 != null) {
+				result = steamVR2.gripped;
+			}
 			break;
 		}
 
@@ -66,8 +85,11 @@ public class MyManager : MonoBehaviour {
     public SteamVR_LaserPointer pointer;
 	public int score;
     public int balance;
-    public string House;
+    public string house;
     public Pointer[] colors;
+
+	[Header("Tower")]
+	public GameObject[] towers;
 
     public Points points;
     
@@ -77,47 +99,35 @@ public class MyManager : MonoBehaviour {
     private void Awake()
     {
         points = GameObject.Find("Points").GetComponent<Points>();
-        House = PlayerPrefs.GetString("house");
-        Debug.Log(House);
+        house = PlayerPrefs.GetString("house");
 
         Pointer result = new Pointer();
-        switch (House)
+        switch (house)
         {
-            
             case "dragons":
-           
                 for (int i = 0; i < colors.Length; i++)
                 {
                     if ("dragons" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                       
                     }
                 }
                 break;
             case "serpents":
-             
-
-              
                 for (int i = 0; i < colors.Length; i++)
                 {
                     if ("serpents" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                       
                     }
                 }
                 break;
             case "vikings":
-                Debug.Log(1);
-
-                Debug.Log(colors.Length);
                 for (int i = 0; i < colors.Length; i++)
                 {
                     if ("vikings" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                      
                     }
                 }
                 break;
@@ -128,13 +138,15 @@ public class MyManager : MonoBehaviour {
                     if ("ravens" == colors[i].name)
                     {
                         pointer.color = colors[i].color;
-                       
                     }
                 }
                 break;
         }
-
     }
+
+	public GameObject[] GetTowers() {
+		return this.towers;
+	}
 
     public void UpdatePoints()
     {
@@ -142,8 +154,11 @@ public class MyManager : MonoBehaviour {
         balance = points.GetBalance();
     }
 
+
+
     public Control GetControl(string name) {
 		Control result = new Control();
+		Debug.Log (name);
 		result.name = "none";
 		result.key = KeyCode.None;
 		result.joyName = "none";

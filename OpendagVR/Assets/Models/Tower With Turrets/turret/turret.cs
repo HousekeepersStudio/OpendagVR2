@@ -9,8 +9,8 @@ public class Turret : MonoBehaviour {
     private Vector3 target;
 
     [Header("Turret Control")]
+    public int turretLvl = Mathf.Min(1);
     public float range = 15f;
-    
     public float fireRate = Mathf.Min(1f);
     private float fireCountDown = 0f;
 
@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour {
     [Header("Ammo")]
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public int damage = 10;
+    public float damage = 10;
     public float bulletSpeed = 1300f;
 
     
@@ -92,6 +92,14 @@ public class Turret : MonoBehaviour {
         //Destroy(temporaryBulletHandler, 10f);
     }
 
+    public void UpgradeTurret()
+    {
+        damage *= 0.05f;
+        range *= 0.05f;
+        fireRate *= 0.05f;
+        turnspeed *= 0.05f;
+        turretLvl++;
+    }
     
 
     void OnDrawGizmosSelected()

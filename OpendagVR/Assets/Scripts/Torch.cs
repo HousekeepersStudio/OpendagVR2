@@ -63,30 +63,9 @@ public class Torch : MonoBehaviour
         {
             if (!loadSceneStarted)
             {
-                BrightenFlag();
                 SetHouse();
                 StartCoroutine(LoadNextScene(2f));
             }
-        }
-    }
-
-    private void BrightenFlag()
-    {
-        if (serpentBanner)
-        {
-            CreateLight(GameObject.Find("serpentBanner"));
-        }
-        else if (vikingBanner)
-        {
-            CreateLight(GameObject.Find("vikingBanner"));
-        }
-        else if (dragonBanner)
-        {
-            CreateLight(GameObject.Find("dragonBanner"));
-        }
-        else if (ravenBanner)
-        {
-            CreateLight(GameObject.Find("ravenBanner"));
         }
     }
 

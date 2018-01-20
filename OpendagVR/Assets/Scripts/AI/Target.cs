@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Target : Entity {
     List<GameObject> enemies = new List<GameObject>();
     float timeToWait = 3.0f;
-    public Target() : base("MainTower", 100) {}
+    public Target() : base("MainTower", 130) {}
 
     private void Update()
     {
@@ -14,8 +14,8 @@ public class Target : Entity {
         {
             if (this.curHealth <= 0)
             {
+                PlayerPrefs.SetInt("Score", GameObject.Find("Points").GetComponent<Points>().GetScore());
                 WaitAndPlaySound(timeToWait);
-                ResetGame();
                 LoadKeyboardScene();
             }
         }
@@ -35,11 +35,6 @@ public class Target : Entity {
     private void LoadKeyboardScene()
     {
         SceneManager.LoadScene(4);
-    }
-
-    private void ResetGame()
-    {
-        PlayerPrefs.DeleteAll();
     }
 
     private IEnumerable WaitAndPlaySound(float waitTime)
