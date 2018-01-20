@@ -46,7 +46,8 @@ public class Points : MonoBehaviour {
     public void SubmitScore(string name)
     {
         string faction = PlayerPrefs.GetString("house");
-
+        score = PlayerPrefs.GetInt("Score");
+        PlayerPrefs.DeleteAll();
         StartCoroutine(Upload(name, faction));   
     }
 

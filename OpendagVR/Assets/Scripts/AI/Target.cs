@@ -14,8 +14,8 @@ public class Target : Entity {
         {
             if (this.curHealth <= 0)
             {
+                PlayerPrefs.SetInt("Score", GameObject.Find("Points").GetComponent<Points>().GetScore());
                 WaitAndPlaySound(timeToWait);
-                ResetGame();
                 LoadKeyboardScene();
             }
         }
@@ -35,11 +35,6 @@ public class Target : Entity {
     private void LoadKeyboardScene()
     {
         SceneManager.LoadScene(4);
-    }
-
-    private void ResetGame()
-    {
-        PlayerPrefs.DeleteAll();
     }
 
     private IEnumerable WaitAndPlaySound(float waitTime)
