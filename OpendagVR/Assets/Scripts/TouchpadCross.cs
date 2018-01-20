@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
@@ -61,8 +62,17 @@ public class TouchpadCross : MonoBehaviour {
                 if (touchpad.y > 0.7f)
                 {
                     Debug.Log("Moving Up");
-                     if (GameObject.Find("IntroWave").activeSelf)
-                        GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleporterMode");
+
+                    try
+                    {
+                        if (GameObject.Find("IntroWave").activeSelf || GameObject.Find("IntroWave") != null)
+                            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleporterMode");
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log(e);
+                    }
+
 
 
                     ChangeToBuy();
@@ -117,8 +127,17 @@ public class TouchpadCross : MonoBehaviour {
             controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
         controllerRight.GetComponent<Teleportation>().enabled = true;
 
-        if (GameObject.Find("IntroWave").activeSelf)
-            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleportMode");
+        try
+        {
+            if (GameObject.Find("IntroWave").activeSelf || GameObject.Find("IntroWave") != null)
+                GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleportMode");
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
+ 
     }
 
     void ChangeToGrab()
@@ -204,9 +223,16 @@ public class TouchpadCross : MonoBehaviour {
         bow.GetComponent<Rigidbody>().isKinematic = true;
 
         // say to the introwave script that the bow has been spawned (only 1st time)
-        
-        if (GameObject.Find("IntroWave").activeSelf)
-            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("BowHasBeenSpawned");
+        try
+        {
+            if (GameObject.Find("IntroWave").activeSelf || GameObject.Find("IntroWave") != null)
+                GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("BowHasBeenSpawned");
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
 
     }
 
