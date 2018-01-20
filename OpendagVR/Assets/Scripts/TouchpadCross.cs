@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
@@ -11,6 +12,10 @@ public class TouchpadCross : MonoBehaviour {
     bool pressed;
     public GameObject bowPrefab;
 
+    public bool teleportEnabled = false;
+    public bool grabEnabled = true;
+    public bool buyEnabled = true;
+
     GameObject cameraRig;
     GameObject bow;
 
@@ -19,9 +24,7 @@ public class TouchpadCross : MonoBehaviour {
 
     SteamVR_TrackedController buttonsLeft;
     SteamVR_TrackedController buttonsRight;
-
-    bool teleport = false;
-    bool grab = true;
+    
 
     void Awake()
     {
@@ -30,11 +33,19 @@ public class TouchpadCross : MonoBehaviour {
         ChangeToTeleporting();
     }
 
-
+    int j = 0;
     // Use this for initialization
     void FixedUpdate()
     {
         SetupGameObjects();
+        if(controllerRight != null)
+        {
+            if (j == 0)
+            {
+                ChangeToTeleporting();
+                j++;
+            }
+        }
         device = SteamVR_Controller.Input((int)trackedObj.index);
     }
 
@@ -51,6 +62,20 @@ public class TouchpadCross : MonoBehaviour {
                 if (touchpad.y > 0.7f)
                 {
                     Debug.Log("Moving Up");
+
+                    try
+                    {
+                        if (GameObject.Find("IntroWave").activeSelf || GameObject.Find("IntroWave") != null)
+                            GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleporterMode");
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log(e);
+                    }
+
+
+
+                    ChangeToBuy();
                 }
 
                 else if (touchpad.y < -0.7f)
@@ -83,33 +108,105 @@ public class TouchpadCross : MonoBehaviour {
         }
     }
 
-    void ChangeToTeleporting()
+    public void ChangeToTeleporting()
     {
-        teleport = !teleport;
-        grab = !grab;
-        RemoveBow();
+
+        if (grabEnabled)
+        {
+            DisableGrab();
+        }
+
+        if (buyEnabled)
+        {
+            DisableBuy();
+        }
+
+        teleportEnabled = true;
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
         if (controllerRight.transform.Find("New Game Object") != null)
             controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
         controllerRight.GetComponent<Teleportation>().enabled = true;
-        controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
-        controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
-        controllerRight.transform.Find("Origin").gameObject.SetActive(false);
-        controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
+
+        try
+        {
+            if (GameObject.Find("IntroWave").activeSelf || GameObject.Find("IntroWave") != null)
+                GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("TeleportMode");
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
+ 
     }
 
     void ChangeToGrab()
     {
-        teleport = !teleport;
-        grab = !grab;
-        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
-        controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
-        controllerRight.GetComponent<Teleportation>().enabled = false;
+        if(teleportEnabled)
+        {
+            DisableTeleport();
+        }
+
+        if (buyEnabled)
+        {
+            DisableBuy();
+        }
+
+        grabEnabled = true;
         controllerRight.transform.Find("Origin").gameObject.SetActive(true);
         controllerLeft.transform.Find("Origin").gameObject.SetActive(true);
         controllerRight.GetComponent<RWVR_InteractionController>().enabled = true;
         controllerLeft.GetComponent<RWVR_InteractionController>().enabled = true;
         SpawnBow();
+
+    }
+
+    void ChangeToBuy()
+    {
+        if (teleportEnabled)
+        {
+            DisableTeleport();
+        }
+
+        if (grabEnabled)
+        {
+            DisableGrab();
+        }
+
+        buyEnabled = true;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
+        controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
+        cameraRig.GetComponent<BuildTower>().enabled = true;
+        cameraRig.GetComponent<UpgradeTower>().enabled = true;
+    }
+
+    void DisableTeleport()
+    {
+        teleportEnabled = false;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        if (controllerRight.transform.Find("New Game Object") != null)
+            controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
+        controllerRight.GetComponent<Teleportation>().enabled = false;
+    }
+
+    void DisableGrab()
+    {
+        grabEnabled = false;
+        controllerRight.GetComponent<RWVR_InteractionController>().enabled = false;
+        controllerLeft.GetComponent<RWVR_InteractionController>().enabled = false;
+        controllerRight.transform.Find("Origin").gameObject.SetActive(false);
+        controllerLeft.transform.Find("Origin").gameObject.SetActive(false);
+        RemoveBow();
+    }
+
+    void DisableBuy()
+    {
+        buyEnabled = false;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        if(controllerRight.transform.Find("New Game Object") != null)
+            controllerRight.transform.Find("New Game Object").gameObject.SetActive(false);
+        cameraRig.GetComponent<BuildTower>().enabled = false;
+        cameraRig.GetComponent<UpgradeTower>().enabled = false;
     }
 
     void RemoveBow()
@@ -124,6 +221,19 @@ public class TouchpadCross : MonoBehaviour {
         bow = bowPrefab;
         bow = GameObject.Instantiate(bow, new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y + 1f, cameraRig.transform.position.z), Quaternion.identity);
         bow.GetComponent<Rigidbody>().isKinematic = true;
+
+        // say to the introwave script that the bow has been spawned (only 1st time)
+        try
+        {
+            if (GameObject.Find("IntroWave").activeSelf || GameObject.Find("IntroWave") != null)
+                GameObject.Find("IntroWave").GetComponent<introWave>().ExternalInput("BowHasBeenSpawned");
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
+
     }
 
     void SetupGameObjects()

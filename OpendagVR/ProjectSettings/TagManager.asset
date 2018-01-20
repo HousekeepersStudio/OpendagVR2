@@ -16,6 +16,8 @@ TagManager:
   - turret
   - Torch
   - IntrowaveSpawn
+  - UnbuildTower
+  - Tower
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 9979267d00ae49645b7f2b21b3c4de2d
+timeCreated: 1513243215
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: FireBall
+    100002: firePart
+    100004: firePart.001
+    100006: smokePart
+    100008: turret_bottem
+    100010: //RootNode
+    400000: FireBall
+    400002: firePart
+    400004: firePart.001
+    400006: smokePart
+    400008: turret_bottem
+    400010: //RootNode
+    2300000: FireBall
+    2300002: firePart
+    2300004: firePart.001
+    2300006: smokePart
+    2300008: turret_bottem
+    3300000: FireBall
+    3300002: firePart
+    3300004: firePart.001
+    3300006: smokePart
+    3300008: turret_bottem
+    4300000: FireBall
+    4300002: firePart
+    4300004: turret_bottem
+    4300006: firePart.001
+    4300008: smokePart
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fireBall
+    second: {fileID: 2100000, guid: 27a396cdcf616034bb874f24ccac84e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: firePart
+    second: {fileID: 2100000, guid: 22d84bdf8d5f74b4f9f48c66f1d1ac76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: firePart.001
+    second: {fileID: 2100000, guid: c5fcc4c023fcca4479ab68434d6c5e99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: firePart.002
+    second: {fileID: 2100000, guid: c90486ad07f98d742a303e629e03e1bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: side_inner
+    second: {fileID: 2100000, guid: c6600cef266a85442b142448d50e9933, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: side_outer
+    second: {fileID: 2100000, guid: c53b42a90b36312409789d8611382591, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
