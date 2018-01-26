@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 64724348146518900}
   m_Layer: 0
   m_Name: Mask_Viking
-  m_TagString: Untagged
+  m_TagString: EnemyHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 64213348500705512}
   m_Layer: 0
   m_Name: Body_Body
-  m_TagString: Untagged
+  m_TagString: EnemyLimb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 64895398146796904}
   m_Layer: 0
   m_Name: Bottoms_Bottom
-  m_TagString: Untagged
+  m_TagString: EnemyLimb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 64687954567570206}
   m_Layer: 0
   m_Name: Tops_Top
-  m_TagString: Untagged
+  m_TagString: EnemyBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 64410347175606316}
   m_Layer: 0
   m_Name: Shoes_Shoes
-  m_TagString: Untagged
+  m_TagString: EnemyLimb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3179,7 +3179,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

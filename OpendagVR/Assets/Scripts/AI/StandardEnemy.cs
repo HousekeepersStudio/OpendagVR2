@@ -11,6 +11,7 @@ public class StandardEnemy : Enemy {
     static float sHealthMultiplier = healthMultiplier;
     static float sDamageMultiplier = damageMultiplier;
 
+
     static int startLevel = 1;
     static int health = (int)((baseHealth * sHealthMultiplier) * startLevel);
     static int enemyDamage = (int)((baseDamage * sDamageMultiplier) * startLevel);

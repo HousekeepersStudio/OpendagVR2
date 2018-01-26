@@ -175,6 +175,7 @@ public class TouchpadCross : MonoBehaviour {
 
         buyEnabled = true;
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().color = new Color(controllerRight.GetComponent<SteamVR_LaserPointer>().color.r + 20, controllerRight.GetComponent<SteamVR_LaserPointer>().color.g + 20, controllerRight.GetComponent<SteamVR_LaserPointer>().color.b + 20);
         controllerRight.transform.Find("New Game Object").gameObject.SetActive(true);
         cameraRig.GetComponent<BuildTower>().enabled = true;
         cameraRig.GetComponent<UpgradeTower>().enabled = true;
